@@ -1,0 +1,233 @@
+function target = createFixedWingTarget(id, config)
+% createFixedWingTarget - Create an airborne fixed-wing UAV target.
+arguments
+    id (1, 1) {mustBePositive, mustBeInteger}
+    config (1, 1) struct
+end
+
+worldSize = config.world.size;
+fw = config.fixedWing;
+
+xy = [rand() * worldSize(1); rand() * worldSize(2)];
+zRange = [fw.takeoffAltitudeRange(1), min(250, fw.takeoffAltitudeRange(2))];
+position = [xy; sampleRange(zRange)];
+heading = 2 * pi * rand();
+speed = sampleRange(fw.cruiseSpeedRange);
+velocity = [cos(heading); sin(heading); 0] * speed;
+acceleration = zeros(3, 1);
+
+mission = generateFixedWingMission(position, heading, config);
+
+target.ID = id;
+target.Class = "air";
+target.Subtype = "fixedWingUAV";
+target.Position = position;
+target.Velocity = velocity;
+target.Acceleration = acceleration;
+target.RCS = assignRCS("fixedWingUAV", config);
+target.Visible = fw.initialVisible;
+target.State = fw.initialState;
+target.Mission = fw.initialMission;
+target.TimeInState = 0;
+target.CurrentTime = 0;
+target.StateMatrix = computeStateMatrix(target.Position, target.Velocity);
+
+target.History.Time = 0;
+target.History.Position = target.Position.';
+target.History.Velocity = target.Velocity.';
+target.History.Acceleration = target.Acceleration.';
+target.History.State = string(target.State);
+target.History.Visible = target.Visible;
+target.History.RCS = target.RCS;
+target.History.WaypointIndex = 1;
+target.History.DistanceToWaypoint = norm(mission.CurrentWaypoint(1:2) - position(1:2));
+target.History.MissionComplete = false;
+target.History.PreviousDistanceToWaypoint = target.History.DistanceToWaypoint;
+target.History.NoProgressTime = 0;
+target.History.ForceDirectToWaypoint = false;
+target.History.TotalXYExcursion = 0;
+target.History.MaxAltitudeReached = position(3);
+target.History.MinAltitudeReached = position(3);
+target.History.LastNavigationEvent = "initial";
+target.History.CurrentHeading = heading;
+target.History.TargetHeading = heading;
+target.History.DesiredAltitude = position(3);
+target.History.DesiredSpeed = speed;
+target.History.LoiterRadius = nan;
+target.History.DiveTargetAltitude = nan;
+target.History.FlightLevel = position(3);
+target.History.TargetFlightLevel = position(3);
+target.History.AltitudeError = 0;
+target.History.DesiredClimbRate = 0;
+target.History.ClimbAngleDeg = 0;
+target.History.TurnSeverity = 0;
+target.History.NavigationLookaheadPoint = mission.CurrentWaypoint(:).';
+target.History.CornerCuttingActive = false;
+target.History.FinalPhase = false;
+target.History.FinalStrategy = mission.FinalStrategy;
+target.History.FinalPhaseStarted = false;
+target.History.FinalMissionCompleted = false;
+target.History.TimeInFinalPhase = 0;
+target.History.DistanceToBoundary = inf;
+target.History.NearBoundary = false;
+target.History.OutsideBoundary = false;
+target.History.BoundaryRecoveryActive = false;
+target.History.BoundaryRecoveryTarget = nan(1, 3);
+target.History.LastBoundaryEvent = "none";
+target.History.CurrentWaypointIndex = 1;
+target.History.CurrentWaypoint = mission.CurrentWaypoint(:).';
+target.History.NextWaypoint = nan(1, 3);
+target.History.NavigationTarget = mission.CurrentWaypoint(:).';
+target.History.LookaheadPoint = mission.CurrentWaypoint(:).';
+target.History.HeadingErrorDeg = 0;
+target.History.TurnRateCommandDeg = 0;
+target.History.WaypointReached = false;
+target.History.LoiterActive = false;
+target.History.Action = string(target.State);
+target.History.LastDecisionReason = "initial";
+target.History.RawNavigationTarget = nan(1, 3);
+target.History.SmoothedNavigationTarget = nan(1, 3);
+target.History.RawLookaheadPoint = nan(1, 3);
+target.History.SmoothedLookaheadPoint = nan(1, 3);
+target.History.RawTargetHeading = nan;
+target.History.SmoothedTargetHeading = nan;
+target.History.HeadingJumpDeg = 0;
+target.History.TargetPointJump = 0;
+target.History.AntiBounceActive = false;
+target.History.LastAntiBounceEvent = "none";
+target.History.TimeOnCurrentLeg = 0;
+
+target.Payload.HomePosition = mission.HomePosition;
+target.Payload.ExitPoint = mission.ExitPoint;
+target.Payload.FinalStrategy = mission.FinalStrategy;
+target.Payload.FinalPhase = false;
+target.Payload.FinalPhaseStarted = false;
+target.Payload.FinalMissionCompleted = false;
+target.Payload.TimeInFinalPhase = 0;
+target.Payload.FinalCruiseSpeed = speed;
+target.Payload.LoiterEndRadius = nan;
+target.Payload.LoiterEndCenter = nan(3, 1);
+target.Payload.LoiterEndAngle = 0;
+target.Payload.LoiterEndDirection = 1;
+target.Payload.LoiterEndLoopProgress = 0;
+target.Payload.LoiterEndCompleted = false;
+target.Payload.FinalExitHeading = nan;
+target.Payload.Waypoints = mission.Waypoints;
+target.Payload.CurrentWaypointIndex = mission.CurrentWaypointIndex;
+target.Payload.CurrentWaypoint = mission.CurrentWaypoint;
+target.Payload.WaypointArrivalRadius = mission.WaypointArrivalRadius;
+target.Payload.DesiredSpeed = speed;
+target.Payload.DesiredVelocity = velocity;
+target.Payload.DesiredAltitude = position(3);
+target.Payload.DesiredHeading = heading;
+target.Payload.CurrentHeading = heading;
+target.Payload.TargetHeading = heading;
+target.Payload.TurnRate = 0;
+target.Payload.DistanceToWaypoint = target.History.DistanceToWaypoint;
+target.Payload.PreviousDistanceToWaypoint = target.Payload.DistanceToWaypoint;
+target.Payload.MissionComplete = false;
+target.Payload.NoProgressTime = 0;
+target.Payload.ForceDirectToWaypoint = false;
+target.Payload.TotalXYExcursion = 0;
+target.Payload.LastPositionForExcursion = position;
+target.Payload.MaxAltitudeReached = position(3);
+target.Payload.MinAltitudeReached = position(3);
+target.Payload.LoiterCenter = [];
+target.Payload.LoiterRadius = nan;
+target.Payload.LoiterDirection = 1;
+target.Payload.LoiterStartTime = [];
+target.Payload.LoiterDuration = [];
+target.Payload.LoiterAngle = 0;
+target.Payload.DiveStartAltitude = [];
+target.Payload.DiveTargetAltitude = nan;
+target.Payload.DiveStartTime = [];
+target.Payload.DiveDuration = [];
+target.Payload.ReturnUrgency = 0;
+target.Payload.LastNavigationEvent = "initial";
+target.Payload.FlightLevel = position(3);
+target.Payload.TargetFlightLevel = position(3);
+target.Payload.FlightLevelIndex = [];
+target.Payload.AltitudeBand = [position(3) - 20, position(3) + 20];
+target.Payload.AltitudeError = 0;
+target.Payload.DesiredClimbRate = 0;
+target.Payload.ClimbAngleDeg = 0;
+target.Payload.SmoothedHeading = heading;
+target.Payload.SmoothedDesiredAltitude = position(3);
+target.Payload.SmoothedDesiredSpeed = speed;
+target.Payload.TurnSeverity = 0;
+target.Payload.DistanceToNextWaypoint = nan;
+target.Payload.CornerCuttingActive = false;
+target.Payload.NavigationLookaheadPoint = mission.CurrentWaypoint(:);
+target.Payload.TransitionCount = 0;
+target.Payload.DistanceToBoundary = inf;
+target.Payload.NearBoundary = false;
+target.Payload.OutsideBoundary = false;
+target.Payload.BoundaryRecoveryActive = false;
+target.Payload.BoundaryRecoveryTarget = [];
+target.Payload.TimeOutsideBoundary = 0;
+target.Payload.LastBoundaryEvent = "none";
+target.Payload.NextWaypoint = nan(3, 1);
+target.Payload.NavigationTarget = mission.CurrentWaypoint(:);
+target.Payload.LookaheadPoint = mission.CurrentWaypoint(:);
+target.Payload.HeadingErrorDeg = 0;
+target.Payload.TurnRateCommandDeg = 0;
+target.Payload.WaypointReached = false;
+target.Payload.LoiterActive = false;
+target.Payload.Action = string(target.State);
+target.Payload.LastDecisionReason = "initial";
+target.Payload.LastState = "";
+target.Payload.NextState = "";
+target.Payload.LastTransitionReason = "initial";
+target.Payload.StateEntryTime = 0;
+target.Payload.RawNavigationTarget = [];
+target.Payload.SmoothedNavigationTarget = [];
+target.Payload.PreviousNavigationTarget = [];
+target.Payload.RawLookaheadPoint = [];
+target.Payload.SmoothedLookaheadPoint = [];
+target.Payload.PreviousLookaheadPoint = [];
+target.Payload.RawTargetHeading = [];
+target.Payload.SmoothedTargetHeading = [];
+target.Payload.PreviousTargetHeading = [];
+target.Payload.LastWaypointSwitchTime = 0;
+target.Payload.TimeOnCurrentLeg = 0;
+target.Payload.HeadingJumpDeg = 0;
+target.Payload.TargetPointJump = 0;
+target.Payload.AntiBounceActive = false;
+target.Payload.LastAntiBounceEvent = "none";
+
+target.Payload.InternalState.MissionFocus = sampleUnit();
+target.Payload.InternalState.Caution = sampleUnit();
+target.Payload.InternalState.Aggression = sampleUnit();
+target.Payload.InternalState.LoiterInterest = sampleUnit();
+target.Payload.InternalState.DiveInterest = sampleUnit();
+target.Payload.InternalState.ReturnUrgency = sampleUnit();
+target.Payload.InternalState.AltitudePreference = sampleRange(fw.operatingAltitudeRange);
+target.Payload.InternalState.RouteDiscipline = sampleUnit();
+
+target = initializeFixedWingFlightLevel(target, config);
+target.History.FlightLevel = target.Payload.FlightLevel;
+target.History.TargetFlightLevel = target.Payload.TargetFlightLevel;
+target.History.DesiredAltitude = target.Payload.DesiredAltitude;
+target.History.AltitudeError = target.Payload.AltitudeError;
+target.History.NavigationLookaheadPoint = target.Payload.NavigationLookaheadPoint(:).';
+
+target = initializeBehaviorProfile(target, config);
+target.History.BehaviorAction = string(target.Behavior.LastDecision);
+target.History.BehaviorReason = "";
+target.History.BehaviorGoal = string(target.Behavior.CurrentGoal);
+target.History.BehaviorProfile = string(target.Behavior.Profile);
+
+target.Metadata.CreatedBy = "createFixedWingTarget";
+target.Metadata.CreatedAtSimTime = 0;
+target.Metadata.Version = "0.9.0";
+
+validateTarget(target, config);
+end
+
+function value = sampleRange(range)
+value = range(1) + rand() * (range(2) - range(1));
+end
+
+function value = sampleUnit()
+value = 0.5 + rand();
+end

@@ -1,0 +1,55 @@
+% testBirdRealismLimits - Checks realism motion and FSM limits (ТЗ-05E).
+projectRoot = fileparts(fileparts(mfilename('fullpath')));
+addpath(genpath(projectRoot));
+
+config = defaultConfig();
+config.sim.random.mode = "deterministic";
+config.sim.random.seed = 42;
+config.behavior.enabled = false;
+config.quadcopter.count = 0;
+config.sim.duration = 120;
+config.sim.dt = 1;
+config.birds.fsm.enabled = true;
+config.birds.realism.enabled = true;
+
+[scenario, ~] = runSimulation(config);
+
+maxSpeed = config.birds.motion.speedRange(2);
+maxVz = config.birds.motion.maxVerticalSpeed;
+maxAccel = config.birds.motion.maxAcceleration;
+worldSize = config.world.size;
+tolerance = 1e-6;
+
+for i = 1:numel(scenario.Targets)
+    target = scenario.Targets(i);
+    history = target.History;
+    states = string(history.State(:));
+
+    speeds = vecnorm(history.Velocity, 2, 2);
+    assert(all(speeds <= maxSpeed + tolerance), 'Speed must stay within limits.');
+    assert(all(abs(history.Velocity(:, 3)) <= maxVz + tolerance), ...
+        'Vertical speed must stay within limits.');
+    accels = vecnorm(history.Acceleration, 2, 2);
+    assert(all(accels <= maxAccel + tolerance), 'Acceleration must stay within limits.');
+
+    assert(all(~isnan(history.Position(:))), 'Position must not contain NaN.');
+    assert(all(~isinf(history.Position(:))), 'Position must not contain Inf.');
+    assert(all(~isnan(history.Velocity(:))), 'Velocity must not contain NaN.');
+    assert(all(~isinf(history.Velocity(:))), 'Velocity must not contain Inf.');
+
+    assert(all(history.Position(:, 1) >= 0 & history.Position(:, 1) <= worldSize(1)), ...
+        'X must stay inside world.');
+    assert(all(history.Position(:, 2) >= 0 & history.Position(:, 2) <= worldSize(2)), ...
+        'Y must stay inside world.');
+    assert(all(history.Position(:, 3) >= 0 & history.Position(:, 3) <= worldSize(3)), ...
+        'Z must stay inside world.');
+
+    for j = 1:numel(states) - 1
+        if states(j) ~= states(j + 1)
+            assert(isBirdStateTransitionAllowed(states(j), states(j + 1)), ...
+                'Forbidden transition: %s -> %s.', states(j), states(j + 1));
+        end
+    end
+end
+
+disp('testBirdRealismLimits passed.');

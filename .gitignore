@@ -1,0 +1,17 @@
+# MATLAB
+*.asv
+*.m~
+*.mlapp
+slprj/
+codegen/
+
+# Generated simulation output
+output/
+BirdScenarioMVP/output/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.cursor/
