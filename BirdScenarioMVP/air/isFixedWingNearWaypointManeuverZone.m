@@ -6,16 +6,13 @@ arguments
 end
 
 near = false;
-if ~isfield(config, 'fixedWing') || ~isfield(config.fixedWing, 'antiBounce')
-    return;
-end
-ab = config.fixedWing.antiBounce;
-if ~ab.enabled || ~ab.disableRandomManeuversNearWaypoint
+if ~isfield(config, 'fixedWing')
     return;
 end
 
+noRandomRadius = getFixedWingNavConfigValue(config, 'noRandomManeuverRadius', 'nearWaypointRadius', 300);
 dist = computeFixedWingWaypointDistance(target);
-near = dist < ab.nearWaypointRadius;
+near = dist < noRandomRadius;
 
 if ~near && isfield(target.Payload, 'NearBoundary') && target.Payload.NearBoundary
     near = true;

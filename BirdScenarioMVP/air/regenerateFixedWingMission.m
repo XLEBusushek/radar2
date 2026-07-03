@@ -25,6 +25,7 @@ target.Payload.TimeInFinalPhase = 0;
 target.Payload.ForceDirectToWaypoint = false;
 target.Payload.CornerCuttingActive = false;
 target.Payload.LastNavigationEvent = "newRoute";
+target = initializeFixedWingActiveLeg(target, config);
 
 if string(target.State) ~= "Cruise"
     target = transitionFixedWingState(target, "Cruise", "newRoute", config);

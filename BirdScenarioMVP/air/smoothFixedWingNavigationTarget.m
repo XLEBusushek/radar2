@@ -9,6 +9,8 @@ end
 ab = config.fixedWing.antiBounce;
 rawTarget = rawTarget(:);
 oldSmoothed = target.Payload.SmoothedNavigationTarget;
+maxJump = getFixedWingNavConfigValue(config, 'maxTargetJump', 'maxTargetPointJump', 120);
+alphaDefault = getFixedWingNavConfigValue(config, 'targetSmoothing', 'navigationTargetSmoothing', 0.08);
 if isempty(oldSmoothed)
     target.Payload.SmoothedNavigationTarget = rawTarget;
     target.Payload.RawNavigationTarget = rawTarget;
@@ -18,14 +20,14 @@ if isempty(oldSmoothed)
 end
 
 jump = detectFixedWingTargetJump(rawTarget, oldSmoothed);
-target.Payload.TargetPointJump = min(jump, ab.maxTargetPointJump);
+target.Payload.TargetPointJump = min(jump, maxJump);
 
-if jump > ab.maxTargetPointJump
+if jump > maxJump
     target.Payload.AntiBounceActive = true;
     target.Payload.LastAntiBounceEvent = "navigationTargetJumpLimited";
-    alpha = ab.navigationTargetSmoothing * 0.5;
+    alpha = alphaDefault * 0.5;
 else
-    alpha = ab.navigationTargetSmoothing;
+    alpha = alphaDefault;
 end
 
 smoothed = (1 - alpha) * oldSmoothed + alpha * rawTarget;

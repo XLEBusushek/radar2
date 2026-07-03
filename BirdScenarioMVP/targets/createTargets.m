@@ -32,7 +32,16 @@ if isfield(config, 'quadcopter') && isfield(config.quadcopter, 'count') && ...
     end
 end
 
-if isfield(config, 'fixedWing') && isfield(config.fixedWing, 'count') && ...
+if isfield(config, 'fixedWing2') && isfield(config.fixedWing2, 'enabled') && ...
+        config.fixedWing2.enabled && config.fixedWing2.count > 0
+    for i = 1:config.fixedWing2.count
+        id = nextId;
+        target = createSeededTarget(@() fw2_createFixedWingTarget(id, config), ...
+            scenario, id, "air", "fixedWingUAV");
+        targets = appendTarget(targets, target);
+        nextId = nextId + 1;
+    end
+elseif isfield(config, 'fixedWing') && isfield(config.fixedWing, 'count') && ...
         config.fixedWing.count > 0
     for i = 1:config.fixedWing.count
         id = nextId;

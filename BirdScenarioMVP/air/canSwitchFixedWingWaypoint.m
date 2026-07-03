@@ -1,16 +1,11 @@
 function canSwitch = canSwitchFixedWingWaypoint(target, config)
-% canSwitchFixedWingWaypoint - Cooldown and min leg time before waypoint advance.
+% canSwitchFixedWingWaypoint - Leg progress and min time before waypoint advance.
 arguments
     target (1, 1) struct
     config (1, 1) struct
 end
 
-canSwitch = true;
-if ~isfield(config.fixedWing, 'antiBounce') || ~config.fixedWing.antiBounce.enabled
-    return;
-end
-
-ab = config.fixedWing.antiBounce;
+canSwitch = false;
 arrivalRadius = target.Payload.WaypointArrivalRadius;
 if isfield(config.fixedWing, 'navigation') && isfield(config.fixedWing.navigation, 'arrivalRadius')
     arrivalRadius = config.fixedWing.navigation.arrivalRadius;
@@ -18,27 +13,39 @@ end
 
 dist = computeFixedWingWaypointDistance(target);
 inArrival = dist <= arrivalRadius;
-if isfield(config.fixedWing, 'navigation') && isfield(config.fixedWing.navigation, 'cornerCuttingEnabled') && ...
-        config.fixedWing.navigation.cornerCuttingEnabled && ...
-        isfield(target.Payload, 'CornerCuttingActive') && target.Payload.CornerCuttingActive && ...
-        isfield(config.fixedWing.navigation, 'cornerCuttingRadius')
-    inArrival = inArrival || dist <= config.fixedWing.navigation.cornerCuttingRadius;
-    if isfield(config.fixedWing.navigation, 'arcTurnEnabled') && config.fixedWing.navigation.arcTurnEnabled
-        inArrival = inArrival || dist <= getFixedWingDesiredTurnRadius(config) * 1.4;
+
+minLegTime = getFixedWingNavConfigValue(config, 'minLegTime', 'minTimeOnLeg', 12);
+minProgress = getFixedWingNavConfigValue(config, 'minLegProgressForSwitch', '', 0.75);
+
+if inArrival
+    canSwitch = true;
+    return;
+end
+
+if isfield(target.Payload, 'TimeOnCurrentLeg') && target.Payload.TimeOnCurrentLeg < minLegTime
+    return;
+end
+
+if isfield(target.Payload, 'ActiveLegProgress') && ...
+        target.Payload.ActiveLegProgress >= minProgress
+    canSwitch = true;
+    return;
+end
+
+if isfield(target.Payload, 'ActiveLegStart') && ~isempty(target.Payload.ActiveLegStart)
+    legStart = target.Payload.ActiveLegStart(:);
+    legDirection = target.Payload.ActiveLegDirection(:);
+    legLength = target.Payload.ActiveLegLength;
+    sAlong = dot(target.Position(1:2) - legStart(1:2), legDirection);
+    if sAlong >= legLength - max(arrivalRadius * 0.5, 20)
+        canSwitch = true;
+        return;
     end
 end
 
-if inArrival
-    return;
-end
-
-if isfield(target.Payload, 'TimeOnCurrentLeg') && target.Payload.TimeOnCurrentLeg < ab.minTimeOnLeg
-    canSwitch = false;
-    return;
-end
-
+cooldown = getFixedWingNavConfigValue(config, 'waypointSwitchCooldown', 'waypointSwitchCooldown', 8);
 if isfield(target.Payload, 'LastWaypointSwitchTime') && ...
-        target.CurrentTime - target.Payload.LastWaypointSwitchTime < ab.waypointSwitchCooldown
+        target.CurrentTime - target.Payload.LastWaypointSwitchTime < cooldown
     canSwitch = false;
 end
 end

@@ -18,14 +18,34 @@ if isfield(target.Payload, 'TimeOnCurrentLeg')
     target.Payload.TimeOnCurrentLeg = target.Payload.TimeOnCurrentLeg + dt;
 end
 
+target = updateFixedWingActiveLeg(target, config, dt);
 target = updateFixedWingBoundaryState(target, config, dt);
+target = detectBorderFollowing(target, config, dt);
 
-if isfield(target.Payload, 'BoundaryRecoveryActive') && target.Payload.BoundaryRecoveryActive && ...
-        isfield(target.Payload, 'OutsideBoundary') && target.Payload.OutsideBoundary
+inReturnHomeFinal = isfield(target.Payload, 'FinalPhaseStarted') && target.Payload.FinalPhaseStarted && ...
+    isfield(target.Payload, 'FinalStrategy') && string(target.Payload.FinalStrategy) == "ReturnHome";
+skipBorderHandling = string(target.State) == "ReturnHome" || inReturnHomeFinal;
+
+if ~skipBorderHandling && target.Payload.BorderFollowing && string(target.State) ~= "BorderAvoidance"
+    target = transitionFixedWingState(target, "BorderAvoidance", "borderFollowing", config);
+end
+
+if ~skipBorderHandling && (string(target.State) == "BorderAvoidance" || target.Payload.BorderFollowing)
+    target = updateBorderAvoidance(target, config, dt);
+    target = updateFixedWingMotionCommand(target, config, dt);
+    target = applyMandatoryTargetTransitions(target, scenario, config);
+    return;
+end
+
+if ~skipBorderHandling && isfield(target.Payload, 'BoundaryRecoveryActive') && target.Payload.BoundaryRecoveryActive
     target = applyFixedWingBoundaryRecovery(target, config, dt);
     target = updateFixedWingMotionCommand(target, config, dt);
     target = applyMandatoryTargetTransitions(target, scenario, config);
     return;
+end
+
+if isempty(target.Payload.NavigationMode) || target.Payload.NavigationMode == ""
+    target.Payload.NavigationMode = "Mission";
 end
 
 if isfield(target.Payload, 'FinalPhaseStarted') && target.Payload.FinalPhaseStarted
@@ -59,6 +79,7 @@ if isfield(target.Payload, 'FinalPhaseStarted') && target.Payload.FinalPhaseStar
     return;
 end
 
+target.Payload.NavigationMode = "Mission";
 target = updateFixedWingMotionCommand(target, config, dt);
 end
 

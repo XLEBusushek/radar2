@@ -53,18 +53,32 @@ if isfield(scenario, 'Trees') && ~isempty(scenario.Trees)
 end
 
 if isfield(config, 'world') && isfield(config.world, 'size')
-    if isfield(config, 'fixedWing') && isfield(config.fixedWing, 'boundary') && ...
+    worldX = config.world.size(1);
+    worldY = config.world.size(2);
+    bx = [0, worldX, worldX, 0, 0];
+    by = [0, 0, worldY, worldY, 0];
+    plot(ax, bx, by, '-', 'Color', [0.3, 0.3, 0.3], 'LineWidth', 1.2, ...
+        'DisplayName', 'World');
+
+    if isfield(config, 'fixedWing2') && config.fixedWing2.enabled
+        zones = fw2_getZoneBounds(config);
+        plotZoneRect(ax, zones.SafeZone, '--', [0.25, 0.65, 0.35], 'Safe Zone');
+        plotZoneRect(ax, zones.WarningZone, ':', [0.85, 0.65, 0.15], 'Warning Zone');
+    elseif isfield(config, 'fixedWing') && isfield(config.fixedWing, 'zones')
+        zones = getFixedWingZoneBounds(config);
+        plotZoneRect(ax, zones.CriticalZone, ':', [0.9, 0.35, 0.35], 'Critical Zone');
+        plotZoneRect(ax, zones.WarningZone, '--', [0.85, 0.65, 0.15], 'Warning Zone');
+        plotZoneRect(ax, zones.SafeZone, '-', [0.25, 0.65, 0.35], 'Safe Zone');
+    elseif isfield(config, 'fixedWing') && isfield(config.fixedWing, 'boundary') && ...
             config.fixedWing.boundary.enabled
         margin = config.fixedWing.boundary.margin;
-        worldX = config.world.size(1);
-        worldY = config.world.size(2);
         bx = [margin, worldX - margin, worldX - margin, margin, margin];
         by = [margin, margin, worldY - margin, worldY - margin, margin];
         plot(ax, bx, by, '--', 'Color', [0.5, 0.5, 0.5], 'LineWidth', 1, ...
             'DisplayName', 'Fixed-wing boundary margin');
     end
-    xlim(ax, [0, config.world.size(1)]);
-    ylim(ax, [0, config.world.size(2)]);
+    xlim(ax, [0, worldX]);
+    ylim(ax, [0, worldY]);
 end
 
 xlabel(ax, 'X (m)');
@@ -72,6 +86,12 @@ ylabel(ax, 'Y (m)');
 title(ax, 'BirdScenario - Top View');
 addStandardBirdLegend2D(ax);
 hold(ax, 'off');
+end
+
+function plotZoneRect(ax, zone, lineStyle, color, label)
+x = [zone(1), zone(2), zone(2), zone(1), zone(1)];
+y = [zone(3), zone(3), zone(4), zone(4), zone(3)];
+plot(ax, x, y, lineStyle, 'Color', color, 'LineWidth', 1.1, 'DisplayName', label);
 end
 
 function plotTargetXYHistory(ax, targets, lineStyle, color)

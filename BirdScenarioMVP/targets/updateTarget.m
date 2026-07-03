@@ -27,9 +27,13 @@ switch string(target.Class)
                 target = transitionQuadcopterState(target, "Idle", "landed", config);
             end
         elseif string(target.Subtype) == "fixedWingUAV"
-            target = updateFixedWingBehavior(target, scenario, config, dt);
-            target = updateFixedWingKinematics(target, config, dt);
-            target = updateFixedWingNavigationDiagnostics(target, config);
+            if isfield(config, 'fixedWing2') && config.fixedWing2.enabled
+                target = fw2_updateFixedWingTarget(target, scenario, config, dt);
+            else
+                target = updateFixedWingBehavior(target, scenario, config, dt);
+                target = updateFixedWingKinematics(target, config, dt);
+                target = updateFixedWingNavigationDiagnostics(target, config);
+            end
         else
             error('updateTarget:UnsupportedSubtype', ...
                 'Unsupported air subtype: %s', string(target.Subtype));

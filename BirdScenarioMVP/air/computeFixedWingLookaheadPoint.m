@@ -28,7 +28,17 @@ switch state
     case "ExitArea"
         lookaheadPoint = target.Payload.ExitPoint(:);
     otherwise
-        [lookaheadPoint, cornerActive, distNext] = routeLookahead(target, nav, config);
+        useStableLeg = ~isfield(nav, 'stableLegLookaheadEnabled') || nav.stableLegLookaheadEnabled;
+        if useStableLeg
+            [lookaheadPoint, cornerActive] = computeFixedWingStableLookahead(target, config);
+            distNext = nan;
+            if target.Payload.CurrentWaypointIndex < size(target.Payload.Waypoints, 1)
+                nextWp = target.Payload.Waypoints(target.Payload.CurrentWaypointIndex + 1, :).';
+                distNext = norm(nextWp(1:2) - target.Position(1:2));
+            end
+        else
+            [lookaheadPoint, cornerActive, distNext] = routeLookahead(target, nav, config);
+        end
         if ~(isfield(target.Payload, 'BoundaryRecoveryActive') && target.Payload.BoundaryRecoveryActive)
             [lookaheadPoint, avoidingBoundary, boundaryArcActive] = applyBoundaryAvoidance(lookaheadPoint, target, config);
             if avoidingBoundary

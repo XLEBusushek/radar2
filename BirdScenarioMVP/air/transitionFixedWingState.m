@@ -22,6 +22,8 @@ end
 if ~isFixedWingTransitionAllowed(currentState, nextState, allowExitArea) && ...
         ~startsWith(string(reason), "finalPhase") && ...
         ~startsWith(string(reason), "boundaryRecovery") && ...
+        ~startsWith(string(reason), "borderAvoidance") && ...
+        ~startsWith(string(reason), "borderFollowing") && ...
         string(reason) ~= "newRoute"
     error('transitionFixedWingState:InvalidTransition', ...
         'Transition %s -> %s is not allowed.', currentState, nextState);
@@ -106,6 +108,14 @@ switch nextState
         target.Payload.DesiredAltitude = target.Payload.SmoothedDesiredAltitude;
         target.Payload.DesiredSpeed = target.Payload.FinalCruiseSpeed;
         target.Payload.LastNavigationEvent = "returnHomeFinal";
+    case "BorderAvoidance"
+        if isempty(target.Payload.RecoveryTarget)
+            target.Payload.RecoveryTarget = computeRecoveryTarget(target, config, "borderFollowing");
+            target.Payload.RecoveryReason = "borderFollowing";
+        end
+        target.Payload.NavigationMode = "BorderAvoidance";
+        target.Payload.DesiredSpeed = max(mean(fw.cruiseSpeedRange), fw.minSpeed);
+        target.Payload.LastNavigationEvent = "borderAvoidance";
 end
 end
 
@@ -145,8 +155,10 @@ if terminal
 end
 
 switch currentState
+    case "BorderAvoidance"
+        allowed = ismember(nextState, ["Cruise", "BorderAvoidance"]);
     case "Cruise"
-        allowed = ismember(nextState, ["Turn", "Climb", "Descend", "Loiter", "Dive", "Return"]);
+        allowed = ismember(nextState, ["Turn", "Climb", "Descend", "Loiter", "Dive", "Return", "BorderAvoidance"]);
     case "Turn"
         allowed = ismember(nextState, ["Cruise", "Climb", "Descend", "Loiter", "Return"]);
     case "Climb"

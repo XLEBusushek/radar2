@@ -1,5 +1,5 @@
 function target = updateFixedWingBoundaryState(target, config, dt)
-% updateFixedWingBoundaryState - Track boundary proximity and recovery flags.
+% updateFixedWingBoundaryState - Track flight zones and proactive recovery.
 arguments
     target (1, 1) struct
     config (1, 1) struct
@@ -12,23 +12,46 @@ end
 
 allowExitArea = isfield(config.fixedWing, 'allowExitArea') && config.fixedWing.allowExitArea;
 state = string(target.State);
+inReturnHomeFinal = isfield(target.Payload, 'FinalPhaseStarted') && target.Payload.FinalPhaseStarted && ...
+    isfield(target.Payload, 'FinalStrategy') && string(target.Payload.FinalStrategy) == "ReturnHome";
 if allowExitArea && ismember(state, ["ApproachExit", "AlignExit", "Exit"])
     return;
 end
+if state == "ReturnHome" || inReturnHomeFinal
+    zoneInfo = classifyFixedWingZone(target.Position, config);
+    zones = getFixedWingZoneBounds(config);
+    target.Payload.SafeZone = zones.SafeZone;
+    target.Payload.WarningZone = zones.WarningZone;
+    target.Payload.CriticalZone = zones.CriticalZone;
+    target.Payload.DistanceToBoundary = zoneInfo.DistanceToBoundary;
+    target.Payload.InSafeZone = zoneInfo.InSafeZone;
+    target.Payload.InWarningZone = zoneInfo.InWarningZone;
+    target.Payload.InCriticalZone = zoneInfo.InCriticalZone;
+    target.Payload.OutsideBoundary = zoneInfo.OutsideBoundary;
+    return;
+end
 
-boundaryCfg = config.fixedWing.boundary;
-worldSize = config.world.size;
-[distanceToBoundary, outside] = computeDistanceToWorldBoundary(target.Position, worldSize);
+zoneInfo = classifyFixedWingZone(target.Position, config);
+zones = getFixedWingZoneBounds(config);
 
-target.Payload.DistanceToBoundary = distanceToBoundary;
-target.Payload.OutsideBoundary = outside;
-target.Payload.NearBoundary = distanceToBoundary < boundaryCfg.margin;
+target.Payload.SafeZone = zones.SafeZone;
+target.Payload.WarningZone = zones.WarningZone;
+target.Payload.CriticalZone = zones.CriticalZone;
+target.Payload.DistanceToBoundary = zoneInfo.DistanceToBoundary;
+target.Payload.OutsideBoundary = zoneInfo.OutsideBoundary;
+target.Payload.InSafeZone = zoneInfo.InSafeZone;
+target.Payload.InWarningZone = zoneInfo.InWarningZone;
+target.Payload.InCriticalZone = zoneInfo.InCriticalZone;
+target.Payload.NearBoundary = zoneInfo.InWarningZone || zoneInfo.InCriticalZone;
+target.Payload.BorderSide = zoneInfo.BorderSide;
 
-if outside
+if zoneInfo.OutsideBoundary
     target.Payload.TimeOutsideBoundary = target.Payload.TimeOutsideBoundary + dt;
     target.Payload.LastBoundaryEvent = "outsideBoundary";
-elseif target.Payload.NearBoundary
-    target.Payload.LastBoundaryEvent = "nearBoundary";
+elseif zoneInfo.InCriticalZone
+    target.Payload.LastBoundaryEvent = "criticalZone";
+elseif zoneInfo.InWarningZone
+    target.Payload.LastBoundaryEvent = "warningZone";
 else
     target.Payload.TimeOutsideBoundary = 0;
     if target.Payload.BoundaryRecoveryActive
@@ -38,49 +61,40 @@ else
     end
 end
 
-shouldRecover = outside;
-if ~shouldRecover && ~(isfield(target.Payload, 'FinalPhaseStarted') && target.Payload.FinalPhaseStarted)
-    recoveryTrigger = boundaryCfg.margin;
-    if isfield(boundaryCfg, 'recoveryTriggerDistance')
-        recoveryTrigger = boundaryCfg.recoveryTriggerDistance;
-    end
-    if distanceToBoundary <= recoveryTrigger
-        velXY = target.Velocity(1:2);
-        [outward, active] = computeOutwardNormalForRecovery(target.Position, worldSize, boundaryCfg.margin);
-        if active && dot(velXY, outward) > 0.5
-            shouldRecover = true;
-        end
-    end
+shouldRecover = zoneInfo.InWarningZone || zoneInfo.InCriticalZone || zoneInfo.OutsideBoundary;
+recoveryReason = selectRecoveryReason(zoneInfo);
+
+if target.Payload.BoundaryRecoveryActive && zoneInfo.InSafeZone && ...
+        ~zoneInfo.InWarningZone && ~zoneInfo.InCriticalZone
+    shouldRecover = false;
 end
+
 if shouldRecover && ~target.Payload.BoundaryRecoveryActive
     target.Payload.BoundaryRecoveryActive = true;
-    target.Payload.BoundaryRecoveryTarget = computeBoundaryRecoveryTarget(target, config);
+    target.Payload.RecoveryTarget = computeRecoveryTarget(target, config, recoveryReason);
+    target.Payload.BoundaryRecoveryTarget = target.Payload.RecoveryTarget;
+    target.Payload.RecoveryReason = recoveryReason;
     target.Payload.LastBoundaryEvent = "recoveryStarted";
-elseif target.Payload.BoundaryRecoveryActive && ~shouldRecover && ~outside
+    target.Payload.NavigationMode = "Recovery";
+elseif target.Payload.BoundaryRecoveryActive && ~shouldRecover
     target.Payload.BoundaryRecoveryActive = false;
+    target.Payload.RecoveryTarget = [];
+    target.Payload.BoundaryRecoveryTarget = [];
+    target.Payload.RecoveryReason = "";
     target.Payload.TimeOutsideBoundary = 0;
     target.Payload.LastBoundaryEvent = "recoveryComplete";
+    if ~target.Payload.BorderFollowing
+        target.Payload.NavigationMode = "Mission";
+    end
 end
 end
 
-function [outward, active] = computeOutwardNormalForRecovery(pos, worldSize, margin)
-outward = [0; 0];
-active = false;
-if pos(1) <= margin
-    outward = outward + [-1; 0];
-    active = true;
-elseif pos(1) >= worldSize(1) - margin
-    outward = outward + [1; 0];
-    active = true;
-end
-if pos(2) <= margin
-    outward = outward + [0; -1];
-    active = true;
-elseif pos(2) >= worldSize(2) - margin
-    outward = outward + [0; 1];
-    active = true;
-end
-if active && norm(outward) > 1e-6
-    outward = outward / norm(outward);
+function reason = selectRecoveryReason(zoneInfo)
+if zoneInfo.OutsideBoundary
+    reason = "outsideBoundary";
+elseif zoneInfo.InCriticalZone
+    reason = "criticalZone";
+else
+    reason = "warningZone";
 end
 end

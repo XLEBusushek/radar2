@@ -184,6 +184,10 @@ if isfield(target, 'Payload')
   end
 
   if target.Class == "air" && target.Subtype == "fixedWingUAV"
+      isFW2 = isfield(target, 'Metadata') && isfield(target.Metadata, 'FW2') && target.Metadata.FW2;
+      if isFW2
+          target.History = fw2_appendHistoryFields(target.History, target);
+      else
       target.History = appendHistoryScalar(target.History, 'CurrentHeading', ...
           getPayloadValue(target.Payload, 'CurrentHeading', nan));
       target.History = appendHistoryScalar(target.History, 'TargetHeading', ...
@@ -226,10 +230,28 @@ if isfield(target, 'Payload')
           logical(getPayloadValue(target.Payload, 'OutsideBoundary', false)));
       target.History = appendHistoryScalar(target.History, 'BoundaryRecoveryActive', ...
           logical(getPayloadValue(target.Payload, 'BoundaryRecoveryActive', false)));
-      recoveryTarget = getPayloadValue(target.Payload, 'BoundaryRecoveryTarget', nan(3, 1));
+      recoveryTarget = getPayloadValue(target.Payload, 'RecoveryTarget', nan(3, 1));
+      if isempty(recoveryTarget)
+          recoveryTarget = getPayloadValue(target.Payload, 'BoundaryRecoveryTarget', nan(3, 1));
+      end
+      target.History = appendHistoryRow(target.History, 'RecoveryTarget', recoveryTarget(:).');
       target.History = appendHistoryRow(target.History, 'BoundaryRecoveryTarget', recoveryTarget(:).');
+      target.History = appendHistoryScalar(target.History, 'RecoveryReason', ...
+          string(getPayloadValue(target.Payload, 'RecoveryReason', "")));
       target.History = appendHistoryScalar(target.History, 'LastBoundaryEvent', ...
           string(getPayloadValue(target.Payload, 'LastBoundaryEvent', "none")));
+      target.History = appendHistoryScalar(target.History, 'BorderFollowing', ...
+          logical(getPayloadValue(target.Payload, 'BorderFollowing', false)));
+      target.History = appendHistoryScalar(target.History, 'BorderFollowingTime', ...
+          getPayloadValue(target.Payload, 'BorderFollowingTime', 0));
+      target.History = appendHistoryScalar(target.History, 'BorderSide', ...
+          string(getPayloadValue(target.Payload, 'BorderSide', "")));
+      target.History = appendHistoryScalar(target.History, 'InWarningZone', ...
+          logical(getPayloadValue(target.Payload, 'InWarningZone', false)));
+      target.History = appendHistoryScalar(target.History, 'InCriticalZone', ...
+          logical(getPayloadValue(target.Payload, 'InCriticalZone', false)));
+      target.History = appendHistoryScalar(target.History, 'NavigationMode', ...
+          string(getPayloadValue(target.Payload, 'NavigationMode', "Mission")));
       target.History = appendHistoryScalar(target.History, 'CurrentWaypointIndex', ...
           getPayloadValue(target.Payload, 'CurrentWaypointIndex', wpIdx));
       currentWp = getPayloadValue(target.Payload, 'CurrentWaypoint', nan(3, 1));
@@ -274,6 +296,11 @@ if isfield(target, 'Payload')
           string(getPayloadValue(target.Payload, 'LastAntiBounceEvent', "none")));
       target.History = appendHistoryScalar(target.History, 'TimeOnCurrentLeg', ...
           getPayloadValue(target.Payload, 'TimeOnCurrentLeg', 0));
+      target.History = appendHistoryScalar(target.History, 'ActiveLegProgress', ...
+          getPayloadValue(target.Payload, 'ActiveLegProgress', nan));
+      target.History = appendHistoryScalar(target.History, 'LegTransitionActive', ...
+          logical(getPayloadValue(target.Payload, 'LegTransitionActive', false)));
+      end
   else
       target.History = appendHistoryScalar(target.History, 'CurrentHeading', nan);
       target.History = appendHistoryScalar(target.History, 'TargetHeading', nan);
@@ -296,8 +323,16 @@ if isfield(target, 'Payload')
       target.History = appendHistoryScalar(target.History, 'NearBoundary', false);
       target.History = appendHistoryScalar(target.History, 'OutsideBoundary', false);
       target.History = appendHistoryScalar(target.History, 'BoundaryRecoveryActive', false);
+      target.History = appendHistoryRow(target.History, 'RecoveryTarget', nan(1, 3));
       target.History = appendHistoryRow(target.History, 'BoundaryRecoveryTarget', nan(1, 3));
+      target.History = appendHistoryScalar(target.History, 'RecoveryReason', "");
       target.History = appendHistoryScalar(target.History, 'LastBoundaryEvent', "");
+      target.History = appendHistoryScalar(target.History, 'BorderFollowing', false);
+      target.History = appendHistoryScalar(target.History, 'BorderFollowingTime', nan);
+      target.History = appendHistoryScalar(target.History, 'BorderSide', "");
+      target.History = appendHistoryScalar(target.History, 'InWarningZone', false);
+      target.History = appendHistoryScalar(target.History, 'InCriticalZone', false);
+      target.History = appendHistoryScalar(target.History, 'NavigationMode', "");
       target.History = appendHistoryScalar(target.History, 'CurrentWaypointIndex', nan);
       target.History = appendHistoryRow(target.History, 'CurrentWaypoint', nan(1, 3));
       target.History = appendHistoryRow(target.History, 'NextWaypoint', nan(1, 3));
@@ -320,6 +355,8 @@ if isfield(target, 'Payload')
       target.History = appendHistoryScalar(target.History, 'AntiBounceActive', false);
       target.History = appendHistoryScalar(target.History, 'LastAntiBounceEvent', "");
       target.History = appendHistoryScalar(target.History, 'TimeOnCurrentLeg', nan);
+      target.History = appendHistoryScalar(target.History, 'ActiveLegProgress', nan);
+      target.History = appendHistoryScalar(target.History, 'LegTransitionActive', false);
   end
 end
 end

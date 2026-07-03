@@ -157,7 +157,7 @@ end
 
 switch state
     case "Cruise"
-        if isFixedWingWaypointReached(target, fw, arrivalRadius)
+        if canSwitchFixedWingWaypoint(target, config)
             target = advanceFixedWingWaypoint(target, config);
             if target.Payload.MissionComplete && ~finalPhasePending && ...
                     (~isfield(fw, 'finalPhase') || ~fw.finalPhase.enabled)
@@ -166,7 +166,7 @@ switch state
         end
     case "Turn"
         minTurnDuration = fw.turn.minTurnDuration;
-        if isFixedWingWaypointReached(target, fw, arrivalRadius)
+        if canSwitchFixedWingWaypoint(target, config)
             target = advanceFixedWingWaypoint(target, config);
         elseif target.TimeInState >= minTurnDuration && ...
                 abs(wrapToPiLocal(target.Payload.TargetHeading - target.Payload.CurrentHeading)) < deg2rad(5)
@@ -212,23 +212,4 @@ end
 
 function reached = isFixedWingWaypointReached(target, fw, arrivalRadius)
 reached = target.Payload.DistanceToWaypoint <= arrivalRadius;
-if reached
-    return;
-end
-if isfield(fw, 'navigation') && isfield(fw.navigation, 'cornerCuttingEnabled') && ...
-        fw.navigation.cornerCuttingEnabled && ...
-        isfield(target.Payload, 'CornerCuttingActive') && target.Payload.CornerCuttingActive && ...
-        isfield(fw.navigation, 'cornerCuttingRadius')
-    effectiveRadius = fw.navigation.cornerCuttingRadius;
-    if isfield(fw.navigation, 'arcTurnEnabled') && fw.navigation.arcTurnEnabled
-        arcRadius = 300;
-        if isfield(fw, 'turn') && isfield(fw.turn, 'minTurnRadius')
-            arcRadius = fw.turn.minTurnRadius;
-        elseif isfield(fw, 'navigation') && isfield(fw.navigation, 'desiredTurnRadius')
-            arcRadius = fw.navigation.desiredTurnRadius;
-        end
-        effectiveRadius = max(effectiveRadius, arcRadius * 1.4);
-    end
-    reached = target.Payload.DistanceToWaypoint <= effectiveRadius;
-end
 end

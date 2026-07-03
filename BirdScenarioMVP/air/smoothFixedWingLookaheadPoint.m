@@ -10,6 +10,7 @@ ab = config.fixedWing.antiBounce;
 rawLookahead = rawLookahead(:);
 pos = target.Position(:);
 oldSmoothed = target.Payload.SmoothedLookaheadPoint;
+maxJump = getFixedWingNavConfigValue(config, 'maxTargetJump', 'maxTargetPointJump', 120);
 if isempty(oldSmoothed)
     target.Payload.SmoothedLookaheadPoint = rawLookahead;
     target.Payload.RawLookaheadPoint = rawLookahead;
@@ -25,7 +26,7 @@ target.Payload.PreviousLookaheadPoint = oldSmoothed;
 target.Payload.RawLookaheadPoint = rawLookahead;
 
 jump = detectFixedWingTargetJump(oldSmoothed, rawLookahead);
-target.Payload.TargetPointJump = max(target.Payload.TargetPointJump, min(jump, ab.maxTargetPointJump));
+target.Payload.TargetPointJump = max(target.Payload.TargetPointJump, min(jump, maxJump));
 
 deltaOld = oldSmoothed(1:2) - pos(1:2);
 deltaRaw = rawLookahead(1:2) - pos(1:2);
@@ -42,7 +43,7 @@ else
     alpha = ab.lookaheadSmoothing;
 end
 
-if jump > ab.maxTargetPointJump
+if jump > maxJump
     target.Payload.AntiBounceActive = true;
     target.Payload.LastAntiBounceEvent = "lookaheadJumpLimited";
     alpha = min(alpha, ab.lookaheadSmoothing * 0.5);

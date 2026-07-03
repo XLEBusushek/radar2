@@ -9,7 +9,9 @@ state = string(target.State);
 fw = config.fixedWing;
 nextState = state;
 allowExitArea = isfield(fw, 'allowExitArea') && fw.allowExitArea;
-nearBoundary = isfield(target.Payload, 'NearBoundary') && target.Payload.NearBoundary;
+inRestrictedZone = (isfield(target.Payload, 'InWarningZone') && target.Payload.InWarningZone) || ...
+    (isfield(target.Payload, 'InCriticalZone') && target.Payload.InCriticalZone) || ...
+    (isfield(target.Payload, 'NearBoundary') && target.Payload.NearBoundary);
 nearWaypointZone = isFixedWingNearWaypointManeuverZone(target, config);
 
 if isfield(target.Payload, 'FinalPhaseStarted') && target.Payload.FinalPhaseStarted
@@ -24,10 +26,10 @@ switch state
             end
         elseif rand() < fw.returnProbability
             nextState = "Return";
-        elseif ~nearBoundary && rand() < fw.diveProbability && ...
+        elseif ~inRestrictedZone && rand() < fw.diveProbability && ...
                 target.Position(3) > fw.operatingAltitudeRange(1) + 40
             nextState = "Dive";
-        elseif ~nearBoundary && rand() < 0.05 && isNearFixedWingWaypoint(target, fw)
+        elseif ~inRestrictedZone && rand() < 0.05 && isNearFixedWingWaypoint(target, fw)
             nextState = "Loiter";
         elseif rand() < 0.08
             if target.Position(3) < mean(fw.operatingAltitudeRange)
@@ -86,23 +88,4 @@ end
 
 function reached = isFixedWingWaypointReached(target, fw, arrivalRadius)
 reached = target.Payload.DistanceToWaypoint <= arrivalRadius;
-if reached
-    return;
-end
-if isfield(fw, 'navigation') && isfield(fw.navigation, 'cornerCuttingEnabled') && ...
-        fw.navigation.cornerCuttingEnabled && ...
-        isfield(target.Payload, 'CornerCuttingActive') && target.Payload.CornerCuttingActive && ...
-        isfield(fw.navigation, 'cornerCuttingRadius')
-    effectiveRadius = fw.navigation.cornerCuttingRadius;
-    if isfield(fw.navigation, 'arcTurnEnabled') && fw.navigation.arcTurnEnabled
-        arcRadius = 300;
-        if isfield(fw, 'turn') && isfield(fw.turn, 'minTurnRadius')
-            arcRadius = fw.turn.minTurnRadius;
-        elseif isfield(fw.navigation, 'desiredTurnRadius')
-            arcRadius = fw.navigation.desiredTurnRadius;
-        end
-        effectiveRadius = max(effectiveRadius, arcRadius * 1.4);
-    end
-    reached = target.Payload.DistanceToWaypoint <= effectiveRadius;
-end
 end

@@ -9,6 +9,11 @@ if isfield(target.Payload, 'FinalPhaseStarted') && target.Payload.FinalPhaseStar
     return;
 end
 
+if (isfield(target.Payload, 'BoundaryRecoveryActive') && target.Payload.BoundaryRecoveryActive) || ...
+        string(target.State) == "BorderAvoidance"
+    return;
+end
+
 if ~canSwitchFixedWingWaypoint(target, config)
     return;
 end
@@ -28,10 +33,15 @@ end
 
 target.Payload.LastWaypointSwitchTime = target.CurrentTime;
 target.Payload.TimeOnCurrentLeg = 0;
-target.Payload.PreviousNavigationTarget = [];
-target.Payload.PreviousLookaheadPoint = [];
+if isfield(target.Payload, 'ActiveLegDirection') && ~isempty(target.Payload.ActiveLegDirection)
+    target.Payload.PreviousLegDirection = target.Payload.ActiveLegDirection;
+end
+target.Payload.LegTransitionActive = true;
+target.Payload.LegTransitionStartTime = target.CurrentTime;
+target.Payload.LegTransitionDuration = getFixedWingNavConfigValue(config, ...
+    'legTransitionDuration', '', 8);
 
-target.Payload.DistanceToWaypoint = computeFixedWingWaypointDistance(target);
+target = initializeFixedWingActiveLeg(target, config);
 if isfield(config.fixedWing, 'navigation') && isfield(config.fixedWing.navigation, 'arrivalRadius')
     target.Payload.WaypointArrivalRadius = config.fixedWing.navigation.arrivalRadius;
 else

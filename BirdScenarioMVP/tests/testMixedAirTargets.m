@@ -9,7 +9,9 @@ config.behavior.enabled = false;
 config.birds.count = 0;
 config.groundVehicle.count = 0;
 config.quadcopter.count = 2;
-config.fixedWing.count = 2;
+config.fixedWing2.enabled = true;
+config.fixedWing2.count = 2;
+config.fixedWing.count = 0;
 config.sim.duration = 30;
 config.sim.dt = 1;
 
@@ -18,7 +20,7 @@ quadcopters = getScenarioQuadcopters(scenario);
 fixedWing = getScenarioFixedWingUAVs(scenario);
 
 assert(numel(quadcopters) == config.quadcopter.count, 'Quadcopter count mismatch.');
-assert(numel(fixedWing) == config.fixedWing.count, 'Fixed-wing count mismatch.');
+assert(numel(fixedWing) == config.fixedWing2.count, 'Fixed-wing count mismatch.');
 assert(any(arrayfun(@(t) t.Subtype == "quadcopter", scenario.Targets)), ...
     'Scenario must contain quadcopters.');
 assert(any(arrayfun(@(t) t.Subtype == "fixedWingUAV", scenario.Targets)), ...

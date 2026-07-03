@@ -40,7 +40,13 @@ rows = struct( ...
     'LastAntiBounceEvent', {}, 'TimeOnCurrentLeg', {}, ...
     'Decision', {}, ...
     'BehaviorAction', {}, 'BehaviorReason', {}, 'BehaviorGoal', {}, ...
-    'BehaviorProfile', {});
+    'BehaviorProfile', {}, ...
+    'RouteIndex', {}, 'CurrentLegProgress', {}, 'BaseCruiseSpeed', {}, ...
+    'CurrentSpeed', {}, 'TargetSpeed', {}, 'SpeedProfileEvent', {}, ...
+    'CurrentFlightLevel', {}, 'HeadingErrorDeg', {}, 'TurnRateCommandDeg', {}, ...
+    'AltitudeProfileEvent', {}, ...
+    'InWarningZone', {}, 'InCriticalZone', {}, 'BorderFollowing', {}, ...
+    'LastFW2Event', {});
 
 if isempty(output)
     return;
@@ -133,6 +139,20 @@ for k = 1:numel(output)
         rows(rowIdx).BehaviorReason = string(getOptionalStringField(target, 'BehaviorReason'));
         rows(rowIdx).BehaviorGoal = string(getOptionalStringField(target, 'BehaviorGoal'));
         rows(rowIdx).BehaviorProfile = string(getOptionalStringField(target, 'BehaviorProfile'));
+        rows(rowIdx).RouteIndex = getOptionalNumericField(target, 'RouteIndex');
+        rows(rowIdx).CurrentLegProgress = getOptionalNumericField(target, 'CurrentLegProgress');
+        rows(rowIdx).BaseCruiseSpeed = getOptionalNumericField(target, 'BaseCruiseSpeed');
+        rows(rowIdx).CurrentSpeed = getOptionalNumericField(target, 'CurrentSpeed');
+        rows(rowIdx).TargetSpeed = getOptionalNumericField(target, 'TargetSpeed');
+        rows(rowIdx).SpeedProfileEvent = string(getOptionalStringField(target, 'SpeedProfileEvent'));
+        rows(rowIdx).CurrentFlightLevel = getOptionalNumericField(target, 'CurrentFlightLevel');
+        rows(rowIdx).HeadingErrorDeg = getOptionalNumericField(target, 'HeadingErrorDeg');
+        rows(rowIdx).TurnRateCommandDeg = getOptionalNumericField(target, 'TurnRateCommandDeg');
+        rows(rowIdx).AltitudeProfileEvent = string(getOptionalStringField(target, 'AltitudeProfileEvent'));
+        rows(rowIdx).InWarningZone = getOptionalLogicalField(target, 'InWarningZone', false);
+        rows(rowIdx).InCriticalZone = getOptionalLogicalField(target, 'InCriticalZone', false);
+        rows(rowIdx).BorderFollowing = getOptionalLogicalField(target, 'BorderFollowing', false);
+        rows(rowIdx).LastFW2Event = string(getOptionalStringField(target, 'LastFW2Event'));
     end
 end
 end

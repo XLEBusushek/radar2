@@ -6,7 +6,7 @@ projectRoot = fileparts(mfilename('fullpath'));
 addpath(genpath(projectRoot));
 
 config = defaultConfig();
-config.fixedWing.count = 3;
+config.fixedWing2.count = 3;
 config.groundVehicle.count = 4;
 config.visualization.showRoads = true;
 

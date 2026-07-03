@@ -156,7 +156,19 @@ for i = 1:numTargets
         targetOut.NearBoundary = false;
         targetOut.OutsideBoundary = false;
         targetOut.BoundaryRecoveryActive = false;
+        targetOut.RecoveryTarget = nan(3, 1);
+        targetOut.RecoveryReason = "";
         targetOut.LastBoundaryEvent = "";
+        targetOut.SafeZone = nan(1, 4);
+        targetOut.WarningZone = nan(1, 4);
+        targetOut.CriticalZone = nan(1, 4);
+        targetOut.InSafeZone = false;
+        targetOut.InWarningZone = false;
+        targetOut.InCriticalZone = false;
+        targetOut.BorderFollowing = false;
+        targetOut.BorderFollowingTime = 0;
+        targetOut.BorderSide = "";
+        targetOut.NavigationMode = "";
         targetOut.CurrentWaypointIndex = nan;
         targetOut.NextWaypoint = nan(3, 1);
         targetOut.NavigationTarget = nan(3, 1);
@@ -176,6 +188,16 @@ for i = 1:numTargets
         targetOut.SmoothedNavigationTarget = nan(3, 1);
         targetOut.RawLookaheadPoint = nan(3, 1);
         targetOut.SmoothedLookaheadPoint = nan(3, 1);
+        targetOut.RouteIndex = nan;
+        targetOut.CurrentLegProgress = nan;
+        targetOut.CurrentSpeed = nan;
+        targetOut.TargetSpeed = nan;
+        targetOut.BaseCruiseSpeed = nan;
+        targetOut.SpeedProfileEvent = "";
+        targetOut.CurrentFlightLevel = nan;
+        targetOut.AltitudeError = nan;
+        targetOut.AltitudeProfileEvent = "";
+        targetOut.LastFW2Event = "";
 
         if target.Class == "air" && ismember(target.Subtype, ["quadcopter", "fixedWingUAV"])
             targetOut.WaypointIndex = getPayloadField(target.Payload, 'CurrentWaypointIndex', nan);
@@ -190,6 +212,34 @@ for i = 1:numTargets
             targetOut.MinAltitudeReached = getPayloadField(target.Payload, 'MinAltitudeReached', nan);
             targetOut.LastNavigationEvent = string(getPayloadField(target.Payload, 'LastNavigationEvent', ""));
             if target.Subtype == "fixedWingUAV"
+                isFW2 = isfield(target, 'Metadata') && isfield(target.Metadata, 'FW2') && target.Metadata.FW2;
+                if isFW2
+                    targetOut.RouteIndex = getPayloadField(target.Payload, 'RouteIndex', nan);
+                    targetOut.CurrentLegProgress = getPayloadField(target.Payload, 'CurrentLegProgress', nan);
+                    targetOut.CurrentHeading = getPayloadField(target.Payload, 'CurrentHeading', nan);
+                    targetOut.TargetHeading = getPayloadField(target.Payload, 'TargetHeading', nan);
+                    targetOut.HeadingErrorDeg = getPayloadField(target.Payload, 'HeadingErrorDeg', nan);
+                    targetOut.TurnRateCommandDeg = getPayloadField(target.Payload, 'TurnRateCommandDeg', nan);
+                    targetOut.CurrentSpeed = getPayloadField(target.Payload, 'CurrentSpeed', nan);
+                    targetOut.TargetSpeed = getPayloadField(target.Payload, 'TargetSpeed', nan);
+                    targetOut.BaseCruiseSpeed = getPayloadField(target.Payload, 'BaseCruiseSpeed', nan);
+                    targetOut.SpeedProfileEvent = string(getPayloadField(target.Payload, 'SpeedProfileEvent', ""));
+                    targetOut.CurrentFlightLevel = getPayloadField(target.Payload, 'CurrentFlightLevel', nan);
+                    targetOut.FlightLevel = getPayloadField(target.Payload, 'FlightLevel', nan);
+                    targetOut.TargetFlightLevel = getPayloadField(target.Payload, 'TargetFlightLevel', nan);
+                    targetOut.AltitudeError = getPayloadField(target.Payload, 'AltitudeError', nan);
+                    targetOut.DesiredClimbRate = getPayloadField(target.Payload, 'DesiredClimbRate', nan);
+                    targetOut.ClimbAngleDeg = getPayloadField(target.Payload, 'ClimbAngleDeg', nan);
+                    targetOut.AltitudeProfileEvent = string(getPayloadField(target.Payload, 'AltitudeProfileEvent', ""));
+                    targetOut.DistanceToBoundary = getPayloadField(target.Payload, 'DistanceToBoundary', nan);
+                    targetOut.InWarningZone = getPayloadField(target.Payload, 'InWarningZone', false);
+                    targetOut.InCriticalZone = getPayloadField(target.Payload, 'InCriticalZone', false);
+                    targetOut.BorderFollowing = getPayloadField(target.Payload, 'BorderFollowing', false);
+                    targetOut.LastFW2Event = string(getPayloadField(target.Payload, 'LastFW2Event', ""));
+                    targetOut.WaypointIndex = targetOut.RouteIndex;
+                    targetOut.MissionComplete = getPayloadField(target.Payload, 'RouteComplete', false);
+                    targetOut.HomePosition = getPayloadField(target.Payload, 'HomePoint', nan(3, 1));
+                else
                 targetOut.CurrentHeading = getPayloadField(target.Payload, 'CurrentHeading', nan);
                 targetOut.TargetHeading = getPayloadField(target.Payload, 'TargetHeading', nan);
                 targetOut.LoiterRadius = getPayloadField(target.Payload, 'LoiterRadius', nan);
@@ -211,7 +261,22 @@ for i = 1:numTargets
                 targetOut.NearBoundary = getPayloadField(target.Payload, 'NearBoundary', false);
                 targetOut.OutsideBoundary = getPayloadField(target.Payload, 'OutsideBoundary', false);
                 targetOut.BoundaryRecoveryActive = getPayloadField(target.Payload, 'BoundaryRecoveryActive', false);
+                targetOut.RecoveryTarget = getPayloadField(target.Payload, 'RecoveryTarget', nan(3, 1));
+                if isempty(targetOut.RecoveryTarget)
+                    targetOut.RecoveryTarget = getPayloadField(target.Payload, 'BoundaryRecoveryTarget', nan(3, 1));
+                end
+                targetOut.RecoveryReason = string(getPayloadField(target.Payload, 'RecoveryReason', ""));
                 targetOut.LastBoundaryEvent = string(getPayloadField(target.Payload, 'LastBoundaryEvent', "none"));
+                targetOut.SafeZone = getPayloadField(target.Payload, 'SafeZone', nan(1, 4));
+                targetOut.WarningZone = getPayloadField(target.Payload, 'WarningZone', nan(1, 4));
+                targetOut.CriticalZone = getPayloadField(target.Payload, 'CriticalZone', nan(1, 4));
+                targetOut.InSafeZone = getPayloadField(target.Payload, 'InSafeZone', false);
+                targetOut.InWarningZone = getPayloadField(target.Payload, 'InWarningZone', false);
+                targetOut.InCriticalZone = getPayloadField(target.Payload, 'InCriticalZone', false);
+                targetOut.BorderFollowing = getPayloadField(target.Payload, 'BorderFollowing', false);
+                targetOut.BorderFollowingTime = getPayloadField(target.Payload, 'BorderFollowingTime', 0);
+                targetOut.BorderSide = string(getPayloadField(target.Payload, 'BorderSide', ""));
+                targetOut.NavigationMode = string(getPayloadField(target.Payload, 'NavigationMode', "Mission"));
                 targetOut.CurrentWaypointIndex = getPayloadField(target.Payload, 'CurrentWaypointIndex', nan);
                 targetOut.NextWaypoint = getPayloadField(target.Payload, 'NextWaypoint', nan(3, 1));
                 targetOut.NavigationTarget = getPayloadField(target.Payload, 'NavigationTarget', nan(3, 1));
@@ -231,6 +296,7 @@ for i = 1:numTargets
                 targetOut.SmoothedNavigationTarget = getPayloadField(target.Payload, 'SmoothedNavigationTarget', nan(3, 1));
                 targetOut.RawLookaheadPoint = getPayloadField(target.Payload, 'RawLookaheadPoint', nan(3, 1));
                 targetOut.SmoothedLookaheadPoint = getPayloadField(target.Payload, 'SmoothedLookaheadPoint', nan(3, 1));
+                end
             end
         elseif target.Class == "ground" && target.Subtype == "vehicle"
             targetOut.WaypointIndex = getPayloadField(target.Payload, 'CurrentWaypointIndex', nan);
