@@ -26,7 +26,10 @@ for k = 1:numSteps
     trajectoryLog = logFrame(scenario, trajectoryLog, scenario.Time, config);
 end
 
-legacyOutput = trajectoryLogToLegacyOutput(trajectoryLog);
+legacyOutput = struct([]);
+if nargout >= 2
+    legacyOutput = trajectoryLogToLegacyOutput(trajectoryLog, config);
+end
 
 switch nargout
     case 0

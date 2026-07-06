@@ -20,4 +20,5 @@ end
 
 log.Time = zeros(0, 1);
 log.Frames = struct([]);
+log.SimulationInfo.LegacyPerFrame = shouldStoreLegacyPerFrame(config);
 end

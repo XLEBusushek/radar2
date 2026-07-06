@@ -30,7 +30,7 @@ for f = 1:numel(required)
     assert(isfield(t, required{f}), 'Missing log field %s.', required{f});
 end
 
-legacyFromLog = trajectoryLogToLegacyOutput(trajectoryLog);
+legacyFromLog = trajectoryLogToLegacyOutput(trajectoryLog, config);
 assert(numel(legacyFromLog) == numel(legacyOutput), 'Legacy adapter length mismatch.');
 assert(legacyFromLog(1).Time == legacyOutput(1).Time, 'Legacy time mismatch.');
 

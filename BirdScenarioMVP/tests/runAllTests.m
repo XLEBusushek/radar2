@@ -6,6 +6,7 @@ testScripts = {
     'testProjectSkeleton.m'
     'testCollectOutputStructure.m'
     'testTrajectoryLogStructure.m'
+    'testLegacyOutputEquivalence.m'
     'testDefaultConfigStructure.m'
     'testSplitTargetsByType.m'
     'testTrees.m'

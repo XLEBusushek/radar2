@@ -17,8 +17,9 @@ if isfield(scenario, 'Targets') && ~isempty(scenario.Targets)
     end
 end
 
-legacyStep = collectOutput(scenario, time);
-frame.LegacyExport = legacyStep;
+if shouldStoreLegacyPerFrame(config)
+    frame.LegacyExport = collectOutput(scenario, time);
+end
 
 if isempty(log.Frames)
     log.Frames = frame;

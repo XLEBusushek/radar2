@@ -1,10 +1,23 @@
 function payload = buildTargetPayload(target, config)
-% buildTargetPayload - Dispatch payload builder by target class/subtype.
+% buildTargetPayload - Snapshot target payload for TrajectoryLog.
 arguments
     target (1, 1) struct
     config (1, 1) struct
 end
 
+if shouldStoreFullPayload(config) && isfield(target, 'Payload')
+    payload = target.Payload;
+else
+    payload = buildCompactTargetPayload(target);
+end
+
+payload.TargetSeed = nan;
+if isfield(target, 'Metadata') && isfield(target.Metadata, 'RandomSeed')
+    payload.TargetSeed = target.Metadata.RandomSeed;
+end
+end
+
+function payload = buildCompactTargetPayload(target)
 switch string(target.Class)
     case "bird"
         payload = buildBirdPayload(target);
@@ -21,8 +34,22 @@ switch string(target.Class)
     otherwise
         payload = struct();
 end
-payload.TargetSeed = nan;
-if isfield(target, 'Metadata') && isfield(target.Metadata, 'RandomSeed')
-    payload.TargetSeed = target.Metadata.RandomSeed;
+
+if isfield(target, 'Payload')
+    p = target.Payload;
+    if isfield(p, 'TransitionCount')
+        payload.TransitionCount = p.TransitionCount;
+    end
+    if isfield(p, 'LastTransitionReason')
+        payload.LastTransitionReason = p.LastTransitionReason;
+    end
+end
+end
+
+function tf = shouldStoreFullPayload(config)
+if isfield(config, 'log') && isfield(config.log, 'storeFullPayload')
+    tf = logical(config.log.storeFullPayload);
+else
+    tf = true;
 end
 end

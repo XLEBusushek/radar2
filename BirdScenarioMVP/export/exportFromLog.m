@@ -11,7 +11,7 @@ if ~isfield(config, 'export') || ~config.export.enabled
 end
 
 outputFolder = ensureOutputFolder(config);
-legacyOutput = trajectoryLogToLegacyOutput(trajectoryLog);
+legacyOutput = trajectoryLogToLegacyOutput(trajectoryLog, config);
 
 if config.export.saveMat
     exportMAT(trajectoryLog, legacyOutput, config, outputFolder);

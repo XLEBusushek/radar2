@@ -21,6 +21,16 @@ targetLog.Roll = 0;
 targetLog.Pitch = 0;
 targetLog.Yaw = targetLog.Heading;
 targetLog.Payload = {buildTargetPayload(target, config)};
+targetLog.MetadataSnapshot = snapshotStructField(target, 'Metadata');
+targetLog.BehaviorSnapshot = snapshotStructField(target, 'Behavior');
+end
+
+function snapshot = snapshotStructField(target, fieldName)
+if isfield(target, fieldName)
+    snapshot = {target.(fieldName)};
+else
+    snapshot = {struct()};
+end
 end
 
 function heading = computeTargetHeading(target)

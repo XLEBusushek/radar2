@@ -13,4 +13,5 @@ config = defaultFixedWing2Config(config);
 config = defaultExportConfig(config);
 config = defaultAnalysisConfig(config);
 config = defaultBehaviorConfig(config);
+config = defaultLogConfig(config);
 end
