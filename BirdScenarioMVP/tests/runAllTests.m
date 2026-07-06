@@ -9,6 +9,7 @@ testScripts = {
     'testLegacyOutputEquivalence.m'
     'testTargetHistoryCache.m'
     'testHistoryModeEquivalence.m'
+    'testDirectCsvExport.m'
     'testDefaultConfigStructure.m'
     'testSplitTargetsByType.m'
     'testTrees.m'

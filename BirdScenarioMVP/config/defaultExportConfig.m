@@ -22,4 +22,6 @@ config.export.csvFileName = "bird_scenario_tracks.csv";
 config.export.figureFileName = "bird_scenario_3d.png";
 config.export.fixedWingDebugCsv = false;
 config.export.fixedWingDebugCsvFileName = "fixed_wing_debug.csv";
+config.export.csvFromLog = true;
+config.export.matIncludesLegacy = false;
 end

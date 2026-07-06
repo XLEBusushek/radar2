@@ -1,18 +1,9 @@
-function exportOutputToCsv(output, config, outputFolder)
-% exportOutputToCsv - Export simulation output to a CSV track table.
+function rows = buildOutputTableRowsFromLog(trajectoryLog)
+% buildOutputTableRowsFromLog - Build CSV rows directly from TrajectoryLog frames.
 arguments
-    output struct
-    config (1, 1) struct
-    outputFolder (1, :) char
+    trajectoryLog (1, 1) struct
 end
 
-rows = buildOutputTableRows(output);
-T = struct2table(rows);
-csvPath = fullfile(outputFolder, config.export.csvFileName);
-writetable(T, csvPath);
-end
-
-function rows = buildOutputTableRows(output)
 rows = struct( ...
     'Time', {}, 'RandomMode', {}, 'ScenarioSeed', {}, ...
     'ID', {}, 'Class', {}, 'Subtype', {}, 'TargetSeed', {}, ...
@@ -48,39 +39,24 @@ rows = struct( ...
     'InWarningZone', {}, 'InCriticalZone', {}, 'BorderFollowing', {}, ...
     'LastFW2Event', {});
 
-if isempty(output)
+numFrames = getLogFrameCount(trajectoryLog);
+if numFrames == 0
     return;
 end
 
 rowIdx = 0;
-for k = 1:numel(output)
-    step = output(k);
+for k = 1:numFrames
+    step = collectOutputStepFromLogFrame(trajectoryLog.Frames(k), trajectoryLog);
     if ~isfield(step, 'Targets') || isempty(step.Targets)
         continue;
     end
 
-    randomMode = string(getStepStringField(step, 'RandomMode'));
-    scenarioSeed = getStepNumericField(step, 'ScenarioSeed');
+    randomMode = string(step.RandomMode);
+    scenarioSeed = step.ScenarioSeed;
     for i = 1:numel(step.Targets)
         rowIdx = rowIdx + 1;
         rows(rowIdx) = buildCsvRowFromTargetOutput( ...
             step.Time, randomMode, scenarioSeed, step.Targets(i));
     end
-end
-end
-
-function value = getStepNumericField(step, fieldName)
-if isfield(step, fieldName) && ~isempty(step.(fieldName))
-    value = step.(fieldName);
-else
-    value = NaN;
-end
-end
-
-function value = getStepStringField(step, fieldName)
-if isfield(step, fieldName) && ~isempty(step.(fieldName))
-    value = step.(fieldName);
-else
-    value = "";
 end
 end

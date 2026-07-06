@@ -29,7 +29,7 @@ end
 trajectoryLog = trimTrajectoryLog(trajectoryLog);
 
 legacyOutput = struct([]);
-if nargout >= 2
+if nargout >= 2 && shouldBuildLegacyOutput(config)
     legacyOutput = trajectoryLogToLegacyOutput(trajectoryLog, config);
 end
 

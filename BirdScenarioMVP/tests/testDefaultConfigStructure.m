@@ -18,6 +18,9 @@ assert(config.fixedWing2.speedProfile.enabled == true, 'Speed profile must be en
 assert(config.log.legacyPerFrame == false, 'legacyPerFrame must be false by default.');
 assert(config.log.preallocateFrames == true, 'preallocateFrames must be true by default.');
 assert(config.log.historyMode == "full", 'historyMode must be full by default.');
+assert(config.log.buildLegacyOutput == true, 'buildLegacyOutput must be true by default.');
+assert(config.export.csvFromLog == true, 'csvFromLog must be true by default.');
+assert(config.export.matIncludesLegacy == false, 'matIncludesLegacy must be false by default.');
 
 config2 = defaultConfig();
 assert(isequaln(config, config2), 'defaultConfig must be deterministic.');

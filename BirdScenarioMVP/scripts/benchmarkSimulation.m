@@ -61,4 +61,36 @@ for i = 1:numel(modes)
     end
 end
 
+fprintf('--- production path (buildLegacyOutput=false) ---\n');
+prodConfig = config;
+prodConfig.log.buildLegacyOutput = false;
+prodConfig.log.legacyPerFrame = false;
+prodConfig.export.enabled = true;
+prodConfig.export.saveMat = false;
+prodConfig.export.saveFigure = false;
+prodConfig.export.outputFolder = fullfile(projectRoot, 'output', 'benchmark');
+
+tStart = tic;
+[scenario, trajectoryLog, legacyOutput] = runSimulation(prodConfig);
+simNoLegacyTime = toc(tStart);
+
+outputFolder = ensureOutputFolder(prodConfig);
+tStart = tic;
+exportCsvFromLog(trajectoryLog, prodConfig, outputFolder);
+directCsvTime = toc(tStart);
+
+tStart = tic;
+rebuilt = trajectoryLogToLegacyOutput(trajectoryLog, prodConfig);
+rebuildTime = toc(tStart);
+
+tStart = tic;
+exportOutputToCsv(rebuilt, prodConfig, outputFolder);
+legacyCsvTime = toc(tStart);
+
+fprintf('  simulation (no legacy rebuild): %.3f s\n', simNoLegacyTime);
+fprintf('  CSV from TrajectoryLog:         %.3f s\n', directCsvTime);
+fprintf('  legacy rebuild:                 %.3f s\n', rebuildTime);
+fprintf('  CSV from legacy output:         %.3f s\n', legacyCsvTime);
+fprintf('  legacyOutput empty:             %d\n\n', isempty(legacyOutput));
+
 fprintf('Benchmark complete.\n');

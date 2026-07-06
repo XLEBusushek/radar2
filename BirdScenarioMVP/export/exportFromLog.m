@@ -12,7 +12,9 @@ if ~isfield(config, 'export') || ~config.export.enabled
 end
 
 outputFolder = ensureOutputFolder(config);
-if isempty(legacyOutput)
+legacyNeeded = needsLegacyOutputForExport(config, legacyOutput);
+
+if legacyNeeded && isempty(legacyOutput)
     legacyOutput = trajectoryLogToLegacyOutput(trajectoryLog, config);
 end
 
@@ -21,10 +23,17 @@ if config.export.saveMat
 end
 
 if config.export.saveCsv
-    exportCSV(legacyOutput, config, outputFolder);
+    if shouldExportCsvFromLog(config, legacyOutput)
+        exportCsvFromLog(trajectoryLog, config, outputFolder);
+    else
+        exportCSV(legacyOutput, config, outputFolder);
+    end
 end
 
 if isfield(config.export, 'fixedWingDebugCsv') && config.export.fixedWingDebugCsv
+    if isempty(legacyOutput)
+        legacyOutput = trajectoryLogToLegacyOutput(trajectoryLog, config);
+    end
     exportFixedWingDebugCsv(legacyOutput, config, outputFolder);
 end
 

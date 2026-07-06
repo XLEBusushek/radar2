@@ -1,8 +1,9 @@
-function target = logTargetToSimTarget(targetLog, frameTime)
+function target = logTargetToSimTarget(targetLog, frameTime, includeStateMatrix)
 % logTargetToSimTarget - Reconstruct a simulation target from a log snapshot.
 arguments
     targetLog (1, 1) struct
     frameTime (1, 1) double
+    includeStateMatrix (1, 1) logical = true
 end
 
 target.ID = targetLog.ID;
@@ -17,7 +18,11 @@ target.RCS = targetLog.RCS;
 target.Visible = logical(targetLog.Visible);
 target.TimeInState = targetLog.TimeInState;
 target.CurrentTime = frameTime;
-target.StateMatrix = computeStateMatrix(target.Position, target.Velocity);
+if includeStateMatrix
+    target.StateMatrix = computeStateMatrix(target.Position, target.Velocity);
+else
+    target.StateMatrix = zeros(3, 2);
+end
 
 target.Payload = unwrapLogPayload(targetLog.Payload);
 target.Metadata = unwrapLogSnapshot(targetLog, 'MetadataSnapshot', ...
