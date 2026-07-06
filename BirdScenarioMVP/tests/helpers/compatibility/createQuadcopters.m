@@ -1,5 +1,5 @@
 function quadcopters = createQuadcopters(config, startId)
-% createQuadcopters - Create quadcopter population with unique IDs.
+% createQuadcopters - Compatibility factory (use createTargets instead).
 arguments
     config (1, 1) struct
     startId (1, 1) {mustBePositive, mustBeInteger} = 1

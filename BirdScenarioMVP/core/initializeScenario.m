@@ -20,14 +20,8 @@ else
 end
 scenario.Targets = createTargets(config, scenario);
 scenario.Random.SeedLog = buildRandomSeedLog(scenario.Targets);
-birdMask = arrayfun(@(t) t.Class == "bird", scenario.Targets);
-scenario.Birds = scenario.Targets(birdMask);
-quadcopterMask = arrayfun(@(t) t.Class == "air" && t.Subtype == "quadcopter", scenario.Targets);
-scenario.Quadcopters = scenario.Targets(quadcopterMask);
-fixedWingMask = arrayfun(@(t) t.Class == "air" && t.Subtype == "fixedWingUAV", scenario.Targets);
-scenario.FixedWingUAVs = scenario.Targets(fixedWingMask);
-groundMask = arrayfun(@(t) t.Class == "ground", scenario.Targets);
-scenario.GroundVehicles = scenario.Targets(groundMask);
+scenario.TargetIndices = splitTargetsByType(scenario.Targets);
+scenario = syncScenarioTargetViews(scenario);
 scenario.Metadata.CreatedBy = "initializeScenario";
 scenario.Metadata.RandomMode = randomState.Mode;
 scenario.Metadata.ScenarioSeed = randomState.ScenarioSeed;

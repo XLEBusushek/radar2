@@ -1,5 +1,6 @@
 function birds = createBirds(config, trees)
-% createBirds - Create bird population as target structures.
+% createBirds - Compatibility factory (use createTargets instead).
+% Legacy helper kept for manual/testing use; not used by runSimulation.
 arguments
     config (1, 1) struct
     trees struct

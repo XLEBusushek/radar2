@@ -1,5 +1,5 @@
 function vehicles = createGroundVehicles(config, roadNetwork, startId)
-% createGroundVehicles - Create ground vehicle population with unique IDs.
+% createGroundVehicles - Compatibility factory (use createTargets instead).
 arguments
     config (1, 1) struct
     roadNetwork (1, 1) struct

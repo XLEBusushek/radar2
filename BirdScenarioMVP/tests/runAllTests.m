@@ -4,6 +4,10 @@ addpath(genpath(projectRoot));
 
 testScripts = {
     'testProjectSkeleton.m'
+    'testCollectOutputStructure.m'
+    'testTrajectoryLogStructure.m'
+    'testDefaultConfigStructure.m'
+    'testSplitTargetsByType.m'
     'testTrees.m'
     'testTargets.m'
     'testBirdInitialization.m'

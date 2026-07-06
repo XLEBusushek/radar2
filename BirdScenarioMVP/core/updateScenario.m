@@ -14,12 +14,5 @@ if isfield(scenario, 'Targets') && ~isempty(scenario.Targets)
     end
 end
 
-birdMask = arrayfun(@(t) t.Class == "bird", scenario.Targets);
-scenario.Birds = scenario.Targets(birdMask);
-quadcopterMask = arrayfun(@(t) t.Class == "air" && t.Subtype == "quadcopter", scenario.Targets);
-scenario.Quadcopters = scenario.Targets(quadcopterMask);
-fixedWingMask = arrayfun(@(t) t.Class == "air" && t.Subtype == "fixedWingUAV", scenario.Targets);
-scenario.FixedWingUAVs = scenario.Targets(fixedWingMask);
-groundMask = arrayfun(@(t) t.Class == "ground", scenario.Targets);
-scenario.GroundVehicles = scenario.Targets(groundMask);
+scenario = syncScenarioTargetViews(scenario);
 end

@@ -121,11 +121,17 @@ run('tests/testAnalysisExport.m')
 
 ## Structure
 
-- `config/` — configuration
+- `config/` — configuration (`defaultConfig()` assembles section modules)
 - `core/` — simulation orchestration
+  - `core/output/` — modular `collectOutput` field builders
 - `environment/` — trees and world
-- `targets/` — universal target model
+- `targets/` — universal target model (`createTargets`, `splitTargetsByType`)
 - `birds/` — bird FSM, kinematics, cruise, and landing
+- `air/` — air vehicle logic
+  - `air/quadcopter/` — quadcopter FSM and kinematics
+  - `air/fixedwing_legacy/` — legacy fixed-wing when `fixedWing2.enabled = false`
+  - `air/fixedwing2/` — active fixed-wing when `fixedWing2.enabled = true`
+  - `air/common/` — shared air utilities (e.g. boundary distance)
 - `rcs/` — RCS assignment
 - `utils/` — helper functions
 - `visualization/` — 3D plotting
@@ -134,3 +140,12 @@ run('tests/testAnalysisExport.m')
 - `random/` — centralized random seeds and random helper functions
 - `output/` — simulation export results (created by `main`)
 - `tests/` — project tests
+
+### Fixed-wing modes
+
+| Config | Implementation |
+|--------|----------------|
+| `config.fixedWing2.enabled = true` | `air/fixedwing2/` (default in `main`) |
+| `config.fixedWing2.enabled = false` | legacy `air/*FixedWing*` pipeline |
+
+`scenario.Targets` is the source of truth; typed views (`Birds`, `Quadcopters`, …) are rebuilt via `syncScenarioTargetViews` using cached `scenario.TargetIndices`.

@@ -1,0 +1,47 @@
+function config = defaultGroundConfig(config)
+% defaultGroundConfig - Ground vehicle and route defaults.
+config.groundVehicle.count = 0;
+config.groundVehicle.rcsRange = [5, 30];
+config.groundVehicle.initialState = "Idle";
+config.groundVehicle.initialMission = "RoadPatrol";
+config.groundVehicle.initialVisible = true;
+config.groundVehicle.speedRange = [3, 25];
+config.groundVehicle.maxAcceleration = 2.5;
+config.groundVehicle.maxTurnRateDeg = 25;
+config.groundVehicle.heightRange = [0, 3];
+config.groundVehicle.waypointCountRange = [5, 15];
+config.groundVehicle.waypointArrivalRadius = 15;
+config.groundVehicle.lookaheadDistance = 45;
+config.groundVehicle.roadDeviationTolerance = 8;
+config.groundVehicle.offroadDistanceRange = [30, 100];
+config.groundVehicle.offroadSpeedFactor = 0.55;
+config.groundVehicle.stopDurationRange = [3, 12];
+config.groundVehicle.decisionPeriodRange = [1, 5];
+config.groundVehicle.navigation.enabled = true;
+config.groundVehicle.navigation.minWaypointDistance = 80;
+config.groundVehicle.navigation.maxWaypointDistance = 1000;
+config.groundVehicle.fsm.enabled = true;
+config.groundVehicle.fsm.idle.driveProbability = 0.35;
+config.groundVehicle.fsm.drive.stopProbability = 0.05;
+config.groundVehicle.fsm.drive.leaveRoadProbability = 0.05;
+config.groundVehicle.fsm.drive.turnAroundProbability = 0.05;
+config.groundVehicle.fsm.drive.changeSpeedProbability = 0.05;
+config.groundVehicle.fsm.stop.driveProbability = 0.45;
+config.groundVehicle.fsm.leaveRoad.returnProbability = 0.40;
+
+config.ground.route.minRouteLength = 800;
+config.ground.route.maxRouteLength = 3000;
+config.ground.route.minNodeDistance = 2;
+config.ground.route.loopRoutes = true;
+config.ground.motion.lookaheadDistance = 30;
+config.ground.motion.maxTurnRateDeg = 25;
+config.ground.motion.maxAcceleration = 2.5;
+config.ground.motion.maxDeceleration = 4.0;
+config.ground.speedRange = [3, 25];
+config.ground.roadSpeedBias = 0.8;
+config.ground.offRoad.enabled = true;
+config.ground.offRoad.probability = 0.03;
+config.ground.offRoad.distanceRange = [30, 100];
+config.ground.offRoad.maxDuration = 20;
+config.ground.offRoad.returnDistanceThreshold = 10;
+end

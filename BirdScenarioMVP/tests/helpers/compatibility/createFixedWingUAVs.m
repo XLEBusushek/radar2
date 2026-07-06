@@ -1,5 +1,5 @@
 function fixedWingUAVs = createFixedWingUAVs(config, startId)
-% createFixedWingUAVs - Create fixed-wing UAV population with unique IDs.
+% createFixedWingUAVs - Compatibility factory (use createTargets/fw2 instead).
 arguments
     config (1, 1) struct
     startId (1, 1) {mustBePositive, mustBeInteger} = 1

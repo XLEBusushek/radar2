@@ -1,9 +1,9 @@
-function exportScenarioResults(scenario, output, config)
-% exportScenarioResults - Legacy export entry point (backward compatible).
+function exportFromLog(trajectoryLog, config, env)
+% exportFromLog - Export TrajectoryLog to MAT, CSV, and figures.
 arguments
-    scenario (1, 1) struct
-    output struct
+    trajectoryLog (1, 1) struct
     config (1, 1) struct
+    env (1, 1) struct = struct()
 end
 
 if ~isfield(config, 'export') || ~config.export.enabled
@@ -11,23 +11,24 @@ if ~isfield(config, 'export') || ~config.export.enabled
 end
 
 outputFolder = ensureOutputFolder(config);
+legacyOutput = trajectoryLogToLegacyOutput(trajectoryLog);
 
 if config.export.saveMat
-    exportOutputToMat(scenario, output, config, outputFolder);
+    exportMAT(trajectoryLog, legacyOutput, config, outputFolder);
 end
 
 if config.export.saveCsv
-    exportCSV(output, config, outputFolder);
+    exportCSV(legacyOutput, config, outputFolder);
 end
 
 if isfield(config.export, 'fixedWingDebugCsv') && config.export.fixedWingDebugCsv
-    exportFixedWingDebugCsv(output, config, outputFolder);
+    exportFixedWingDebugCsv(legacyOutput, config, outputFolder);
 end
 
 if config.export.saveFigure
     keepOpen = isfield(config, 'analysis') && isfield(config.analysis, 'showFigures') && ...
         config.analysis.showFigures;
-    fig = plotScenario(scenario, config);
+    fig = plotScenarioFromLog(trajectoryLog, env, config);
     figPath = fullfile(outputFolder, config.export.figureFileName);
     saveas(fig, figPath);
     if ~keepOpen
@@ -36,6 +37,6 @@ if config.export.saveFigure
 end
 
 if isfield(config, 'analysis') && config.analysis.enabled
-    ensureAnalysisFigureFiles(scenario, config, outputFolder);
+    ensureAnalysisFigureFilesFromLog(trajectoryLog, env, config, outputFolder);
 end
 end

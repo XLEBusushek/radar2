@@ -1,5 +1,7 @@
-function [scenario, output] = runSimulation(config)
-% runSimulation - Run the bird scenario simulation over the full time horizon.
+function varargout = runSimulation(config)
+% runSimulation - Run simulation and record TrajectoryLog.
+%   [scenario, output] = runSimulation(config) - legacy output (backward compatible).
+%   [scenario, log, output] = runSimulation(config) - TrajectoryLog + legacy output.
 arguments
     config (1, 1) struct
 end
@@ -9,8 +11,8 @@ if ~isfield(config, 'sim') || ~isfield(config.sim, 'dt') || ~isfield(config.sim,
 end
 
 randomState = initializeRandomSystem(config);
-
 scenario = initializeScenario(config, randomState);
+trajectoryLog = createTrajectoryLog(config, randomState);
 
 dt = config.sim.dt;
 duration = config.sim.duration;
@@ -21,7 +23,22 @@ for k = 1:numSteps
     if k > 1
         scenario = updateScenario(scenario, config, dt);
     end
-    output(k) = collectOutput(scenario, scenario.Time);
+    trajectoryLog = logFrame(scenario, trajectoryLog, scenario.Time, config);
+end
+
+legacyOutput = trajectoryLogToLegacyOutput(trajectoryLog);
+
+switch nargout
+    case 0
+    case 1
+        varargout{1} = scenario;
+    case 2
+        varargout{1} = scenario;
+        varargout{2} = legacyOutput;
+    otherwise
+        varargout{1} = scenario;
+        varargout{2} = trajectoryLog;
+        varargout{3} = legacyOutput;
 end
 
 if isfield(config, 'debug') && isfield(config.debug, 'verbose') && config.debug.verbose
