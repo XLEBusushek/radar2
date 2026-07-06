@@ -16,6 +16,8 @@ assert(config.world.size(1) == 2000, 'World size mismatch.');
 assert(config.birds.count == 10, 'Bird count mismatch.');
 assert(config.fixedWing2.speedProfile.enabled == true, 'Speed profile must be enabled.');
 assert(config.log.legacyPerFrame == false, 'legacyPerFrame must be false by default.');
+assert(config.log.preallocateFrames == true, 'preallocateFrames must be true by default.');
+assert(config.log.historyMode == "full", 'historyMode must be full by default.');
 
 config2 = defaultConfig();
 assert(isequaln(config, config2), 'defaultConfig must be deterministic.');

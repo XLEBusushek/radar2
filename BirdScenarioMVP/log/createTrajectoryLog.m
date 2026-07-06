@@ -18,7 +18,24 @@ if ~isempty(fieldnames(randomState))
     end
 end
 
-log.Time = zeros(0, 1);
-log.Frames = struct([]);
 log.SimulationInfo.LegacyPerFrame = shouldStoreLegacyPerFrame(config);
+log.FrameCount = 0;
+log.PreallocatedFrameCapacity = 0;
+
+if shouldPreallocateFrames(config)
+    log.PreallocatedFrameCapacity = numel(0:config.sim.dt:config.sim.duration);
+    log.Time = zeros(log.PreallocatedFrameCapacity, 1);
+    log.Frames = struct([]);
+else
+    log.Time = zeros(0, 1);
+    log.Frames = struct([]);
+end
+end
+
+function tf = shouldPreallocateFrames(config)
+if isfield(config, 'log') && isfield(config.log, 'preallocateFrames')
+    tf = logical(config.log.preallocateFrames);
+else
+    tf = true;
+end
 end

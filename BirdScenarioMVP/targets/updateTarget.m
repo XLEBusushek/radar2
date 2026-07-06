@@ -69,6 +69,6 @@ if string(target.Class) == "bird" && string(target.State) == "Landing" && ...
 end
 
 target.StateMatrix = computeStateMatrix(target.Position, target.Velocity);
-target = appendTargetHistory(target);
+target = appendTargetHistory(target, config);
 validateTarget(target, config);
 end

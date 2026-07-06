@@ -20,7 +20,7 @@ fprintf('Duration: %.0f s, dt=%.2f (%d steps)\n\n', ...
 
 modes = {
     struct('name', "legacyPerFrame=true", 'legacyPerFrame', true)
-    struct('name', "legacyPerFrame=false", 'legacyPerFrame', false)
+    struct('name', "legacyPerFrame=false (default)", 'legacyPerFrame', false)
 };
 
 for i = 1:numel(modes)
@@ -32,19 +32,29 @@ for i = 1:numel(modes)
     simOnlyTime = toc(tStart);
 
     tStart = tic;
-    [~, trajectoryLog, legacyOutput] = runSimulation(runConfig);
+    [scenario, trajectoryLog, legacyOutput] = runSimulation(runConfig);
     fullTime = toc(tStart);
+
+    trajectoryLog = attachTargetHistoryCache(trajectoryLog);
+    tStart = tic;
+    runAnalysis(trajectoryLog, runConfig);
+    analysisTime = toc(tStart);
 
     tStart = tic;
     rebuilt = trajectoryLogToLegacyOutput(trajectoryLog, runConfig);
     rebuildTime = toc(tStart);
 
+    tStart = tic;
+    exportFromLog(trajectoryLog, runConfig, buildEnvironmentContext(scenario, runConfig), legacyOutput);
+    exportTime = toc(tStart);
+
     fprintf('%s\n', modes{i}.name);
-    fprintf('  simulation only (nargout=0): %.3f s\n', simOnlyTime);
-    fprintf('  simulation + legacy return:  %.3f s\n', fullTime);
-    fprintf('  legacy rebuild from log:     %.3f s\n', rebuildTime);
-    fprintf('  frames=%d legacySteps=%d\n\n', ...
-        numel(trajectoryLog.Frames), numel(legacyOutput));
+    fprintf('  simulation only:              %.3f s\n', simOnlyTime);
+    fprintf('  simulation + legacy return:   %.3f s\n', fullTime);
+    fprintf('  analysis (cached histories):  %.3f s\n', analysisTime);
+    fprintf('  legacy rebuild from log:      %.3f s\n', rebuildTime);
+    fprintf('  export (reuse legacy):        %.3f s\n', exportTime);
+    fprintf('  frames=%d\n\n', getLogFrameCount(trajectoryLog));
 
     if modes{i}.legacyPerFrame
         assert(isequaln(rebuilt, legacyOutput), 'Stored legacy must match rebuild.');

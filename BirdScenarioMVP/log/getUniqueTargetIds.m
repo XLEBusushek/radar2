@@ -7,11 +7,12 @@ arguments
 end
 
 ids = [];
-if ~isfield(trajectoryLog, 'Frames') || isempty(trajectoryLog.Frames)
+numFrames = getLogFrameCount(trajectoryLog);
+if numFrames == 0
     return;
 end
 
-for k = 1:numel(trajectoryLog.Frames)
+for k = 1:numFrames
     frame = trajectoryLog.Frames(k);
     if ~isfield(frame, 'Targets') || isempty(frame.Targets)
         continue;

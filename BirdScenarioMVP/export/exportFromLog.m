@@ -1,9 +1,10 @@
-function exportFromLog(trajectoryLog, config, env)
+function exportFromLog(trajectoryLog, config, env, legacyOutput)
 % exportFromLog - Export TrajectoryLog to MAT, CSV, and figures.
 arguments
     trajectoryLog (1, 1) struct
     config (1, 1) struct
     env (1, 1) struct = struct()
+    legacyOutput struct = struct([])
 end
 
 if ~isfield(config, 'export') || ~config.export.enabled
@@ -11,7 +12,9 @@ if ~isfield(config, 'export') || ~config.export.enabled
 end
 
 outputFolder = ensureOutputFolder(config);
-legacyOutput = trajectoryLogToLegacyOutput(trajectoryLog, config);
+if isempty(legacyOutput)
+    legacyOutput = trajectoryLogToLegacyOutput(trajectoryLog, config);
+end
 
 if config.export.saveMat
     exportMAT(trajectoryLog, legacyOutput, config, outputFolder);

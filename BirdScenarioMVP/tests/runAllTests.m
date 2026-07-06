@@ -7,6 +7,8 @@ testScripts = {
     'testCollectOutputStructure.m'
     'testTrajectoryLogStructure.m'
     'testLegacyOutputEquivalence.m'
+    'testTargetHistoryCache.m'
+    'testHistoryModeEquivalence.m'
     'testDefaultConfigStructure.m'
     'testSplitTargetsByType.m'
     'testTrees.m'

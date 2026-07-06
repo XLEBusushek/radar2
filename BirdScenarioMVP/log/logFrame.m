@@ -21,6 +21,24 @@ if shouldStoreLegacyPerFrame(config)
     frame.LegacyExport = collectOutput(scenario, time);
 end
 
+if isfield(log, 'FrameCount')
+    log.FrameCount = log.FrameCount + 1;
+    frameIndex = log.FrameCount;
+else
+    frameIndex = numel(log.Frames) + 1;
+    log.FrameCount = frameIndex;
+end
+
+if isfield(log, 'PreallocatedFrameCapacity') && log.PreallocatedFrameCapacity > 0
+    log.Time(frameIndex, 1) = time;
+    if frameIndex == 1
+        log.Frames = repmat(frame, log.PreallocatedFrameCapacity, 1);
+    else
+        log.Frames(frameIndex) = frame;
+    end
+    return;
+end
+
 if isempty(log.Frames)
     log.Frames = frame;
 else

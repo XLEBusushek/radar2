@@ -30,8 +30,8 @@ if isfield(log, 'SimulationInfo')
     stats.TimeStep = getField(log.SimulationInfo, 'TimeStep', nan);
     stats.Seed = getField(log.SimulationInfo, 'Seed', nan);
 end
-if isfield(log, 'Frames')
-    stats.FrameCount = numel(log.Frames);
+if isfield(log, 'Frames') && ~isempty(log.Frames)
+    stats.FrameCount = getLogFrameCount(log);
 end
 
 ids = getUniqueTargetIds(log);
