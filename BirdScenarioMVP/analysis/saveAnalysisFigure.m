@@ -18,13 +18,5 @@ if ~isgraphics(fig, 'figure')
         'A valid figure handle is required to save analysis output.');
 end
 
-try
-    if exist('exportgraphics', 'file') == 2
-        exportgraphics(fig, filePath, 'Resolution', 150);
-    else
-        saveas(fig, filePath);
-    end
-catch
-    saveas(fig, filePath);
-end
+saveFigureFile(fig, filePath, config);
 end

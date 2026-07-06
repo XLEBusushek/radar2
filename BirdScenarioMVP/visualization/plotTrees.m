@@ -11,6 +11,7 @@ end
 
 showCrowns = true;
 maxTrees = numel(trees);
+fast3D = nargin >= 2 && isFast3DVisualization(config);
 if nargin >= 2 && isfield(config, 'visualization')
     if isfield(config.visualization, 'showTreeCrowns')
         showCrowns = config.visualization.showTreeCrowns;
@@ -18,6 +19,10 @@ if nargin >= 2 && isfield(config, 'visualization')
     if isfield(config.visualization, 'maxTreesToDraw')
         maxTrees = config.visualization.maxTreesToDraw;
     end
+end
+if fast3D
+    showCrowns = false;
+    maxTrees = min(maxTrees, 40);
 end
 
 treeIndices = 1:numel(trees);

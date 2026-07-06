@@ -42,7 +42,7 @@ if config.export.saveFigure
         config.analysis.showFigures;
     fig = plotScenarioFromLog(trajectoryLog, env, config);
     figPath = fullfile(outputFolder, config.export.figureFileName);
-    saveas(fig, figPath);
+    saveFigureFile(fig, figPath, config);
     if ~keepOpen
         close(fig);
     end

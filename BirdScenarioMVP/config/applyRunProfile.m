@@ -13,6 +13,7 @@ switch lower(profileName)
         config.log.historyMode = "minimal";
         config.log.buildLegacyOutput = false;
         config.log.incrementalCsv = true;
+        config.visualization.fast3D = true;
     case "batch"
         config.analysis.showFigures = false;
         config.analysis.saveFigures = true;
@@ -20,6 +21,7 @@ switch lower(profileName)
         config.log.historyMode = "minimal";
         config.log.buildLegacyOutput = false;
         config.log.incrementalCsv = true;
+        config.visualization.fast3D = true;
     case "fast"
         config.analysis.enabled = false;
         config.analysis.showFigures = false;

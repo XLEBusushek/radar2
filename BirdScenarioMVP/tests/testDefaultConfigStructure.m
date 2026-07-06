@@ -23,6 +23,8 @@ assert(config.log.incrementalCsv == false, 'incrementalCsv must be false by defa
 assert(config.tests.runOnStartup == false, 'runOnStartup must be false by default.');
 assert(config.export.csvFromLog == true, 'csvFromLog must be true by default.');
 assert(config.export.matIncludesLegacy == false, 'matIncludesLegacy must be false by default.');
+assert(config.visualization.fast3D == false, 'fast3D must be false by default.');
+assert(config.export.figureResolution == 150, 'figureResolution must be 150 by default.');
 
 config2 = defaultConfig();
 assert(isequaln(config, config2), 'defaultConfig must be deterministic.');

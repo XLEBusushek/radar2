@@ -9,8 +9,9 @@ end
 worldSize = config.world.size;
 vis = config.visualization;
 
-fig = figure('Name', 'BirdScenario - 3D', 'NumberTitle', 'off', ...
-    'Visible', scenarioFigureVisibility(config));
+showAtEnd = shouldShowScenarioFigure(config);
+fig = figure('Name', 'BirdScenario - 3D', 'NumberTitle', 'off', 'Visible', 'off');
+configureScenarioFigure(fig, config);
 hold on;
 grid on;
 axis equal;
@@ -56,6 +57,10 @@ end
 title('BirdScenario - 3D');
 view(3);
 addStandardBirdLegend(gca);
+if showAtEnd
+    set(fig, 'Visible', 'on');
+    drawnow limitrate;
+end
 hold off;
 end
 
@@ -73,13 +78,11 @@ for i = 1:numel(ids)
 end
 end
 
-function visible = scenarioFigureVisibility(config)
+function showAtEnd = shouldShowScenarioFigure(config)
 if isfield(config, 'analysis') && isfield(config.analysis, 'showFigures') && ...
         config.analysis.showFigures
-    visible = 'on';
-elseif usejava('desktop')
-    visible = 'on';
+    showAtEnd = true;
 else
-    visible = 'off';
+    showAtEnd = false;
 end
 end

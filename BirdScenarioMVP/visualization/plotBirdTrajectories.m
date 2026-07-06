@@ -11,10 +11,8 @@ end
 
 hold on;
 
-useStateSegments = isfield(config, 'visualization') && ...
-    config.visualization.showStateSegments;
-useInvisibleSegments = isfield(config, 'visualization') && ...
-    config.visualization.showInvisibleSegments;
+useStateSegments = shouldPlotStateSegments(config);
+useInvisibleSegments = shouldPlotInvisibleSegments(config);
 
 for i = 1:numel(birds)
     bird = birds(i);
