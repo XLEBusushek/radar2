@@ -11,7 +11,6 @@ vis = config.visualization;
 
 showAtEnd = shouldShowScenarioFigure(config);
 fig = figure('Name', 'BirdScenario - 3D', 'NumberTitle', 'off', 'Visible', 'off');
-configureScenarioFigure(fig, config);
 hold on;
 grid on;
 axis equal;
@@ -59,7 +58,6 @@ view(3);
 addStandardBirdLegend(gca);
 if showAtEnd
     set(fig, 'Visible', 'on');
-    drawnow limitrate;
 end
 hold off;
 end
@@ -79,6 +77,11 @@ end
 end
 
 function showAtEnd = shouldShowScenarioFigure(config)
+if isfield(config, 'export') && isfield(config.export, 'deferScenarioFigureDisplay') && ...
+        config.export.deferScenarioFigureDisplay
+    showAtEnd = false;
+    return;
+end
 if isfield(config, 'analysis') && isfield(config.analysis, 'showFigures') && ...
         config.analysis.showFigures
     showAtEnd = true;

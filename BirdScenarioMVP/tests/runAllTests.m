@@ -45,7 +45,6 @@ testScripts = {
     'testBirdCircleBeforeLanding.m'
     'testBirdRealismLimits.m'
     'testVisualization.m'
-    'testFast3DVisualization.m'
     'testExportMat.m'
     'testExportCsv.m'
     'testAnalysisPlots.m'

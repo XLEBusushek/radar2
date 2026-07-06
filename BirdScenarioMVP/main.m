@@ -6,6 +6,7 @@ projectRoot = fileparts(mfilename('fullpath'));
 addpath(genpath(projectRoot));
 
 config = defaultConfig();
+config.export.outputFolder = fullfile(projectRoot, "output");
 config.log.buildLegacyOutput = false;
 config = applyRunProfile(config, "interactive");
 config.fixedWing2.count = 3;
@@ -31,7 +32,14 @@ if config.analysis.enabled
 end
 
 if config.export.enabled
-    exportFromLog(trajectoryLog, config, env);
+    config.export.deferScenarioFigureDisplay = true;
+    config.export.analysisFiguresAlreadySaved = config.analysis.enabled && ...
+        config.analysis.saveFigures;
+    scenarioFig = exportFromLog(trajectoryLog, config, env);
+    fprintf('Results saved to: %s\n', ensureOutputFolder(config));
+    disp('BirdScenarioMVP finished successfully.');
+    if ~isempty(scenarioFig) && isgraphics(scenarioFig)
+        fprintf('[BirdScenarioMVP] Opening 3D window (render may take a moment)...\n');
+        set(scenarioFig, 'Visible', 'on');
+    end
 end
-
-disp('BirdScenarioMVP finished successfully.');

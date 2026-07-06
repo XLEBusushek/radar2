@@ -13,7 +13,10 @@ switch lower(profileName)
         config.log.historyMode = "minimal";
         config.log.buildLegacyOutput = false;
         config.log.incrementalCsv = false;
-        config.visualization.fast3D = true;
+        config.visualization.showStateSegments = false;
+        config.visualization.showInvisibleSegments = false;
+        config.visualization.maxTreesToDraw = 40;
+        config.export.saveMat = false;
         config.debug.validateEachStep = false;
         config.validation.eachStep = false;
     case "batch"
@@ -23,7 +26,10 @@ switch lower(profileName)
         config.log.historyMode = "minimal";
         config.log.buildLegacyOutput = false;
         config.log.incrementalCsv = false;
-        config.visualization.fast3D = true;
+        config.visualization.showStateSegments = false;
+        config.visualization.showInvisibleSegments = false;
+        config.visualization.maxTreesToDraw = 40;
+        config.export.matCompact = true;
         config.debug.validateEachStep = false;
         config.validation.eachStep = false;
     case "fast"

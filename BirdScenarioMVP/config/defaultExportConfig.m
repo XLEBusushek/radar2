@@ -11,12 +11,12 @@ config.visualization.showInvisibleSegments = true;
 config.visualization.showWorldBox = true;
 config.visualization.maxTreesToDraw = 80;
 config.visualization.maxGroundRoutesToDraw = 5;
-config.visualization.fast3D = false;
 
 config.export.enabled = true;
 config.export.figureResolution = 150;
 config.export.outputFolder = "output";
 config.export.saveMat = true;
+config.export.matCompact = false;
 config.export.saveCsv = true;
 config.export.saveFigure = true;
 config.export.matFileName = "bird_scenario_output.mat";

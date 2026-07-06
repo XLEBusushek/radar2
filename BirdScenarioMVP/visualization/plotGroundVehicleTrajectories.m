@@ -11,11 +11,8 @@ end
 
 hold on;
 color = [0.85, 0.45, 0.05];
-fast3D = isFast3DVisualization(config);
 maxRoutes = inf;
-if fast3D
-    maxRoutes = 0;
-elseif isfield(config, 'visualization') && isfield(config.visualization, 'maxGroundRoutesToDraw')
+if isfield(config, 'visualization') && isfield(config.visualization, 'maxGroundRoutesToDraw')
     maxRoutes = config.visualization.maxGroundRoutesToDraw;
 end
 for i = 1:numel(groundVehicles)
@@ -58,7 +55,7 @@ for i = 1:numel(groundVehicles)
     currentPos = positions(end, :);
     scatter3(currentPos(1), currentPos(2), currentPos(3), 50, color, ...
         'filled', 'MarkerEdgeColor', 'k', 'HandleVisibility', 'off');
-    if ~fast3D && isfield(vehicle, 'Velocity') && norm(vehicle.Velocity(1:2)) > 1e-6
+    if isfield(vehicle, 'Velocity') && norm(vehicle.Velocity(1:2)) > 1e-6
         dir = vehicle.Velocity(:).' / max(norm(vehicle.Velocity(1:2)), 1e-6);
         quiver3(currentPos(1), currentPos(2), currentPos(3), ...
             20 * dir(1), 20 * dir(2), 0, 0, 'Color', color, ...
