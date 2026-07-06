@@ -70,5 +70,7 @@ end
 
 target.StateMatrix = computeStateMatrix(target.Position, target.Velocity);
 target = appendTargetHistory(target, config);
-validateTarget(target, config);
+if shouldValidateEachStep(config)
+    validateTarget(target, config);
+end
 end

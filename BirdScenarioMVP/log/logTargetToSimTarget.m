@@ -24,7 +24,11 @@ else
     target.StateMatrix = zeros(3, 2);
 end
 
-target.Payload = unwrapLogPayload(targetLog.Payload);
+if isfield(targetLog, 'Payload')
+    target.Payload = unwrapLogPayload(targetLog.Payload);
+else
+    target.Payload = struct();
+end
 target.Metadata = unwrapLogSnapshot(targetLog, 'MetadataSnapshot', ...
     struct('RandomSeed', nan, 'RandomMode', ""));
 target.Behavior = unwrapLogSnapshot(targetLog, 'BehaviorSnapshot', struct());

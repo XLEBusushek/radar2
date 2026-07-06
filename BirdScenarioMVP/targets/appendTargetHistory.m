@@ -6,6 +6,8 @@ arguments
 end
 
 switch getHistoryMode(config)
+    case "none"
+        return;
     case "off"
         target = appendTargetHistoryCore(target);
     case "minimal"

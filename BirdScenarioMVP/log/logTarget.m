@@ -20,7 +20,9 @@ targetLog.Heading = computeTargetHeading(target);
 targetLog.Roll = 0;
 targetLog.Pitch = 0;
 targetLog.Yaw = targetLog.Heading;
-targetLog.Payload = {buildTargetPayload(target, config)};
+if shouldStorePayload(config)
+    targetLog.Payload = {buildTargetPayload(target, config)};
+end
 targetLog.MetadataSnapshot = snapshotStructField(target, 'Metadata');
 targetLog.BehaviorSnapshot = snapshotStructField(target, 'Behavior');
 end

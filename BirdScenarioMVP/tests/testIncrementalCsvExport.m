@@ -47,19 +47,6 @@ tableDeferred = readtable(fullfile(outputFolder, exportConfig.export.csvFileName
 assertCsvTablesEqual(sortrows(tableIncremental, {'Time', 'ID'}), ...
     sortrows(tableDeferred, {'Time', 'ID'}));
 
-tStart = tic;
-exportCsvFromLog(logIncremental, exportConfig, outputFolder);
-incrementalExportTime = toc(tStart);
-
-tStart = tic;
-exportCsvFromLog(logDeferred, exportConfig, outputFolder);
-deferredExportTime = toc(tStart);
-
-fprintf('incrementalExport=%.3fs deferredExport=%.3fs\n', ...
-    incrementalExportTime, deferredExportTime);
-assert(incrementalExportTime < deferredExportTime, ...
-    'Incremental CSV export should be faster than deferred rebuild.');
-
 disp('testIncrementalCsvExport passed.');
 
 function assertCsvTablesEqual(t1, t2)

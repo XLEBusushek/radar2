@@ -20,4 +20,5 @@ config.environment.crownRadiusRange = [2, 8];
 config.environment.treeMargin = 20;
 
 config.debug.verbose = true;
+config.debug.validateEachStep = true;
 end

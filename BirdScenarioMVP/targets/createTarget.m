@@ -1,5 +1,5 @@
 function target = createTarget(id, className, subtype, config, context)
-% createTarget - Create a target of the given class (bird only at this stage).
+% createTarget - Create a single target (prefer createTargets for scenarios).
 arguments
     id (1, 1) {mustBePositive, mustBeInteger}
     className (1, 1) string
@@ -16,7 +16,17 @@ if className == "bird" && subtype == "bird"
 elseif className == "air" && subtype == "quadcopter"
     target = createQuadcopterTarget(id, config);
 elseif className == "air" && subtype == "fixedWingUAV"
-    target = createFixedWingTarget(id, config);
+    if isfield(config, 'fixedWing2') && isfield(config.fixedWing2, 'enabled') && ...
+            config.fixedWing2.enabled
+        target = fw2_createFixedWingTarget(id, config);
+    else
+        target = createFixedWingTarget(id, config);
+    end
+elseif className == "ground" && subtype == "vehicle"
+    if ~isfield(context, 'RoadNetwork')
+        error('createTarget:MissingContext', 'context.RoadNetwork is required.');
+    end
+    target = createGroundVehicleTarget(id, config, context.RoadNetwork);
 else
     error('createTarget:UnsupportedClass', ...
         'Unsupported target class: %s / %s.', className, subtype);

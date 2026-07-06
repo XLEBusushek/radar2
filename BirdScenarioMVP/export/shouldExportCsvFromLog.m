@@ -5,14 +5,19 @@ arguments
     legacyOutput struct = struct([])
 end
 
-if isempty(legacyOutput)
-    tf = true;
+csvFromLog = true;
+if isfield(config, 'export') && isfield(config.export, 'csvFromLog')
+    csvFromLog = logical(config.export.csvFromLog);
+end
+
+if ~csvFromLog
+    tf = false;
     return;
 end
 
-if isfield(config, 'export') && isfield(config.export, 'csvFromLog')
-    tf = logical(config.export.csvFromLog);
+if isempty(legacyOutput)
+    tf = true;
 else
-    tf = false;
+    tf = csvFromLog;
 end
 end

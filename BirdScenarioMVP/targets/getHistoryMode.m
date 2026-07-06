@@ -10,7 +10,8 @@ else
     mode = "full";
 end
 
-if mode ~= "full" && mode ~= "minimal" && mode ~= "off"
-    error('getHistoryMode:InvalidMode', 'historyMode must be full, minimal, or off.');
+if mode ~= "full" && mode ~= "minimal" && mode ~= "off" && mode ~= "none"
+    error('getHistoryMode:InvalidMode', ...
+        'historyMode must be full, minimal, off, or none.');
 end
 end

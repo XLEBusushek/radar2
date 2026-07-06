@@ -1,5 +1,5 @@
 function targets = getLogTargetsByType(trajectoryLog, className, subtype)
-% getLogTargetsByType - Collect targets of a type across all frames (last frame IDs).
+% getLogTargetsByType - Collect targets of a type from the last recorded frame.
 arguments
     trajectoryLog (1, 1) struct
     className (1, 1) string
@@ -11,7 +11,13 @@ if ~isfield(trajectoryLog, 'Frames') || isempty(trajectoryLog.Frames)
     return;
 end
 
-lastFrame = trajectoryLog.Frames(end);
+frameIndex = getLogFrameCount(trajectoryLog);
+if frameIndex <= 0
+    targets = struct([]);
+    return;
+end
+
+lastFrame = trajectoryLog.Frames(frameIndex);
 if ~isfield(lastFrame, 'Targets') || isempty(lastFrame.Targets)
     targets = struct([]);
     return;

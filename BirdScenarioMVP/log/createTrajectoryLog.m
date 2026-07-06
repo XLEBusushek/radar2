@@ -33,7 +33,34 @@ end
 
 if shouldIncrementalCsv(config)
     log.CsvRowCount = 0;
+    log.CsvRowCapacity = estimateCsvRowCapacity(config, log);
 end
+end
+
+function capacity = estimateCsvRowCapacity(config, log)
+numFrames = log.PreallocatedFrameCapacity;
+if numFrames <= 0
+    numFrames = numel(0:config.sim.dt:config.sim.duration);
+end
+capacity = numFrames * estimateConfiguredTargetCount(config);
+end
+
+function count = estimateConfiguredTargetCount(config)
+count = 0;
+sections = {'birds', 'quadcopter', 'groundVehicle'};
+for i = 1:numel(sections)
+    name = sections{i};
+    if isfield(config, name) && isfield(config.(name), 'count')
+        count = count + config.(name).count;
+    end
+end
+if isfield(config, 'fixedWing2') && isfield(config.fixedWing2, 'enabled') && ...
+        config.fixedWing2.enabled && isfield(config.fixedWing2, 'count')
+    count = count + config.fixedWing2.count;
+elseif isfield(config, 'fixedWing') && isfield(config.fixedWing, 'count')
+    count = count + config.fixedWing.count;
+end
+count = max(count, 1);
 end
 
 function tf = shouldPreallocateFrames(config)

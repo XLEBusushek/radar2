@@ -5,6 +5,11 @@ arguments
     config (1, 1) struct
 end
 
+if ~shouldStorePayload(config)
+    payload = struct();
+    return;
+end
+
 if shouldStoreFullPayload(config) && isfield(target, 'Payload')
     payload = target.Payload;
 else
@@ -47,6 +52,11 @@ end
 end
 
 function tf = shouldStoreFullPayload(config)
+if ~shouldStorePayload(config)
+    tf = false;
+    return;
+end
+
 if isfield(config, 'log') && isfield(config.log, 'storeFullPayload')
     tf = logical(config.log.storeFullPayload);
 else

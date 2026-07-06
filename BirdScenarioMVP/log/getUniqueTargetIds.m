@@ -6,11 +6,14 @@ arguments
     subtype (1, 1) string = ""
 end
 
-ids = [];
 numFrames = getLogFrameCount(trajectoryLog);
 if numFrames == 0
+    ids = [];
     return;
 end
+
+buffer = zeros(numFrames * 32, 1);
+count = 0;
 
 for k = 1:numFrames
     frame = trajectoryLog.Frames(k);
@@ -25,8 +28,17 @@ for k = 1:numFrames
         if subtype ~= "" && t.Subtype ~= subtype
             continue;
         end
-        ids = [ids; t.ID]; %#ok<AGROW>
+        count = count + 1;
+        if count > numel(buffer)
+            buffer = [buffer; zeros(numel(buffer), 1)]; %#ok<AGROW>
+        end
+        buffer(count) = t.ID;
     end
 end
-ids = unique(ids);
+
+if count == 0
+    ids = [];
+else
+    ids = unique(buffer(1:count));
+end
 end

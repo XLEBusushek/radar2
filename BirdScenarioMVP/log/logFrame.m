@@ -32,10 +32,13 @@ end
 if isfield(log, 'PreallocatedFrameCapacity') && log.PreallocatedFrameCapacity > 0
     log.Time(frameIndex, 1) = time;
     if frameIndex == 1
-        log.Frames = repmat(frame, log.PreallocatedFrameCapacity, 1);
-    else
-        log.Frames(frameIndex) = frame;
+        emptyFrame = struct('Time', 0, 'Targets', struct([]));
+        if shouldStoreLegacyPerFrame(config)
+            emptyFrame.LegacyExport = struct([]);
+        end
+        log.Frames = repmat(emptyFrame, log.PreallocatedFrameCapacity, 1);
     end
+    log.Frames(frameIndex) = frame;
 else
     if isempty(log.Frames)
         log.Frames = frame;
