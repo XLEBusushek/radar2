@@ -10,12 +10,13 @@ config.behavior.enabled = false;
 config.birds.count = 0;
 config.quadcopter.count = 0;
 config.groundVehicle.count = 0;
-config.sim.duration = 120;
+config.sim.duration = 550;
 config.sim.dt = 1;
+config.sim.random.mode = "deterministic";
+config.sim.random.seed = 42;
 config.visualization.enabled = false;
 config.export.enabled = false;
 config.analysis.enabled = false;
-setScenarioRNG(42);
 
 [scenario, ~] = runSimulation(config);
 uav = getScenarioFixedWingUAVs(scenario);

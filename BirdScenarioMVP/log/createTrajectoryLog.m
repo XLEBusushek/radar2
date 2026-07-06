@@ -30,6 +30,10 @@ else
     log.Time = zeros(0, 1);
     log.Frames = struct([]);
 end
+
+if shouldIncrementalCsv(config)
+    log.CsvRowCount = 0;
+end
 end
 
 function tf = shouldPreallocateFrames(config)

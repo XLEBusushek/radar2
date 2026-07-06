@@ -18,4 +18,8 @@ end
 if isfield(log, 'PreallocatedFrameCapacity')
     log.PreallocatedFrameCapacity = count;
 end
+
+if isfield(log, 'CsvRows') && isfield(log, 'CsvRowCount') && log.CsvRowCount > 0
+    log.CsvRows = log.CsvRows(1:log.CsvRowCount);
+end
 end

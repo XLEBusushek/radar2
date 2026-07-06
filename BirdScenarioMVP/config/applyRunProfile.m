@@ -12,12 +12,14 @@ switch lower(profileName)
         config.export.enabled = true;
         config.log.historyMode = "minimal";
         config.log.buildLegacyOutput = false;
+        config.log.incrementalCsv = true;
     case "batch"
         config.analysis.showFigures = false;
         config.analysis.saveFigures = true;
         config.export.enabled = true;
         config.log.historyMode = "minimal";
         config.log.buildLegacyOutput = false;
+        config.log.incrementalCsv = true;
     case "fast"
         config.analysis.enabled = false;
         config.analysis.showFigures = false;

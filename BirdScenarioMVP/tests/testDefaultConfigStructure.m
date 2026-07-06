@@ -5,7 +5,7 @@ addpath(genpath(projectRoot));
 config = defaultConfig();
 
 sections = {'project', 'world', 'sim', 'birds', 'roads', 'groundVehicle', ...
-    'quadcopter', 'fixedWing', 'fixedWing2', 'export', 'analysis', 'behavior', 'log'};
+    'quadcopter', 'fixedWing', 'fixedWing2', 'export', 'analysis', 'behavior', 'log', 'tests'};
 for i = 1:numel(sections)
     assert(isfield(config, sections{i}), 'Missing config section: %s.', sections{i});
 end
@@ -19,6 +19,8 @@ assert(config.log.legacyPerFrame == false, 'legacyPerFrame must be false by defa
 assert(config.log.preallocateFrames == true, 'preallocateFrames must be true by default.');
 assert(config.log.historyMode == "full", 'historyMode must be full by default.');
 assert(config.log.buildLegacyOutput == true, 'buildLegacyOutput must be true by default.');
+assert(config.log.incrementalCsv == false, 'incrementalCsv must be false by default.');
+assert(config.tests.runOnStartup == false, 'runOnStartup must be false by default.');
 assert(config.export.csvFromLog == true, 'csvFromLog must be true by default.');
 assert(config.export.matIncludesLegacy == false, 'matIncludesLegacy must be false by default.');
 

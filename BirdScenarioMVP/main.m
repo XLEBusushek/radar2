@@ -11,6 +11,9 @@ config.fixedWing2.count = 3;
 config.groundVehicle.count = 4;
 config.visualization.showRoads = true;
 config.analysis.showFigures = true;
+% config.tests.runOnStartup = true;  % set true to run runAllTests before simulation
+
+runStartupTests(config);
 
 [scenario, trajectoryLog, output] = runSimulation(config);
 

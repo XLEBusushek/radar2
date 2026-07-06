@@ -6,7 +6,11 @@ arguments
     outputFolder (1, :) char
 end
 
-rows = buildOutputTableRowsFromLog(trajectoryLog);
+if hasIncrementalCsvRows(trajectoryLog)
+    rows = trajectoryLog.CsvRows(1:trajectoryLog.CsvRowCount);
+else
+    rows = buildOutputTableRowsFromLog(trajectoryLog);
+end
 T = struct2table(rows);
 csvPath = fullfile(outputFolder, config.export.csvFileName);
 writetable(T, csvPath);

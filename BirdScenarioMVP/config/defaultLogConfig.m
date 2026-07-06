@@ -6,4 +6,5 @@ config.log.storeFullPayload = true;
 config.log.preallocateFrames = true;
 config.log.historyMode = "full";
 config.log.buildLegacyOutput = true;
+config.log.incrementalCsv = false;
 end

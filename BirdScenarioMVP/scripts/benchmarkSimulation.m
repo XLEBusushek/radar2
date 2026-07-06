@@ -93,4 +93,18 @@ fprintf('  legacy rebuild:                 %.3f s\n', rebuildTime);
 fprintf('  CSV from legacy output:         %.3f s\n', legacyCsvTime);
 fprintf('  legacyOutput empty:             %d\n\n', isempty(legacyOutput));
 
+fprintf('--- incremental CSV path ---\n');
+incrConfig = prodConfig;
+incrConfig.log.incrementalCsv = true;
+tStart = tic;
+[~, incrLog, ~] = runSimulation(incrConfig);
+incrSimTime = toc(tStart);
+incrFolder = ensureOutputFolder(incrConfig);
+tStart = tic;
+exportCsvFromLog(incrLog, incrConfig, incrFolder);
+incrExportTime = toc(tStart);
+fprintf('  simulation (incrementalCsv):    %.3f s\n', incrSimTime);
+fprintf('  CSV export (prebuilt rows):     %.3f s\n', incrExportTime);
+fprintf('  hasIncrementalCsvRows:          %d\n\n', hasIncrementalCsvRows(incrLog));
+
 fprintf('Benchmark complete.\n');

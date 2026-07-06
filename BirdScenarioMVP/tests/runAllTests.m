@@ -10,6 +10,7 @@ testScripts = {
     'testTargetHistoryCache.m'
     'testHistoryModeEquivalence.m'
     'testDirectCsvExport.m'
+    'testIncrementalCsvExport.m'
     'testDefaultConfigStructure.m'
     'testSplitTargetsByType.m'
     'testTrees.m'

@@ -36,13 +36,14 @@ if isfield(log, 'PreallocatedFrameCapacity') && log.PreallocatedFrameCapacity > 
     else
         log.Frames(frameIndex) = frame;
     end
-    return;
+else
+    if isempty(log.Frames)
+        log.Frames = frame;
+    else
+        log.Frames(end + 1) = frame;
+    end
+    log.Time(end + 1, 1) = time;
 end
 
-if isempty(log.Frames)
-    log.Frames = frame;
-else
-    log.Frames(end + 1) = frame;
-end
-log.Time(end + 1, 1) = time;
+log = appendCsvRowsFromScenario(scenario, log, time, config);
 end
