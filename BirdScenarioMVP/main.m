@@ -6,6 +6,7 @@ projectRoot = fileparts(mfilename('fullpath'));
 addpath(genpath(projectRoot));
 
 config = defaultConfig();
+config.log.buildLegacyOutput = false;
 config = applyRunProfile(config, "interactive");
 config.fixedWing2.count = 3;
 config.groundVehicle.count = 4;
@@ -15,7 +16,7 @@ config.analysis.showFigures = true;
 
 runStartupTests(config);
 
-[scenario, trajectoryLog, output] = runSimulation(config);
+[scenario, trajectoryLog, ~] = runSimulation(config);
 
 fprintf('Targets: birds=%d, quadcopters=%d, fixedWingUAVs=%d, groundVehicles=%d\n', ...
     numel(getScenarioBirds(scenario)), numel(getScenarioQuadcopters(scenario)), ...
@@ -30,7 +31,7 @@ if config.analysis.enabled
 end
 
 if config.export.enabled
-    exportFromLog(trajectoryLog, config, env, output);
+    exportFromLog(trajectoryLog, config, env);
 end
 
 disp('BirdScenarioMVP finished successfully.');
