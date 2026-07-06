@@ -14,5 +14,6 @@ config = defaultExportConfig(config);
 config = defaultAnalysisConfig(config);
 config = defaultBehaviorConfig(config);
 config = defaultLogConfig(config);
+config = defaultValidationConfig(config);
 config = defaultTestsConfig(config);
 end

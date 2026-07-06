@@ -15,6 +15,7 @@ switch lower(profileName)
         config.log.incrementalCsv = false;
         config.visualization.fast3D = true;
         config.debug.validateEachStep = false;
+        config.validation.eachStep = false;
     case "batch"
         config.analysis.showFigures = false;
         config.analysis.saveFigures = true;
@@ -24,6 +25,7 @@ switch lower(profileName)
         config.log.incrementalCsv = false;
         config.visualization.fast3D = true;
         config.debug.validateEachStep = false;
+        config.validation.eachStep = false;
     case "fast"
         config.analysis.enabled = false;
         config.analysis.showFigures = false;
@@ -32,12 +34,14 @@ switch lower(profileName)
         config.log.historyMode = "minimal";
         config.log.buildLegacyOutput = false;
         config.debug.validateEachStep = false;
+        config.validation.eachStep = false;
     case "benchmark"
         config.analysis.enabled = false;
         config.export.enabled = false;
         config.visualization.enabled = false;
         config.debug.verbose = false;
         config.debug.validateEachStep = false;
+        config.validation.eachStep = false;
         config.log.historyMode = "none";
         config.log.buildLegacyOutput = false;
     otherwise

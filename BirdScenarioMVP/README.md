@@ -27,7 +27,34 @@ cd('path/to/BirdScenarioMVP')
 main
 ```
 
-`main` runs the simulation, opens a 3D plot (if enabled), builds analysis figures, and exports results to `output/`. By default, each run uses a new randomized scenario seed.
+`main` runs the simulation, opens a 3D plot (if enabled), builds analysis figures, and exports results to `output/`. By default, each run uses a new randomized scenario seed. The interactive profile (`applyRunProfile(config, "interactive")`) disables legacy output rebuild and per-step validation for faster runs.
+
+## Simulation API
+
+`runSimulation` returns one to three outputs depending on `nargout`:
+
+```matlab
+[scenario, trajectoryLog, output] = runSimulation(config);
+```
+
+| Output | Description |
+|--------|-------------|
+| `scenario` | Final scenario struct (`Targets`, typed views, metadata) |
+| `trajectoryLog` | Canonical per-frame log (`Frames`, `Metadata`, optional `CsvRows`) |
+| `output` | Legacy step array; built only when `nargout >= 2` and `config.log.buildLegacyOutput` is `true` |
+
+Legacy two-output form is still supported:
+
+```matlab
+[scenario, output] = runSimulation(config);  % output omitted when buildLegacyOutput=false
+```
+
+After simulation, `main` attaches target history caches and exports from the log:
+
+```matlab
+trajectoryLog = attachTargetHistoryCache(trajectoryLog);
+exportFromLog(trajectoryLog, config, env);
+```
 
 ## Randomization modes
 
@@ -45,7 +72,7 @@ Deterministic mode repeats the same scenario for the same seed:
 config = defaultConfig();
 config.sim.random.mode = "deterministic";
 config.sim.random.seed = 42;
-[scenario, output] = runSimulation(config);
+[scenario, trajectoryLog, output] = runSimulation(config);
 ```
 
 Randomized mode creates a new scenario seed on each run:
@@ -53,7 +80,7 @@ Randomized mode creates a new scenario seed on each run:
 ```matlab
 config = defaultConfig();
 config.sim.random.mode = "randomized";
-[scenario, output] = runSimulation(config);
+[scenario, trajectoryLog, output] = runSimulation(config);
 ```
 
 The scenario seed is saved in `scenario.Random`, `scenario.Metadata.ScenarioSeed`,
@@ -72,7 +99,7 @@ After `main`, results are saved under `output/` (configurable via `config.export
 
 | File | Description |
 |------|-------------|
-| `bird_scenario_output.mat` | Full `scenario`, `output`, and `config` structs |
+| `bird_scenario_output.mat` | `trajectoryLog`, legacy `output` (if built), and `config` |
 | `bird_scenario_tracks.csv` | Per-timestep track table |
 | `bird_scenario_3d.png` | 3D trajectory figure |
 | `bird_xy.png` | Top-down XY view of trajectories and trees |
@@ -98,6 +125,31 @@ After `main`, results are saved under `output/` (configurable via `config.export
 - `CurrentTreeID`, `TargetTreeID`
 - `TransitionCount`, `TransitionReason`
 
+## Log and export configuration
+
+Trajectory recording is controlled by `config.log`:
+
+| Flag | Default | Description |
+|------|---------|-------------|
+| `historyMode` | `"full"` | Per-step `target.History`: `"full"`, `"minimal"`, `"off"` (core kinematics only), `"none"` (no append) |
+| `storePayload` | `true` | When `false`, `Payload` is omitted from log frames |
+| `storeFullPayload` | `true` | Full vs compact payload when `storePayload` is `true` |
+| `buildLegacyOutput` | `true` | Build legacy `output` inside `runSimulation` (profiles set `false`) |
+| `incrementalCsv` | `false` | Append CSV rows during simulation instead of export-time build |
+| `preallocateFrames` | `true` | Preallocate `trajectoryLog.Frames` |
+| `legacyPerFrame` | `false` | Store per-frame legacy export snapshot in each frame |
+
+Export flags under `config.export`:
+
+| Flag | Default | Description |
+|------|---------|-------------|
+| `csvFromLog` | `true` | Build CSV from `trajectoryLog`; when `false`, uses legacy export path |
+| `matIncludesLegacy` | `false` | Include legacy `output` in MAT when `buildLegacyOutput` was off |
+
+Per-step target validation (`validateTarget` in `updateTarget`) is controlled by `config.validation.eachStep` (preferred) or `config.debug.validateEachStep`. Defaults to `true`; interactive/batch/benchmark profiles set both to `false`.
+
+Run profiles (`applyRunProfile`): `"interactive"`, `"batch"`, `"fast"`, `"benchmark"` — tune logging, export, analysis, and validation for typical workflows.
+
 ## Tests
 
 Run all tests:
@@ -122,6 +174,7 @@ run('tests/testAnalysisExport.m')
 ## Structure
 
 - `config/` — configuration (`defaultConfig()` assembles section modules)
+- `log/` — TrajectoryLog recording (`logFrame`, `createTrajectoryLog`, payload builders)
 - `core/` — simulation orchestration
   - `core/output/` — modular `collectOutput` field builders
 - `environment/` — trees and world

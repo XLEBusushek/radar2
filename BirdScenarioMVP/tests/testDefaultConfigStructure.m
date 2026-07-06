@@ -5,7 +5,7 @@ addpath(genpath(projectRoot));
 config = defaultConfig();
 
 sections = {'project', 'world', 'sim', 'birds', 'roads', 'groundVehicle', ...
-    'quadcopter', 'fixedWing', 'fixedWing2', 'export', 'analysis', 'behavior', 'log', 'tests'};
+    'quadcopter', 'fixedWing', 'fixedWing2', 'export', 'analysis', 'behavior', 'log', 'validation', 'tests'};
 for i = 1:numel(sections)
     assert(isfield(config, sections{i}), 'Missing config section: %s.', sections{i});
 end
@@ -26,6 +26,7 @@ assert(config.export.matIncludesLegacy == false, 'matIncludesLegacy must be fals
 assert(config.log.storePayload == true, 'storePayload must be true by default.');
 assert(config.export.figureResolution == 150, 'figureResolution must be 150 by default.');
 assert(config.debug.validateEachStep == true, 'validateEachStep must be true by default.');
+assert(config.validation.eachStep == true, 'validation.eachStep must be true by default.');
 
 config2 = defaultConfig();
 assert(isequaln(config, config2), 'defaultConfig must be deterministic.');
