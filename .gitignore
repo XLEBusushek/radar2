@@ -5,9 +5,10 @@
 slprj/
 codegen/
 
-# Generated simulation output
-output/
+# Generated simulation output (do not use bare output/ — it ignores core/output/)
+/output/
 BirdScenarioMVP/output/
+BirdScenarioMVP/tests/output/
 
 # OS
 .DS_Store

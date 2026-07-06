@@ -17,7 +17,7 @@ if config.export.saveMat
 end
 
 if config.export.saveCsv
-    exportCSV(output, config, outputFolder);
+    exportOutputToCsv(output, config, outputFolder);
 end
 
 if isfield(config.export, 'fixedWingDebugCsv') && config.export.fixedWingDebugCsv
