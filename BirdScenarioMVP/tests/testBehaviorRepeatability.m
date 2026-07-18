@@ -1,4 +1,4 @@
-% testBehaviorRepeatability - Checks same seed reproduces behavior (ТЗ-07B).
+% testBehaviorRepeatability - Проверяет воспроизводимость поведения при одинаковом seed (ТЗ-07B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

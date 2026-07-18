@@ -1,4 +1,4 @@
-% testFW2AltitudeSmoothness - Vertical motion limits (ТЗ-09S).
+% testFW2AltitudeSmoothness - Лимиты вертикального движения (ТЗ-09S).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

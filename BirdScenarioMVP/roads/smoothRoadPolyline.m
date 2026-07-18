@@ -1,5 +1,5 @@
 function points = smoothRoadPolyline(controlPoints, config)
-% smoothRoadPolyline - Smooth road control points with pchip interpolation.
+% smoothRoadPolyline - Сглаживание контрольных точек дороги интерполяцией pchip.
 arguments
     controlPoints (:, 3) double
     config (1, 1) struct

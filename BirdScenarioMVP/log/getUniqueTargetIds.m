@@ -1,5 +1,5 @@
 function ids = getUniqueTargetIds(trajectoryLog, className, subtype)
-% getUniqueTargetIds - Collect unique target IDs from TrajectoryLog.
+% getUniqueTargetIds - Собрать уникальные ID целей из TrajectoryLog.
 arguments
     trajectoryLog (1, 1) struct
     className (1, 1) string = ""

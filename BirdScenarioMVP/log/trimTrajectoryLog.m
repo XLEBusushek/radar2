@@ -1,5 +1,5 @@
 function log = trimTrajectoryLog(log)
-% trimTrajectoryLog - Drop unused preallocated frame slots.
+% trimTrajectoryLog - Удалить неиспользуемые предварительно выделенные слоты кадров.
 arguments
     log (1, 1) struct
 end

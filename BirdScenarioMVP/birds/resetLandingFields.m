@@ -1,5 +1,5 @@
 function bird = resetLandingFields(bird)
-% resetLandingFields - Clear landing-related payload fields.
+% resetLandingFields - Очистить поля посадки в Payload.
 bird.Payload.LandingTargetPoint = [];
 bird.Payload.LandingStartPosition = [];
 bird.Payload.LandingProgress = 0;

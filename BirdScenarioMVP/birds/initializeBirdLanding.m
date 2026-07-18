@@ -1,5 +1,5 @@
 function bird = initializeBirdLanding(bird, scenario, config)
-% initializeBirdLanding - Initialize landing parameters on Landing entry.
+% initializeBirdLanding - Инициализировать параметры посадки при входе в Landing.
 arguments
     bird (1, 1) struct
     scenario (1, 1) struct

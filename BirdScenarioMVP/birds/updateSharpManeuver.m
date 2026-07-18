@@ -1,5 +1,5 @@
 function bird = updateSharpManeuver(bird, config)
-% updateSharpManeuver - Deactivate sharp maneuver after its duration expires.
+% updateSharpManeuver - Отключить резкий манёвр после истечения его длительности.
 arguments
     bird (1, 1) struct
     config (1, 1) struct %#ok<INUSD>

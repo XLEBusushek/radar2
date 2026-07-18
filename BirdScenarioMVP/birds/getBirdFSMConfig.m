@@ -1,5 +1,5 @@
 function stateConfig = getBirdFSMConfig(state, config)
-% getBirdFSMConfig - Return FSM timing and probability settings for a state.
+% getBirdFSMConfig - Вернуть параметры времени и вероятности FSM для состояния.
 arguments
     state (1, 1) string
     config (1, 1) struct

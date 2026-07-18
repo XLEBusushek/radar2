@@ -1,5 +1,5 @@
 function enter = shouldEnterFixedWingFinalPhase(target, config)
-% shouldEnterFixedWingFinalPhase - Detect when fixed-wing mission enters final phase.
+% shouldEnterFixedWingFinalPhase - Обнаружить вход миссии fixed-wing в финальную фазу.
 arguments
     target (1, 1) struct
     config (1, 1) struct

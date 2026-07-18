@@ -1,5 +1,5 @@
 function row = buildCsvRowFromTargetOutput(time, randomMode, scenarioSeed, targetOut)
-% buildCsvRowFromTargetOutput - One CSV track row from legacy target output.
+% buildCsvRowFromTargetOutput - Одна строка трека CSV из legacy-выхода цели.
 arguments
     time (1, 1) double
     randomMode (1, 1) string

@@ -1,5 +1,5 @@
 function tf = shouldPlotStateSegments(config)
-% shouldPlotStateSegments - Whether bird trajectories use per-state 3D segments.
+% shouldPlotStateSegments - Определяет, используют ли траектории птиц 3D-сегменты по состояниям.
 arguments
     config (1, 1) struct
 end

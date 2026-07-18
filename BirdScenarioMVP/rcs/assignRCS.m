@@ -1,5 +1,5 @@
 function rcs = assignRCS(className, config)
-% assignRCS - Assign random RCS value for a target class.
+% assignRCS - Назначение случайного значения RCS для класса цели.
 arguments
     className (1, 1) string
     config (1, 1) struct

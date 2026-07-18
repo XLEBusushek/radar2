@@ -1,5 +1,5 @@
 function targetTreeID = selectRealisticTargetTree(bird, trees, config)
-% selectRealisticTargetTree - Choose a target tree with realism preferences.
+% selectRealisticTargetTree - Выбрать целевое дерево с учётом реалистичности.
 arguments
     bird (1, 1) struct
     trees struct

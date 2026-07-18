@@ -1,4 +1,4 @@
-% testFW2RouteRegeneration - New route after completion (ТЗ-09R).
+% testFW2RouteRegeneration - Новый маршрут после завершения (ТЗ-09R).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

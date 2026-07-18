@@ -1,5 +1,5 @@
 function target = applyFixedWingAltitudeSmoothing(target, config)
-% applyFixedWingAltitudeSmoothing - Smooth desired altitude toward target flight level.
+% applyFixedWingAltitudeSmoothing - Сгладить желаемую высоту к целевому эшелону.
 arguments
     target (1, 1) struct
     config (1, 1) struct

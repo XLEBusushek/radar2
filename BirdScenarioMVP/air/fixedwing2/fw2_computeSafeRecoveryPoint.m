@@ -1,5 +1,5 @@
 function recoveryPoint = fw2_computeSafeRecoveryPoint(target, config)
-% fw2_computeSafeRecoveryPoint - One-time recovery point deep inside safe zone.
+% fw2_computeSafeRecoveryPoint - Одноразовая точка восстановления глубоко внутри safe zone.
 arguments
     target (1, 1) struct
     config (1, 1) struct

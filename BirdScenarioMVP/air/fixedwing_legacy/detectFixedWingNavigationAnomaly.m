@@ -1,5 +1,5 @@
 function report = detectFixedWingNavigationAnomaly(target, config)
-% detectFixedWingNavigationAnomaly - Detect suspicious fixed-wing navigation patterns.
+% detectFixedWingNavigationAnomaly - Обнаружить подозрительные паттерны навигации fixed-wing.
 arguments
     target (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function target = detectBorderFollowing(target, config, dt)
-% detectBorderFollowing - Detect prolonged flight parallel to a map border.
+% detectBorderFollowing - Обнаружить длительный полёт параллельно границе карты.
 arguments
     target (1, 1) struct
     config (1, 1) struct

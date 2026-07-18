@@ -1,5 +1,5 @@
 function scenario = initializeScenario(config, randomState)
-% initializeScenario - Create initial scenario state.
+% initializeScenario - Создать начальное состояние сценария.
 arguments
     config (1, 1) struct
     randomState (1, 1) struct = struct()

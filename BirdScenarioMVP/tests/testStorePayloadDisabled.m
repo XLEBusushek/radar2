@@ -1,4 +1,4 @@
-% testStorePayloadDisabled - storePayload=false must omit Payload from log frames.
+% testStorePayloadDisabled - storePayload=false должен исключать Payload из кадров лога.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

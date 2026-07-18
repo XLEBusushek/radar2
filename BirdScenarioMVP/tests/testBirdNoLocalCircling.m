@@ -1,4 +1,4 @@
-% testBirdNoLocalCircling - Checks birds leave start area without local loops (ТЗ-06C).
+% testBirdNoLocalCircling - Проверяет, что птицы покидают стартовую зону без локальных петель (ТЗ-06C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

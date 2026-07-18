@@ -1,4 +1,4 @@
-% testBirdRetargeting - Checks in-flight retarget behavior (ТЗ-05E).
+% testBirdRetargeting - Проверяет поведение перенацеливания в полёте (ТЗ-05E).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

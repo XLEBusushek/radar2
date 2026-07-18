@@ -1,4 +1,4 @@
-% testGroundVehicleOffRoadReturn - Checks off-road excursion returns to route (ТЗ-08C).
+% testGroundVehicleOffRoadReturn - Проверяет возврат съезда с дороги на маршрут (ТЗ-08C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

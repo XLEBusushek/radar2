@@ -1,5 +1,5 @@
 function recoveryTarget = computeRecoveryTarget(target, config, reason)
-% computeRecoveryTarget - Pick a stable inward point deep inside Safe Zone.
+% computeRecoveryTarget - Выбрать стабильную внутреннюю точку глубоко в Safe Zone.
 arguments
     target (1, 1) struct
     config (1, 1) struct

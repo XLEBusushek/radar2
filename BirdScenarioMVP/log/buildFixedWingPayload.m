@@ -1,5 +1,5 @@
 function payload = buildFixedWingPayload(target)
-% buildFixedWingPayload - Fixed-wing payload snapshot (FW2 and legacy).
+% buildFixedWingPayload - Снимок Payload самолёта с фиксированным крылом (FW2 и legacy).
 payload = struct();
 if ~isfield(target, 'Payload')
     return;

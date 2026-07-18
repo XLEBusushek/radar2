@@ -1,4 +1,4 @@
-% testSimulationEngine - Checks simulation time loop (ТЗ-04).
+% testSimulationEngine - Проверяет цикл симуляции по времени (ТЗ-04).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

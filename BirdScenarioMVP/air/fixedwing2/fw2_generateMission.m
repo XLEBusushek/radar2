@@ -1,5 +1,5 @@
 function mission = fw2_generateMission(startPoint, initialHeading, config)
-% fw2_generateMission - Generate route points inside safe zone.
+% fw2_generateMission - Сгенерировать точки маршрута внутри safe zone.
 arguments
     startPoint (3, 1) double
     initialHeading (1, 1) double

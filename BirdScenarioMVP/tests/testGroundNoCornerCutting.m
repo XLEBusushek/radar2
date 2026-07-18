@@ -1,4 +1,4 @@
-% testGroundNoCornerCutting - Checks vehicles mostly stay on routes (ТЗ-08B).
+% testGroundNoCornerCutting - Проверяет, что транспорт в основном остаётся на маршрутах (ТЗ-08B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

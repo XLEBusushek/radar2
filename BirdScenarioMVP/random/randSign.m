@@ -1,5 +1,5 @@
 function s = randSign()
-% randSign - Return either -1 or +1 with equal probability.
+% randSign - Возврат -1 или +1 с равной вероятностью.
 if rand() < 0.5
     s = -1;
 else

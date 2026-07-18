@@ -1,5 +1,5 @@
 function target = createTarget(id, className, subtype, config, context)
-% createTarget - Create a single target (prefer createTargets for scenarios).
+% createTarget - Создаёт одну цель (для сценариев предпочтительнее createTargets).
 arguments
     id (1, 1) {mustBePositive, mustBeInteger}
     className (1, 1) string

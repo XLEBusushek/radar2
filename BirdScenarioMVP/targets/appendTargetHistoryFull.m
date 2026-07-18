@@ -1,5 +1,5 @@
 function target = appendTargetHistoryFull(target)
-% appendTargetHistoryFull - Append full per-step target history buffers.
+% appendTargetHistoryFull - Добавляет полные пошаговые буферы истории цели.
 target.History.Time(end + 1, 1) = target.CurrentTime;
 target.History.Position(end + 1, :) = target.Position(:).';
 target.History.Velocity(end + 1, :) = target.Velocity(:).';

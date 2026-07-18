@@ -1,4 +1,4 @@
-% testIncrementalCsvExport - incremental CSV rows must match post-hoc export.
+% testIncrementalCsvExport - инкрементальные строки CSV должны совпадать с постфактум экспортом.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

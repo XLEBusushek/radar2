@@ -1,5 +1,5 @@
 function bird = updateCircleBeforeLanding(bird, config)
-% updateCircleBeforeLanding - Update circular approach waypoint before landing.
+% updateCircleBeforeLanding - Обновить точку кругового захода перед посадкой.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

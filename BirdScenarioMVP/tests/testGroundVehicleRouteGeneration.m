@@ -1,4 +1,4 @@
-% testGroundVehicleRouteGeneration - Checks graph route creation (ТЗ-08C).
+% testGroundVehicleRouteGeneration - Проверяет создание маршрута по графу (ТЗ-08C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

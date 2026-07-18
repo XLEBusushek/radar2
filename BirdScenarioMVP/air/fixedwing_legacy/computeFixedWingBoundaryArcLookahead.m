@@ -1,5 +1,5 @@
 function [lookaheadPoint, arcActive] = computeFixedWingBoundaryArcLookahead(target, config, routeLookahead)
-% computeFixedWingBoundaryArcLookahead - Fly-by arc at inner world-boundary corners.
+% computeFixedWingBoundaryArcLookahead - Fly-by дуга на внутренних углах границы мира.
 arguments
     target (1, 1) struct
     config (1, 1) struct

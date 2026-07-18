@@ -1,5 +1,5 @@
 function exportScenarioResults(scenario, output, config)
-% exportScenarioResults - Legacy export entry point (backward compatible).
+% exportScenarioResults - Точка входа legacy-экспорта (обратная совместимость).
 arguments
     scenario (1, 1) struct
     output struct

@@ -1,5 +1,5 @@
 function quad = selectNextQuadcopterWaypoint(quad, config)
-% selectNextQuadcopterWaypoint - Advance mission waypoint or return home.
+% selectNextQuadcopterWaypoint - Перейти к следующей точке маршрута или вернуться домой.
 arguments
     quad (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function fig = plotXYTrajectories(scenario, config)
-% plotXYTrajectories - Top-down XY view of trees, birds, and quadcopters.
+% plotXYTrajectories - Вид сверху XY деревьев, птиц и квадрокоптеров.
 arguments
     scenario (1, 1) struct
     config (1, 1) struct

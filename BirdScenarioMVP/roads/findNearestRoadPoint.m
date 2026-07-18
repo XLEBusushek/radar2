@@ -1,5 +1,5 @@
 function nearest = findNearestRoadPoint(position, roadNetwork)
-% findNearestRoadPoint - Find nearest point on any road graph edge.
+% findNearestRoadPoint - Поиск ближайшей точки на любом рёбре графа дорог.
 arguments
     position (3, 1) double
     roadNetwork (1, 1) struct

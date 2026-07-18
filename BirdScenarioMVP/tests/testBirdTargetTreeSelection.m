@@ -1,4 +1,4 @@
-% testBirdTargetTreeSelection - Checks target tree selection in FSM (ТЗ-05A).
+% testBirdTargetTreeSelection - Проверяет выбор целевого дерева в FSM (ТЗ-05A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

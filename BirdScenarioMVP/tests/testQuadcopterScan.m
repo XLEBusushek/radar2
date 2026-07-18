@@ -1,4 +1,4 @@
-% testQuadcopterScan - Checks scan state behavior (ТЗ-07A).
+% testQuadcopterScan - Проверяет поведение состояния Scan (ТЗ-07A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

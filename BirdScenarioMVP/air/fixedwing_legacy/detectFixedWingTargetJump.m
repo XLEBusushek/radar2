@@ -1,5 +1,5 @@
 function jump = detectFixedWingTargetJump(previousPoint, newPoint)
-% detectFixedWingTargetJump - XY distance between navigation points.
+% detectFixedWingTargetJump - Расстояние по XY между точками навигации.
 arguments
     previousPoint (:, 1) double
     newPoint (:, 1) double

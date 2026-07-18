@@ -1,5 +1,5 @@
 function targetOut = addDefaultNavigationOutputFields(targetOut)
-% addDefaultNavigationOutputFields - Non-air/ground navigation placeholders.
+% addDefaultNavigationOutputFields - Заглушки навигации для не-воздушных/наземных целей.
 targetOut.WaypointIndex = nan;
 targetOut.DistanceToWaypoint = nan;
 targetOut.MissionComplete = false;

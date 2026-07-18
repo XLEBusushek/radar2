@@ -1,5 +1,5 @@
 function plotBirdTrajectories(birds, config)
-% plotBirdTrajectories - Plot bird trajectories with optional state styling.
+% plotBirdTrajectories - Отображение траекторий птиц с опциональным оформлением по состояниям.
 arguments
     birds struct
     config (1, 1) struct

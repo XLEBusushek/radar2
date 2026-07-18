@@ -1,5 +1,5 @@
 function saveAnalysisFigure(fig, fileName, config)
-% saveAnalysisFigure - Save an analysis figure to the export output folder.
+% saveAnalysisFigure - Сохранить график анализа в папку вывода экспорта.
 arguments
     fig
     fileName (1, 1) string

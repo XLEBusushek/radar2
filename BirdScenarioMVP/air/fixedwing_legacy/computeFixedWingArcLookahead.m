@@ -1,5 +1,5 @@
 function lookaheadPoint = computeFixedWingArcLookahead(target, currentWp, nextWp, config, prevWp)
-% computeFixedWingArcLookahead - Circular fly-by lookahead for waypoint turns.
+% computeFixedWingArcLookahead - Круговой fly-by lookahead для поворотов на точках.
 arguments
     target (1, 1) struct
     currentWp (3, 1) double

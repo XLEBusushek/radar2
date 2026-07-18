@@ -1,4 +1,4 @@
-% testAnalysisExport - Checks analysis figure export after main (ТЗ-06B).
+% testAnalysisExport - Проверяет экспорт аналитических графиков после main (ТЗ-06B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

@@ -1,5 +1,5 @@
 function fig = plotAltitude(trajectoryLog, config)
-% plotAltitude - Altitude vs time from TrajectoryLog.
+% plotAltitude - Высота относительно времени из TrajectoryLog.
 arguments
     trajectoryLog (1, 1) struct
     config (1, 1) struct

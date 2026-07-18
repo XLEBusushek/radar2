@@ -1,5 +1,5 @@
 function value = getBehaviorField(behavior, fieldName, defaultValue)
-% getBehaviorField - Read behavior field with default.
+% getBehaviorField - Прочитать поле поведения с значением по умолчанию.
 if isfield(behavior, fieldName) && ~isempty(behavior.(fieldName))
     value = behavior.(fieldName);
 else

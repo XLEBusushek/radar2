@@ -1,5 +1,5 @@
 function fixedWingUAVs = createFixedWingUAVs(config, startId)
-% createFixedWingUAVs - Compatibility factory (use createTargets/fw2 instead).
+% createFixedWingUAVs - Фабрика совместимости (используйте createTargets/fw2).
 arguments
     config (1, 1) struct
     startId (1, 1) {mustBePositive, mustBeInteger} = 1

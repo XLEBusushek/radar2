@@ -1,4 +1,4 @@
-% testGroundVehicleVisualization - Checks road/route/vehicle plotting (ТЗ-08C).
+% testGroundVehicleVisualization - Проверяет отрисовку дорог/маршрутов/транспорта (ТЗ-08C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

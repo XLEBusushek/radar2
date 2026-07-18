@@ -1,5 +1,5 @@
 function roads = connectRoads(roads, config)
-% connectRoads - Add connector roads between nearby existing road endpoints.
+% connectRoads - Добавление соединительных дорог между близкими конечными точками существующих дорог.
 arguments
     roads (1, :) struct
     config (1, 1) struct

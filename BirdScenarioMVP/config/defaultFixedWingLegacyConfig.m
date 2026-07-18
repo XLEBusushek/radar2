@@ -1,5 +1,5 @@
 function config = defaultFixedWingLegacyConfig(config)
-% defaultFixedWingLegacyConfig - Legacy fixed-wing defaults (used when fixedWing2.enabled=false).
+% defaultFixedWingLegacyConfig - Устаревшие значения по умолчанию для самолёта (используются при fixedWing2.enabled=false).
 config.fixedWing.count = 0;
 config.fixedWing.rcsRange = [0.01, 0.1];
 config.fixedWing.initialState = "Cruise";

@@ -1,5 +1,5 @@
 function output = trajectoryLogToLegacyOutput(trajectoryLog, config)
-% trajectoryLogToLegacyOutput - Convert TrajectoryLog to legacy output struct array.
+% trajectoryLogToLegacyOutput - Преобразовать TrajectoryLog в массив структур legacy output.
 arguments
     trajectoryLog (1, 1) struct
     config (1, 1) struct = struct()

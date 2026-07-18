@@ -1,5 +1,5 @@
 function bird = resetCruiseCurveFields(bird)
-% resetCruiseCurveFields - Clear curved cruise payload fields.
+% resetCruiseCurveFields - Очистить поля полёта по кривой в Payload.
 bird.Payload.CruiseStartPosition = [];
 bird.Payload.CruiseTargetPosition = [];
 bird.Payload.CruiseProgress = 0;

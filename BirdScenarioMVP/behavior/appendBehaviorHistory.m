@@ -1,5 +1,5 @@
 function target = appendBehaviorHistory(target, context, weights, action, reason)
-% appendBehaviorHistory - Append behavior decision to DecisionHistory.
+% appendBehaviorHistory - Добавить решение поведения в DecisionHistory.
 arguments
     target (1, 1) struct
     context (1, 1) struct

@@ -1,5 +1,5 @@
 function roadNetwork = generateRoadNetwork(config)
-% generateRoadNetwork - Create a random procedural road network.
+% generateRoadNetwork - Создание случайной процедурной дорожной сети.
 arguments
     config (1, 1) struct
 end

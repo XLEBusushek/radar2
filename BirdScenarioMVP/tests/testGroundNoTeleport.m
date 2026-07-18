@@ -1,4 +1,4 @@
-% testGroundNoTeleport - Checks ground vehicles do not jump unrealistically (ТЗ-08B).
+% testGroundNoTeleport - Проверяет отсутствие нереалистичных скачков наземного транспорта (ТЗ-08B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

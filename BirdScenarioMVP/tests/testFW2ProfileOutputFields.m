@@ -1,4 +1,4 @@
-% testFW2ProfileOutputFields - Profile fields in History, Output, CSV (ТЗ-09S).
+% testFW2ProfileOutputFields - Поля профиля в History, Output, CSV (ТЗ-09S).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

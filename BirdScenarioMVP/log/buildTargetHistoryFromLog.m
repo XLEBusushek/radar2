@@ -1,5 +1,5 @@
 function history = buildTargetHistoryFromLog(trajectoryLog, targetId)
-% buildTargetHistoryFromLog - Reconstruct target.History-like series from log.
+% buildTargetHistoryFromLog - Восстановить серию типа target.History из лога.
 arguments
     trajectoryLog (1, 1) struct
     targetId (1, 1) double

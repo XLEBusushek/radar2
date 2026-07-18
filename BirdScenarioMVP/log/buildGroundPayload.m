@@ -1,5 +1,5 @@
 function payload = buildGroundPayload(target)
-% buildGroundPayload - Ground vehicle payload snapshot.
+% buildGroundPayload - Снимок Payload наземного транспортного средства.
 payload = struct();
 if ~isfield(target, 'Payload')
     return;

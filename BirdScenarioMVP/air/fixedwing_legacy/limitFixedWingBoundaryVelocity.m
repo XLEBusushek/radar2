@@ -1,5 +1,5 @@
 function target = limitFixedWingBoundaryVelocity(target, config, dt, preferBoundaryMargin)
-% limitFixedWingBoundaryVelocity - Smooth boundary velocity correction (no wall bounce).
+% limitFixedWingBoundaryVelocity - Плавная коррекция скорости у границы (без отскока от стены).
 arguments
     target (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function fixedWingUAVs = getScenarioFixedWingUAVs(scenario)
-% getScenarioFixedWingUAVs - Return fixed-wing UAV targets from a scenario struct.
+% getScenarioFixedWingUAVs - Вернуть цели fixed-wing UAV из структуры сценария.
 arguments
     scenario (1, 1) struct
 end

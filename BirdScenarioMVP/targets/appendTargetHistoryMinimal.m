@@ -1,5 +1,5 @@
 function target = appendTargetHistoryMinimal(target)
-% appendTargetHistoryMinimal - Append fields required by tests and analysis.
+% appendTargetHistoryMinimal - Добавляет поля, необходимые для тестов и анализа.
 target = appendTargetHistoryCore(target);
 
 if ~isfield(target, 'Payload')

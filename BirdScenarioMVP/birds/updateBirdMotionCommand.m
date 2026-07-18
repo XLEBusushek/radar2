@@ -1,5 +1,5 @@
 function bird = updateBirdMotionCommand(bird, config)
-% updateBirdMotionCommand - Set desired motion parameters based on bird state.
+% updateBirdMotionCommand - Задать желаемые параметры движения на основе состояния птицы.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

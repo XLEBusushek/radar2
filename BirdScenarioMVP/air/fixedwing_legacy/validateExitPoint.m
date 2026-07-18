@@ -1,5 +1,5 @@
 function exitPoint = validateExitPoint(exitPoint, lastWaypoint, worldSize, fw)
-% validateExitPoint - Ensure exit point is inside bounds and far enough from route end.
+% validateExitPoint - Убедиться, что точка выхода внутри границ и достаточно далеко от конца маршрута.
 arguments
     exitPoint (3, 1) double
     lastWaypoint (3, 1) double

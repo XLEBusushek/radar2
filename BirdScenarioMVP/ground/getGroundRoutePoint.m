@@ -1,5 +1,5 @@
 function routePoint = getGroundRoutePoint(route, distanceAlong)
-% getGroundRoutePoint - Sample a point/tangent on a ground route polyline.
+% getGroundRoutePoint - Получение точки/касательной на полилинии маршрута наземного транспорта.
 arguments
     route (1, 1) struct
     distanceAlong (1, 1) double

@@ -1,5 +1,5 @@
 function exportCsvFromLog(trajectoryLog, config, outputFolder)
-% exportCsvFromLog - Export track CSV directly from TrajectoryLog.
+% exportCsvFromLog - Экспорт CSV трека напрямую из TrajectoryLog.
 arguments
     trajectoryLog (1, 1) struct
     config (1, 1) struct

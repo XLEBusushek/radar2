@@ -1,5 +1,5 @@
 function target = fw2_updateMotion(target, config, dt)
-% fw2_updateMotion - Integrate position from heading, speed profile, and climb rate.
+% fw2_updateMotion - Интегрировать позицию по курсу, профилю скорости и скорости набора высоты.
 arguments
     target (1, 1) struct
     config (1, 1) struct

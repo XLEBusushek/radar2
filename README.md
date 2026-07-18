@@ -1,17 +1,17 @@
 # radar2
 
-MATLAB simulation project for radar scenario modeling (birds, quadcopters, fixed-wing UAVs, ground vehicles).
+MATLAB-проект моделирования радиолокационных сценариев (птицы, квадрокоптеры, БПЛА с неподвижным крылом, наземные транспортные средства).
 
-Main application: [`BirdScenarioMVP`](BirdScenarioMVP/README.md)
+Основное приложение: [`BirdScenarioMVP`](BirdScenarioMVP/README.md)
 
-## Quick start
+## Быстрый старт
 
 ```matlab
 cd('BirdScenarioMVP')
 main
 ```
 
-## Tests
+## Тесты
 
 ```matlab
 cd('BirdScenarioMVP')

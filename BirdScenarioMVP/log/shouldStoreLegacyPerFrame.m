@@ -1,5 +1,5 @@
 function tf = shouldStoreLegacyPerFrame(config)
-% shouldStoreLegacyPerFrame - Whether to call collectOutput on every log frame.
+% shouldStoreLegacyPerFrame - Вызывать ли collectOutput на каждом кадре лога.
 arguments
     config (1, 1) struct
 end

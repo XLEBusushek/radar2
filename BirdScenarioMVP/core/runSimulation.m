@@ -1,7 +1,7 @@
 function varargout = runSimulation(config)
-% runSimulation - Run simulation and record TrajectoryLog.
-%   [scenario, output] = runSimulation(config) - legacy output (backward compatible).
-%   [scenario, log, output] = runSimulation(config) - TrajectoryLog + legacy output.
+% runSimulation - Запустить симуляцию и записать TrajectoryLog.
+%   [scenario, output] = runSimulation(config) - legacy output (обратная совместимость).
+%   [scenario, log, output] = runSimulation(config) - TrajectoryLog + legacy output (три выхода).
 arguments
     config (1, 1) struct
 end

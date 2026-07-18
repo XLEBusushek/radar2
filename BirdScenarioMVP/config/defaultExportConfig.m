@@ -1,5 +1,5 @@
 function config = defaultExportConfig(config)
-% defaultExportConfig - Visualization and export defaults.
+% defaultExportConfig - Значения по умолчанию для визуализации и экспорта.
 config.visualization.enabled = true;
 config.visualization.showTrees = true;
 config.visualization.showTreeCrowns = true;

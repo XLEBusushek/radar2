@@ -1,4 +1,4 @@
-% testFW2SpeedVariation - TargetSpeed and CurrentSpeed vary over time (ТЗ-09S).
+% testFW2SpeedVariation - TargetSpeed и CurrentSpeed меняются со временем (ТЗ-09S).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

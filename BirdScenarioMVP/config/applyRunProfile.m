@@ -1,5 +1,5 @@
 function config = applyRunProfile(config, profileName)
-% applyRunProfile - Apply interactive, batch, fast, or benchmark presets.
+% applyRunProfile - Применяет предустановки interactive, batch, fast или benchmark.
 arguments
     config (1, 1) struct
     profileName (1, 1) string = "interactive"

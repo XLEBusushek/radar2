@@ -1,5 +1,5 @@
 function outputStep = collectOutputStepFromLogFrame(frame, trajectoryLog)
-% collectOutputStepFromLogFrame - Build output step from log without Birds split.
+% collectOutputStepFromLogFrame - Сформировать шаг output из лога без разделения Birds.
 arguments
     frame (1, 1) struct
     trajectoryLog (1, 1) struct

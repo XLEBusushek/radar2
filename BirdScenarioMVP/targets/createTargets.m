@@ -1,5 +1,5 @@
 function targets = createTargets(config, scenario)
-% createTargets - Create all targets for the scenario.
+% createTargets - Создаёт все цели для сценария.
 arguments
     config (1, 1) struct
     scenario (1, 1) struct

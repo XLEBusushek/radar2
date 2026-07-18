@@ -1,5 +1,5 @@
 function target = fw2_advanceLeg(target, config)
-% fw2_advanceLeg - Move to next route leg or mark route complete.
+% fw2_advanceLeg - Перейти к следующему участку маршрута или отметить маршрут завершённым.
 arguments
     target (1, 1) struct
     config (1, 1) struct

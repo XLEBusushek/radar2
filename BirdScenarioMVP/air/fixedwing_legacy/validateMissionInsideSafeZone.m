@@ -1,5 +1,5 @@
 function valid = validateMissionInsideSafeZone(mission, config)
-% validateMissionInsideSafeZone - Verify all mission waypoints lie in Safe Zone.
+% validateMissionInsideSafeZone - Проверить, что все точки маршрута лежат в Safe Zone.
 arguments
     mission (1, 1) struct
     config (1, 1) struct

@@ -1,4 +1,4 @@
-% testGroundVisualization - Checks ground and road visualization smoke path (ТЗ-08A).
+% testGroundVisualization - Проверяет smoke path визуализации наземного транспорта и дорог (ТЗ-08A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

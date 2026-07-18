@@ -1,5 +1,5 @@
 function bird = updateBirdProgressToTarget(bird, config, dt)
-% updateBirdProgressToTarget - Track approach progress and enable direct flight.
+% updateBirdProgressToTarget - Отслеживать прогресс сближения и включать прямой полёт.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function target = initializeFixedWingActiveLeg(target, config)
-% initializeFixedWingActiveLeg - Set active route leg from current waypoint index.
+% initializeFixedWingActiveLeg - Задать активный участок маршрута по индексу текущей точки.
 arguments
     target (1, 1) struct
     config (1, 1) struct %#ok<INUSD>

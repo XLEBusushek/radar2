@@ -1,5 +1,5 @@
 function plotAnalysisFigures(scenario, config)
-% plotAnalysisFigures - Build and optionally save all analysis figures.
+% plotAnalysisFigures - Построить и при необходимости сохранить все графики анализа.
 arguments
     scenario (1, 1) struct
     config (1, 1) struct

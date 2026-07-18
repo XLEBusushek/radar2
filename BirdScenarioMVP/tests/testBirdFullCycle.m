@@ -1,4 +1,4 @@
-% testBirdFullCycle - Checks full tree-to-tree behavior cycle (ТЗ-05D).
+% testBirdFullCycle - Проверяет полный цикл поведения дерево-к-дереву (ТЗ-05D).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

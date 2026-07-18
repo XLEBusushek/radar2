@@ -1,5 +1,5 @@
 function sideDir = computePerpendicular2D(direction)
-% computePerpendicular2D - Return a horizontal unit vector perpendicular to direction.
+% computePerpendicular2D - Вернуть горизонтальный единичный вектор, перпендикулярный направлению.
 direction = direction(:);
 horizontalNorm = norm(direction(1:2));
 

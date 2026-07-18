@@ -1,5 +1,5 @@
 function result = runAnalysis(trajectoryLog, config)
-% runAnalysis - Compute statistics and metrics from TrajectoryLog only.
+% runAnalysis - Вычислить статистику и метрики только из TrajectoryLog.
 arguments
     trajectoryLog (1, 1) struct
     config (1, 1) struct = struct()

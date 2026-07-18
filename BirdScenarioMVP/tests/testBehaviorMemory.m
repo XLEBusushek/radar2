@@ -1,4 +1,4 @@
-% testBehaviorMemory - Checks behavior memory is updated (ТЗ-07B).
+% testBehaviorMemory - Проверяет обновление памяти поведения (ТЗ-07B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

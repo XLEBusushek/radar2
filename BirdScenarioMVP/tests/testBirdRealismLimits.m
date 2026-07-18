@@ -1,4 +1,4 @@
-% testBirdRealismLimits - Checks realism motion and FSM limits (ТЗ-05E).
+% testBirdRealismLimits - Проверяет лимиты движения реализма и FSM (ТЗ-05E).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

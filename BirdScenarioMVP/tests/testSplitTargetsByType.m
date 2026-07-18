@@ -1,4 +1,4 @@
-% testSplitTargetsByType - Target index cache and scenario views.
+% testSplitTargetsByType - Кэш индексов целей и представления сценария.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

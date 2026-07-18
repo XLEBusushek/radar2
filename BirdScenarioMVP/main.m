@@ -1,4 +1,4 @@
-% main.m - Entry point for BirdScenarioMVP project.
+% main.m - Точка входа проекта BirdScenarioMVP.
 clear;
 clc;
 
@@ -13,7 +13,7 @@ config.fixedWing2.count = 3;
 config.groundVehicle.count = 4;
 config.visualization.showRoads = true;
 config.analysis.showFigures = true;
-% config.tests.runOnStartup = true;  % set true to run runAllTests before simulation
+% config.tests.runOnStartup = true;  % установить true для запуска runAllTests перед симуляцией
 
 runStartupTests(config);
 

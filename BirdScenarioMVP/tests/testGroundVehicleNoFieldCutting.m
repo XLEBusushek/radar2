@@ -1,4 +1,4 @@
-% testGroundVehicleNoFieldCutting - Checks trajectory stays close to route (ТЗ-08C).
+% testGroundVehicleNoFieldCutting - Проверяет, что траектория остаётся близко к маршруту (ТЗ-08C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

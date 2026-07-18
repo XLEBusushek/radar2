@@ -1,5 +1,5 @@
 function runStartupTests(config)
-% runStartupTests - Run full test suite when config.tests.runOnStartup is true.
+% runStartupTests - Запуск полного набора тестов при config.tests.runOnStartup = true.
 arguments
     config (1, 1) struct
 end

@@ -1,5 +1,5 @@
 function target = updateGroundNavigation(target, scenario, config, dt)
-% updateGroundNavigation - Update route progress and road deviation metrics.
+% updateGroundNavigation - Обновление прогресса маршрута и метрик отклонения от дороги.
 arguments
     target (1, 1) struct
     scenario (1, 1) struct

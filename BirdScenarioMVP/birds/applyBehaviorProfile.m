@@ -1,5 +1,5 @@
 function bird = applyBehaviorProfile(bird, config)
-% applyBehaviorProfile - Assign flight behavior profile to a single bird.
+% applyBehaviorProfile - Назначить профиль полётного поведения одной птице.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

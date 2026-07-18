@@ -1,5 +1,5 @@
 function targetOut = addGroundOutputFields(targetOut, target)
-% addGroundOutputFields - Ground vehicle output fields.
+% addGroundOutputFields - Выходные поля наземного транспортного средства.
 payload = target.Payload;
 
 targetOut.WaypointIndex = getPayloadField(payload, 'CurrentWaypointIndex', nan);

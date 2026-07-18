@@ -1,5 +1,5 @@
 function outputStep = collectOutputStep(scenario, time)
-% collectOutputStep - Collect per-step output without Birds split.
+% collectOutputStep - Собрать выходные данные шага без разделения Birds.
 outputStep.Time = time;
 outputStep.RandomMode = "";
 outputStep.ScenarioSeed = nan;

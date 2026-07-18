@@ -1,5 +1,5 @@
 function target = initializeQuadcopterHover(target, config)
-% initializeQuadcopterHover - Configure hover anchor and duration.
+% initializeQuadcopterHover - Настроить якорь и длительность зависания.
 qc = config.quadcopter;
 target.Payload.HoverAnchor = target.Position;
 target.Payload.HoverDuration = qc.hoverTimeRange(1) + ...

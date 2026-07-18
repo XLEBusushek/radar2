@@ -1,5 +1,5 @@
 function targetSeed = createTargetSeed(scenarioSeed, targetID, className, subtype)
-% createTargetSeed - Create stable per-target seed from scenario seed and identity.
+% createTargetSeed - Создание стабильного per-target seed из сценарного seed и идентификатора цели.
 arguments
     scenarioSeed (1, 1) double
     targetID (1, 1) double

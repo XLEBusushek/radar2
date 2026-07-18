@@ -1,5 +1,5 @@
 function config = defaultFixedWing2Config(config)
-% defaultFixedWing2Config - Fixed-wing2 defaults (active when fixedWing2.enabled=true).
+% defaultFixedWing2Config - Значения по умолчанию для Fixed-wing2 (активны при fixedWing2.enabled=true).
 config.fixedWing2.enabled = true;
 config.fixedWing2.count = 0;
 config.fixedWing2.rcsRange = [0.01, 0.1];

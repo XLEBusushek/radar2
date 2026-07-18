@@ -1,5 +1,5 @@
 function tf = shouldValidateEachStep(config)
-% shouldValidateEachStep - Whether to validate targets after every update step.
+% shouldValidateEachStep - Нужно ли проверять цели после каждого шага обновления.
 arguments
     config (1, 1) struct
 end

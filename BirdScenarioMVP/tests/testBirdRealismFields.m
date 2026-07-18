@@ -1,4 +1,4 @@
-% testBirdRealismFields - Checks realism payload, history, and output fields (ТЗ-05E).
+% testBirdRealismFields - Проверяет поля Payload, истории и выходные данные реализма (ТЗ-05E).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

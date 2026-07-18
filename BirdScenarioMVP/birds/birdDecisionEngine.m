@@ -1,5 +1,5 @@
 function [nextState, reason] = birdDecisionEngine(bird, scenario, config)
-% birdDecisionEngine - Decide next bird state using probabilistic FSM rules.
+% birdDecisionEngine - Определить следующее состояние птицы по вероятностным правилам FSM.
 arguments
     bird (1, 1) struct
     scenario (1, 1) struct

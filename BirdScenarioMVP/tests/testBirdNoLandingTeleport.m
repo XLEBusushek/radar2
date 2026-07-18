@@ -1,4 +1,4 @@
-% testBirdNoLandingTeleport - Checks no large jump Landing to Hidden (ТЗ-05D).
+% testBirdNoLandingTeleport - Проверяет отсутствие большого скачка Landing -> Hidden (ТЗ-05D).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

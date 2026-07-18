@@ -1,5 +1,5 @@
 function tf = shouldExportCsvFromLog(config, legacyOutput)
-% shouldExportCsvFromLog - Use TrajectoryLog fast path for CSV export.
+% shouldExportCsvFromLog - Использовать быстрый путь TrajectoryLog для экспорта CSV.
 arguments
     config (1, 1) struct
     legacyOutput struct = struct([])

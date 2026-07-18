@@ -1,5 +1,5 @@
 function bird = applyBirdMotionLimits(bird, config)
-% applyBirdMotionLimits - Apply speed and vertical velocity limits.
+% applyBirdMotionLimits - Применить ограничения скорости и вертикальной скорости.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

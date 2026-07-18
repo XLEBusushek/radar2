@@ -1,5 +1,5 @@
 function addStandardBirdLegend(ax)
-% addStandardBirdLegend - Add a compact legend with unique trajectory entries.
+% addStandardBirdLegend - Добавление компактной легенды с уникальными записями траекторий.
 arguments
     ax (1, 1) matlab.graphics.axis.Axes
 end

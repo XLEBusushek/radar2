@@ -1,5 +1,5 @@
 function target = transitionFixedWingState(target, nextState, reason, config)
-% transitionFixedWingState - Apply fixed-wing FSM transition entry actions.
+% transitionFixedWingState - Применить действия при входе в состояние FSM fixed-wing.
 arguments
     target (1, 1) struct
     nextState (1, 1) string

@@ -1,5 +1,5 @@
 function target = updateFixedWingActiveLeg(target, config, dt)
-% updateFixedWingActiveLeg - Update leg progress and leg transition state.
+% updateFixedWingActiveLeg - Обновить прогресс участка и состояние перехода между участками.
 arguments
     target (1, 1) struct
     config (1, 1) struct

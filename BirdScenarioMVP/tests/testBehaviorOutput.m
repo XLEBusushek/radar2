@@ -1,4 +1,4 @@
-% testBehaviorOutput - Checks Behavior fields in Output and CSV (ТЗ-07B).
+% testBehaviorOutput - Проверяет поля Behavior в Output и CSV (ТЗ-07B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

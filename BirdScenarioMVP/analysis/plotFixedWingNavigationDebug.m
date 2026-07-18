@@ -1,5 +1,5 @@
 function fig = plotFixedWingNavigationDebug(scenario, config, targetId)
-% plotFixedWingNavigationDebug - XY and time-series navigation debug plot.
+% plotFixedWingNavigationDebug - Отладочный график навигации XY и временных рядов.
 arguments
     scenario (1, 1) struct
     config (1, 1) struct

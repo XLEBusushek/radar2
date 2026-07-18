@@ -1,5 +1,5 @@
 function bird = transitionBirdState(bird, nextState, scenario, config, reason)
-% transitionBirdState - Apply bird state transition and entry actions.
+% transitionBirdState - Выполнить переход состояния птицы и действия при входе.
 arguments
     bird (1, 1) struct
     nextState (1, 1) string

@@ -1,5 +1,5 @@
 function [poolIDs, treeDistances] = filterTreesByMinDistance(bird, trees, candidateIDs, minDistance)
-% filterTreesByMinDistance - Prefer trees at least minDistance from the bird.
+% filterTreesByMinDistance - Предпочитать деревья на расстоянии не меньше minDistance от птицы.
 arguments
     bird (1, 1) struct
     trees struct

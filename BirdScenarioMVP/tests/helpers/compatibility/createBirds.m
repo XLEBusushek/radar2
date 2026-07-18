@@ -1,6 +1,6 @@
 function birds = createBirds(config, trees)
-% createBirds - Compatibility factory (use createTargets instead).
-% Legacy helper kept for manual/testing use; not used by runSimulation.
+% createBirds - Фабрика совместимости (используйте createTargets).
+% Устаревший помощник для ручного использования/тестов; не используется в runSimulation.
 arguments
     config (1, 1) struct
     trees struct

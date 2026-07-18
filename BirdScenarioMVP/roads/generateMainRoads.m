@@ -1,5 +1,5 @@
 function roads = generateMainRoads(config)
-% generateMainRoads - Generate long map-spanning main roads.
+% generateMainRoads - Генерация длинных основных дорог, пересекающих карту.
 arguments
     config (1, 1) struct
 end

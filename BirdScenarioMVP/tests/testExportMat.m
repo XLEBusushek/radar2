@@ -1,4 +1,4 @@
-% testExportMat - Checks MAT export (ТЗ-06).
+% testExportMat - Проверяет экспорт MAT (ТЗ-06).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

@@ -1,5 +1,5 @@
 function targetOut = addFixedWingLegacyOutputFields(targetOut, payload)
-% addFixedWingLegacyOutputFields - Legacy fixed-wing telemetry fields.
+% addFixedWingLegacyOutputFields - Поля телеметрии legacy fixed-wing.
 targetOut.CurrentHeading = getPayloadField(payload, 'CurrentHeading', nan);
 targetOut.TargetHeading = getPayloadField(payload, 'TargetHeading', nan);
 targetOut.LoiterRadius = getPayloadField(payload, 'LoiterRadius', nan);

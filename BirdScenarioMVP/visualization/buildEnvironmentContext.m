@@ -1,5 +1,5 @@
 function env = buildEnvironmentContext(scenario, config)
-% buildEnvironmentContext - Static world data for visualization (not simulation state).
+% buildEnvironmentContext - Статические данные мира для визуализации (не состояние симуляции).
 arguments
     scenario (1, 1) struct
     config (1, 1) struct

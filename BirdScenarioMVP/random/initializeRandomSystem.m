@@ -1,5 +1,5 @@
 function randomState = initializeRandomSystem(config)
-% initializeRandomSystem - Initialize global RNG and return scenario random state.
+% initializeRandomSystem - Инициализация глобального RNG и возврат случайного состояния сценария.
 arguments
     config (1, 1) struct
 end
@@ -47,7 +47,7 @@ end
 function seed = getDeterministicSeed(config, randomConfig)
 seed = randomConfig.seed;
 if isfield(config.sim, 'seed') && config.sim.seed ~= 42 && randomConfig.seed == 42
-    % Backward compatibility for callers that still override config.sim.seed only.
+    % Обратная совместимость для вызывающего кода, который по-прежнему переопределяет только config.sim.seed.
     seed = config.sim.seed;
 end
 end

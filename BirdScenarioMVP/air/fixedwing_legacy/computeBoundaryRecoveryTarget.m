@@ -1,5 +1,5 @@
 function recoveryTarget = computeBoundaryRecoveryTarget(target, config)
-% computeBoundaryRecoveryTarget - Legacy wrapper for computeRecoveryTarget.
+% computeBoundaryRecoveryTarget - Legacy-обёртка для computeRecoveryTarget.
 arguments
     target (1, 1) struct
     config (1, 1) struct

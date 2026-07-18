@@ -1,5 +1,5 @@
 function fig = plotSpeedTime(scenario, config)
-% plotSpeedTime - Plot speed magnitude versus time for birds and quadcopters.
+% plotSpeedTime - График величины скорости от времени для птиц и квадрокоптеров.
 arguments
     scenario (1, 1) struct
     config (1, 1) struct

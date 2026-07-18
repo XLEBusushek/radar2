@@ -1,5 +1,5 @@
 function fig = plotStateTimeline(scenario, config)
-% plotStateTimeline - Plot FSM state timeline for birds and quadcopters.
+% plotStateTimeline - График временной шкалы состояний FSM для птиц и квадрокоптеров.
 arguments
     scenario (1, 1) struct
     config (1, 1) struct %#ok<INUSD>

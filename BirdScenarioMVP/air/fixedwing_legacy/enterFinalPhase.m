@@ -1,5 +1,5 @@
 function target = enterFinalPhase(target, config)
-% enterFinalPhase - Lock fixed-wing UAV into immutable mission completion phase.
+% enterFinalPhase - Заблокировать fixed-wing UAV в неизменяемой фазе завершения миссии.
 arguments
     target (1, 1) struct
     config (1, 1) struct

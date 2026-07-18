@@ -1,5 +1,5 @@
 function plotFixedWingUAVTrajectories(fixedWingUAVs, config)
-% plotFixedWingUAVTrajectories - Plot fixed-wing UAV trajectories.
+% plotFixedWingUAVTrajectories - Отображение траекторий fixed-wing UAV.
 arguments
     fixedWingUAVs struct
     config (1, 1) struct

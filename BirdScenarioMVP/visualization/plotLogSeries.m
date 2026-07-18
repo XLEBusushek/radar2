@@ -1,5 +1,5 @@
 function plotLogSeries(ax, trajectoryLog, className, subtype, style, color, seriesFn)
-% plotLogSeries - Plot time series for targets matching class/subtype.
+% plotLogSeries - Отображение временных рядов для целей с заданным class/subtype.
 ids = getUniqueTargetIds(trajectoryLog, className, subtype);
 for id = ids(:).'
     history = buildTargetHistoryFromLog(trajectoryLog, id);

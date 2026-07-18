@@ -1,5 +1,5 @@
 function bird = updateBirdBehavior(bird, scenario, config, dt)
-% updateBirdBehavior - Update bird behavioral state via probabilistic FSM.
+% updateBirdBehavior - Обновить поведенческое состояние птицы через вероятностный FSM.
 if isfield(config, 'behavior') && isfield(config.behavior, 'enabled') && ...
         config.behavior.enabled
     bird = updateBehaviorEngine(bird, scenario, config, dt);

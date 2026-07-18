@@ -1,5 +1,5 @@
 function target = fw2_initializeAltitudeProfile(target, config)
-% fw2_initializeAltitudeProfile - Initialize altitude profile fields at creation.
+% fw2_initializeAltitudeProfile - Инициализировать поля профиля высоты при создании.
 arguments
     target (1, 1) struct
     config (1, 1) struct

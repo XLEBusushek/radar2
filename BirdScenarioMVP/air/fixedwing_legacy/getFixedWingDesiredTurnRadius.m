@@ -1,5 +1,5 @@
 function R = getFixedWingDesiredTurnRadius(config)
-% getFixedWingDesiredTurnRadius - Unified minimum turn radius for fixed-wing UAVs.
+% getFixedWingDesiredTurnRadius - Единый минимальный радиус разворота для fixed-wing UAV.
 arguments
     config (1, 1) struct
 end

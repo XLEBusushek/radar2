@@ -1,4 +1,4 @@
-% testFW2AltitudeProfileInitialization - Flight level fields at spawn (ТЗ-09S).
+% testFW2AltitudeProfileInitialization - Поля уровня полёта при появлении (ТЗ-09S).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

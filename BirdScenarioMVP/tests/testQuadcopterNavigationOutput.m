@@ -1,4 +1,4 @@
-% testQuadcopterNavigationOutput - Checks navigation fields in History/Output/CSV (ТЗ-07C).
+% testQuadcopterNavigationOutput - Проверяет навигационные поля в History/Output/CSV (ТЗ-07C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

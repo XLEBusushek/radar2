@@ -1,5 +1,5 @@
 function log = logFrame(scenario, log, time, config)
-% logFrame - Append one simulation frame to TrajectoryLog.
+% logFrame - Добавить один кадр симуляции в TrajectoryLog.
 arguments
     scenario (1, 1) struct
     log (1, 1) struct

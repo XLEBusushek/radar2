@@ -1,4 +1,4 @@
-% testTargetHistoryCache - Cached histories must match direct rebuild.
+% testTargetHistoryCache - Кэшированные истории должны совпадать с прямой пересборкой.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

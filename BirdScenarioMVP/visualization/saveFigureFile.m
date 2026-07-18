@@ -1,5 +1,5 @@
 function saveFigureFile(fig, filePath, config)
-% saveFigureFile - Save a figure to PNG without blocking on UI refresh.
+% saveFigureFile - Сохранение графика в PNG без блокировки обновления UI.
 arguments
     fig
     filePath (1, :) char

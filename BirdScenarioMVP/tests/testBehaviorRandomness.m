@@ -1,4 +1,4 @@
-% testBehaviorRandomness - Checks different seeds produce different behavior (ТЗ-07B).
+% testBehaviorRandomness - Проверяет, что разные seed дают разное поведение (ТЗ-07B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

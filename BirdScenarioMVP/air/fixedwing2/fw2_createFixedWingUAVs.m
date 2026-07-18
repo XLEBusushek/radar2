@@ -1,5 +1,5 @@
 function fixedWingUAVs = fw2_createFixedWingUAVs(config, startId)
-% fw2_createFixedWingUAVs - Create fixed-wing2 UAV population.
+% fw2_createFixedWingUAVs - Создать популяцию fixed-wing2 UAV.
 arguments
     config (1, 1) struct
     startId (1, 1) {mustBePositive, mustBeInteger} = 1

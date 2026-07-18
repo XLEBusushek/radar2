@@ -1,5 +1,5 @@
 function target = fw2_clampWorldPosition(target, config)
-% fw2_clampWorldPosition - Keep position inside world and altitude limits.
+% fw2_clampWorldPosition - Удерживать позицию внутри мира и лимитов высоты.
 arguments
     target (1, 1) struct
     config (1, 1) struct

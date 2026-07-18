@@ -1,5 +1,5 @@
 function bird = reinitializeBirdCruiseTarget(bird, scenario, config)
-% reinitializeBirdCruiseTarget - Refresh cruise target after retarget or fly-by.
+% reinitializeBirdCruiseTarget - Обновить цель крейсерского полёта после смены цели или пролёта.
 arguments
     bird (1, 1) struct
     scenario (1, 1) struct

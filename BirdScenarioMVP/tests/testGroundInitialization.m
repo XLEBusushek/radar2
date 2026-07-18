@@ -1,4 +1,4 @@
-% testGroundInitialization - Checks ground vehicle creation (ТЗ-08A).
+% testGroundInitialization - Проверяет создание наземного транспорта (ТЗ-08A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

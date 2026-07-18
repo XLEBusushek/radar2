@@ -1,4 +1,4 @@
 function config = defaultValidationConfig(config)
-% defaultValidationConfig - Target validation defaults.
+% defaultValidationConfig - Значения по умолчанию для валидации целей.
 config.validation.eachStep = true;
 end

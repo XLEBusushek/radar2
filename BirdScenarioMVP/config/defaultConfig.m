@@ -1,5 +1,5 @@
 function config = defaultConfig()
-% defaultConfig - Return default project configuration.
+% defaultConfig - Возвращает конфигурацию проекта по умолчанию.
 config.project.name = "BirdScenarioMVP";
 config.project.version = "0.1.0";
 

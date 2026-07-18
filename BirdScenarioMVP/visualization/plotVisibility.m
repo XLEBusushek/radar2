@@ -1,5 +1,5 @@
 function fig = plotVisibility(trajectoryLog, config)
-% plotVisibility - Visibility timeline from TrajectoryLog.
+% plotVisibility - Временная шкала видимости из TrajectoryLog.
 arguments
     trajectoryLog (1, 1) struct
     config (1, 1) struct

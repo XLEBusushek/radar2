@@ -1,4 +1,4 @@
-% testFW2SpeedProfileInitialization - Speed profile fields at spawn (ТЗ-09S).
+% testFW2SpeedProfileInitialization - Поля профиля скорости при появлении (ТЗ-09S).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

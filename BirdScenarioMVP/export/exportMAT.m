@@ -1,5 +1,5 @@
 function exportMAT(trajectoryLog, legacyOutput, config, outputFolder)
-% exportMAT - Save TrajectoryLog and legacy output to MAT.
+% exportMAT - Сохранить TrajectoryLog и legacy output в MAT.
 arguments
     trajectoryLog (1, 1) struct
     legacyOutput struct

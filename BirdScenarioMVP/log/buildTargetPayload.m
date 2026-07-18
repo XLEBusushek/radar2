@@ -1,5 +1,5 @@
 function payload = buildTargetPayload(target, config)
-% buildTargetPayload - Snapshot target payload for TrajectoryLog.
+% buildTargetPayload - Снимок Payload цели для TrajectoryLog.
 arguments
     target (1, 1) struct
     config (1, 1) struct

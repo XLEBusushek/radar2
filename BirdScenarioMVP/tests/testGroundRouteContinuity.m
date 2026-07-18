@@ -1,4 +1,4 @@
-% testGroundRouteContinuity - Checks connected ground route geometry (ТЗ-08B).
+% testGroundRouteContinuity - Проверяет геометрию связного наземного маршрута (ТЗ-08B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

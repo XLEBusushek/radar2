@@ -1,5 +1,5 @@
 function len = computeRoadLength(points)
-% computeRoadLength - Compute XY polyline length.
+% computeRoadLength - Вычисление длины полилинии в плоскости XY.
 arguments
     points (:, 3) double
 end

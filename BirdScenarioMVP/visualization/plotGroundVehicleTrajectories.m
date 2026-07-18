@@ -1,5 +1,5 @@
 function plotGroundVehicleTrajectories(groundVehicles, config)
-% plotGroundVehicleTrajectories - Plot ground vehicle trajectories.
+% plotGroundVehicleTrajectories - Отображение траекторий наземных транспортных средств.
 arguments
     groundVehicles struct
     config (1, 1) struct

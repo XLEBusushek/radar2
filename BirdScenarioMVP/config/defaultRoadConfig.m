@@ -1,5 +1,5 @@
 function config = defaultRoadConfig(config)
-% defaultRoadConfig - Road network generation defaults.
+% defaultRoadConfig - Значения по умолчанию для генерации дорожной сети.
 config.roads.enabled = true;
 config.roads.countRange = [5, 15];
 config.roads.lengthRange = [100, 1200];

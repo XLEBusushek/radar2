@@ -1,4 +1,4 @@
-% testDefaultConfigStructure - Verify modular defaultConfig sections.
+% testDefaultConfigStructure - Проверка модульных секций defaultConfig.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

@@ -1,4 +1,4 @@
-% runAllTests - Run all BirdScenarioMVP tests in order (ТЗ-06).
+% runAllTests - Запуск всех тестов BirdScenarioMVP по порядку (ТЗ-06).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

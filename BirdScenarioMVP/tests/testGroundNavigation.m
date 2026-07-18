@@ -1,4 +1,4 @@
-% testGroundNavigation - Checks ground waypoint navigation update (ТЗ-08A).
+% testGroundNavigation - Проверяет обновление навигации по waypoint (ТЗ-08A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

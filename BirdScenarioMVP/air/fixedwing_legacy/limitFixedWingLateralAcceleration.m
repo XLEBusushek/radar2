@@ -1,5 +1,5 @@
 function target = limitFixedWingLateralAcceleration(target, config, dt)
-% limitFixedWingLateralAcceleration - Cap commanded heading via lateral accel limit.
+% limitFixedWingLateralAcceleration - Ограничить команду курса лимитом бокового ускорения.
 arguments
     target (1, 1) struct
     config (1, 1) struct

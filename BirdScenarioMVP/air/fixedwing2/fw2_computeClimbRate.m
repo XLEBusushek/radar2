@@ -1,5 +1,5 @@
 function target = fw2_computeClimbRate(target, config)
-% fw2_computeClimbRate - Smooth vertical command toward target flight level.
+% fw2_computeClimbRate - Плавная вертикальная команда к целевому эшелону.
 arguments
     target (1, 1) struct
     config (1, 1) struct

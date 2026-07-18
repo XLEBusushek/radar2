@@ -1,5 +1,5 @@
 function targetLog = logTarget(target, config)
-% logTarget - Snapshot one target for a trajectory log frame.
+% logTarget - Снимок одной цели для кадра лога траектории.
 arguments
     target (1, 1) struct
     config (1, 1) struct

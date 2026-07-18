@@ -1,4 +1,4 @@
-% testVisualizationWindows - Checks analysis figure window names (ТЗ-06C).
+% testVisualizationWindows - Проверяет имена окон аналитических графиков (ТЗ-06C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

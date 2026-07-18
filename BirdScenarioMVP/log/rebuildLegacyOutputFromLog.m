@@ -1,5 +1,5 @@
 function output = rebuildLegacyOutputFromLog(trajectoryLog, config)
-% rebuildLegacyOutputFromLog - Reconstruct legacy output[] from TrajectoryLog.
+% rebuildLegacyOutputFromLog - Восстановить legacy output[] из TrajectoryLog.
 arguments
     trajectoryLog (1, 1) struct
     config (1, 1) struct

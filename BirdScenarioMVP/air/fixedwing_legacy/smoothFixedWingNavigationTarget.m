@@ -1,5 +1,5 @@
 function target = smoothFixedWingNavigationTarget(target, rawTarget, config)
-% smoothFixedWingNavigationTarget - EMA-smooth navigation target with jump limit.
+% smoothFixedWingNavigationTarget - EMA-сглаживание цели навигации с лимитом скачка.
 arguments
     target (1, 1) struct
     rawTarget (3, 1) double

@@ -1,4 +1,4 @@
-% testQuadcopterZMovement - Checks meaningful altitude changes (ТЗ-07C).
+% testQuadcopterZMovement - Проверяет значимые изменения высоты (ТЗ-07C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

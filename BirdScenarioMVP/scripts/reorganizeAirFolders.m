@@ -1,4 +1,4 @@
-% reorganizeAirFolders - One-time air/ folder layout (TZ structure refactor).
+% reorganizeAirFolders - Одноразовая раскладка папки air/ (рефакторинг структуры ТЗ).
 airRoot = fileparts(fileparts(mfilename('fullpath')));
 airDir = fullfile(airRoot, 'air');
 

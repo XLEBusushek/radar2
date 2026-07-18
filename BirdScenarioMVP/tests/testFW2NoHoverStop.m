@@ -1,4 +1,4 @@
-% testFW2NoHoverStop - Speed always above min, no forbidden states (ТЗ-09R).
+% testFW2NoHoverStop - Скорость всегда выше min, нет запрещённых состояний (ТЗ-09R).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

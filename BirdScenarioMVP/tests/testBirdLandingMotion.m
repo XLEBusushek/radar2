@@ -1,4 +1,4 @@
-% testBirdLandingMotion - Checks smooth landing motion (ТЗ-05D).
+% testBirdLandingMotion - Проверяет плавное движение при посадке (ТЗ-05D).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

@@ -1,5 +1,5 @@
 function [isValid, report] = validateRoadNetwork(roadNetwork, config)
-% validateRoadNetwork - Validate graph-level road network quality.
+% validateRoadNetwork - Проверка качества дорожной сети на уровне графа.
 arguments
     roadNetwork (1, 1) struct
     config (1, 1) struct

@@ -1,4 +1,4 @@
-% testQuadcopterFSM - Checks Idle -> Takeoff -> Transit transitions (ТЗ-07A).
+% testQuadcopterFSM - Проверяет переходы Idle -> Takeoff -> Transit (ТЗ-07A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

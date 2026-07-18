@@ -1,5 +1,5 @@
 function mission = generateSafeMission(homePosition, initialHeading, config)
-% generateSafeMission - Generate long straight routes entirely inside Safe Zone.
+% generateSafeMission - Сгенерировать длинные прямые маршруты полностью внутри Safe Zone.
 arguments
     homePosition (3, 1) double
     initialHeading (1, 1) double

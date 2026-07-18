@@ -1,5 +1,5 @@
 function target = fw2_initializeSpeedProfile(target, config)
-% fw2_initializeSpeedProfile - Initialize speed profile fields at creation.
+% fw2_initializeSpeedProfile - Инициализировать поля профиля скорости при создании.
 arguments
     target (1, 1) struct
     config (1, 1) struct

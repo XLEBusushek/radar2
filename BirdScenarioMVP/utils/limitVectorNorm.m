@@ -1,5 +1,5 @@
 function vLimited = limitVectorNorm(v, maxNorm)
-% limitVectorNorm - Clamp vector norm to maxNorm; leave zero vector unchanged.
+% limitVectorNorm - Ограничение нормы вектора до maxNorm; нулевой вектор не изменяется.
 v = v(:);
 normV = norm(v);
 

@@ -1,5 +1,5 @@
 function config = defaultQuadcopterConfig(config)
-% defaultQuadcopterConfig - Quadcopter defaults.
+% defaultQuadcopterConfig - Значения по умолчанию для квадрокоптера.
 config.quadcopter.count = 5;
 config.quadcopter.rcsRange = [0.01, 0.1];
 config.quadcopter.initialState = "Idle";

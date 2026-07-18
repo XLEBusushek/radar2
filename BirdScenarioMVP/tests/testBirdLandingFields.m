@@ -1,4 +1,4 @@
-% testBirdLandingFields - Checks landing payload and output fields (ТЗ-05D).
+% testBirdLandingFields - Проверяет поля Payload и выходные данные посадки (ТЗ-05D).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

@@ -1,4 +1,4 @@
-% testRoadGeneration - Checks procedural road network generation (ТЗ-08A).
+% testRoadGeneration - Проверяет процедурную генерацию дорожной сети (ТЗ-08A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

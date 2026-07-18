@@ -1,5 +1,5 @@
 function target = smoothFixedWingLookaheadPoint(target, rawLookahead, config)
-% smoothFixedWingLookaheadPoint - Smooth lookahead with anti-backward logic.
+% smoothFixedWingLookaheadPoint - Сгладить lookahead с анти-обратной логикой.
 arguments
     target (1, 1) struct
     rawLookahead (3, 1) double

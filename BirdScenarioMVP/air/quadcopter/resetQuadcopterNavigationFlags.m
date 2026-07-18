@@ -1,5 +1,5 @@
 function quad = resetQuadcopterNavigationFlags(quad)
-% resetQuadcopterNavigationFlags - Clear no-progress recovery state.
+% resetQuadcopterNavigationFlags - Сбросить состояние восстановления при отсутствии прогресса.
 arguments
     quad (1, 1) struct
 end

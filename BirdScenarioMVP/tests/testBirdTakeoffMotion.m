@@ -1,4 +1,4 @@
-% testBirdTakeoffMotion - Checks takeoff kinematics (ТЗ-05B).
+% testBirdTakeoffMotion - Проверяет кинематику взлёта (ТЗ-05B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

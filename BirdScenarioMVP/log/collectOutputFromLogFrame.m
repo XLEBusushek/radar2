@@ -1,5 +1,5 @@
 function outputStep = collectOutputFromLogFrame(frame, trajectoryLog, config)
-% collectOutputFromLogFrame - Build legacy output step from a TrajectoryLog frame.
+% collectOutputFromLogFrame - Сформировать шаг legacy output из кадра TrajectoryLog.
 arguments
     frame (1, 1) struct
     trajectoryLog (1, 1) struct

@@ -1,5 +1,5 @@
 function targetOut = addBirdOutputFields(targetOut, target)
-% addBirdOutputFields - Bird-specific payload output fields.
+% addBirdOutputFields - Выходные поля Payload, специфичные для птицы.
 payload = target.Payload;
 
 if isfield(payload, 'LastTransitionReason')

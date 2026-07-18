@@ -1,5 +1,5 @@
 function zoneInfo = classifyFixedWingZone(position, config)
-% classifyFixedWingZone - Classify position relative to flight zones.
+% classifyFixedWingZone - Классифицировать позицию относительно зон полёта.
 arguments
     position (3, 1) double
     config (1, 1) struct

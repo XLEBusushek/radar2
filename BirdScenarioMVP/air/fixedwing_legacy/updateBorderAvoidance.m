@@ -1,5 +1,5 @@
 function target = updateBorderAvoidance(target, config, dt)
-% updateBorderAvoidance - Navigate back inside Safe Zone, then resume mission.
+% updateBorderAvoidance - Вернуться внутрь Safe Zone, затем возобновить миссию.
 arguments
     target (1, 1) struct
     config (1, 1) struct

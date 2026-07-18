@@ -1,5 +1,5 @@
 function log = attachTargetHistoryCache(log)
-% attachTargetHistoryCache - Attach per-target history cache to TrajectoryLog.
+% attachTargetHistoryCache - Прикрепить кэш истории по целям к TrajectoryLog.
 arguments
     log (1, 1) struct
 end

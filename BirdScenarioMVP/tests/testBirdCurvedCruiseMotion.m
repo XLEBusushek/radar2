@@ -1,4 +1,4 @@
-% testBirdCurvedCruiseMotion - Checks non-linear cruise trajectories (ТЗ-05C).
+% testBirdCurvedCruiseMotion - Проверяет нелинейные траектории крейсера (ТЗ-05C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

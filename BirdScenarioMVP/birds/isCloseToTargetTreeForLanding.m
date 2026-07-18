@@ -1,5 +1,5 @@
 function close = isCloseToTargetTreeForLanding(bird, config)
-% isCloseToTargetTreeForLanding - Check horizontal proximity to target tree.
+% isCloseToTargetTreeForLanding - Проверить горизонтальную близость к целевому дереву.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

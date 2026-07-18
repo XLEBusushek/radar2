@@ -1,5 +1,5 @@
 function outputStep = collectOutput(scenario, time)
-% collectOutput - Collect simulation data for the current time step.
+% collectOutput - Собрать данные симуляции для текущего шага по времени.
 outputStep = collectOutputStep(scenario, time);
 outputStep = splitOutputTargetsByType(outputStep);
 end

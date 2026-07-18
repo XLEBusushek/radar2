@@ -1,5 +1,5 @@
 function fig = plotStates(trajectoryLog, config)
-% plotStates - FSM state timeline from TrajectoryLog.
+% plotStates - Временная шкала состояний FSM из TrajectoryLog.
 arguments
     trajectoryLog (1, 1) struct
     config (1, 1) struct

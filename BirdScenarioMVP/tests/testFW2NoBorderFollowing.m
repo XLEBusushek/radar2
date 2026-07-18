@@ -1,4 +1,4 @@
-% testFW2NoBorderFollowing - No prolonged border parallel flight (ТЗ-09R).
+% testFW2NoBorderFollowing - Нет длительного полёта параллельно границе (ТЗ-09R).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

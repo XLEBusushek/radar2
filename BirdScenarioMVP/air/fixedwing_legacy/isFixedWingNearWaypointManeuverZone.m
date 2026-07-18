@@ -1,5 +1,5 @@
 function near = isFixedWingNearWaypointManeuverZone(target, config)
-% isFixedWingNearWaypointManeuverZone - True when random maneuvers should be blocked.
+% isFixedWingNearWaypointManeuverZone - Истина, когда случайные манёвры должны быть заблокированы.
 arguments
     target (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function [desiredVelocity, lookaheadPoint] = computeGroundDesiredVelocity(target, scenario, config)
-% computeGroundDesiredVelocity - Compute ground desired velocity with pure pursuit.
+% computeGroundDesiredVelocity - Вычисление желаемой скорости наземного транспорта с pure pursuit.
 arguments
     target (1, 1) struct
     scenario (1, 1) struct

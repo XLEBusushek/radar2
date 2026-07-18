@@ -1,5 +1,5 @@
 function target = advanceGroundWaypoint(target, config)
-% advanceGroundWaypoint - Move ground vehicle to next route waypoint.
+% advanceGroundWaypoint - Переход наземного транспорта к следующей путевой точке маршрута.
 arguments
     target (1, 1) struct
     config (1, 1) struct %#ok<INUSD>

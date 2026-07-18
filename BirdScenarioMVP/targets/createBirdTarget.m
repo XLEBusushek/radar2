@@ -1,5 +1,5 @@
 function target = createBirdTarget(id, config, trees)
-% createBirdTarget - Create a bird target perched on a random tree.
+% createBirdTarget - Создаёт цель-птицу, сидящую на случайном дереве.
 arguments
     id (1, 1) {mustBePositive, mustBeInteger}
     config (1, 1) struct

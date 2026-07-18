@@ -1,4 +1,4 @@
-% testQuadcopterInitialization - Checks quadcopter creation (ТЗ-07A).
+% testQuadcopterInitialization - Проверяет создание квадрокоптера (ТЗ-07A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

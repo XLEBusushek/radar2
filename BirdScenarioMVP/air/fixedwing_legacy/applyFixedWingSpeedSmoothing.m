@@ -1,5 +1,5 @@
 function target = applyFixedWingSpeedSmoothing(target, config)
-% applyFixedWingSpeedSmoothing - Smooth fixed-wing speed with gradual turn slowdown.
+% applyFixedWingSpeedSmoothing - Сгладить скорость fixed-wing с постепенным замедлением на развороте.
 arguments
     target (1, 1) struct
     config (1, 1) struct

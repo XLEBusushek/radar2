@@ -1,5 +1,5 @@
 function indices = splitTargetsByType(targets)
-% splitTargetsByType - Index targets by class/subtype.
+% splitTargetsByType - Индексирует цели по классу и подтипу.
 arguments
     targets (:, 1) struct
 end

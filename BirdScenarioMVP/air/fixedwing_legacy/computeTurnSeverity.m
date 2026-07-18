@@ -1,5 +1,5 @@
 function turnSeverity = computeTurnSeverity(currentHeading, targetHeading)
-% computeTurnSeverity - Return normalized turn demand in [0, 1].
+% computeTurnSeverity - Вернуть нормализованную потребность в развороте в [0, 1].
 arguments
     currentHeading (1, 1) double
     targetHeading (1, 1) double

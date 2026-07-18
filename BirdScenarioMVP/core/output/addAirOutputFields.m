@@ -1,5 +1,5 @@
 function targetOut = addAirOutputFields(targetOut, target)
-% addAirOutputFields - Quadcopter and fixed-wing shared air output fields.
+% addAirOutputFields - Общие выходные поля для квадрокоптера и самолёта с фиксированным крылом.
 payload = target.Payload;
 
 targetOut.WaypointIndex = getPayloadField(payload, 'CurrentWaypointIndex', nan);

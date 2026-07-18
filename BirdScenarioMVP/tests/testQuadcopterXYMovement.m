@@ -1,4 +1,4 @@
-% testQuadcopterXYMovement - Checks visible XY travel for quadcopters (ТЗ-07C).
+% testQuadcopterXYMovement - Проверяет заметное XY-перемещение квадрокоптеров (ТЗ-07C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

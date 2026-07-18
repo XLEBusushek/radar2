@@ -1,5 +1,5 @@
 function bird = updateBirdLanding(bird, config)
-% updateBirdLanding - Update landing progress and desired speed each step.
+% updateBirdLanding - Обновить прогресс посадки и желаемую скорость на каждом шаге.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

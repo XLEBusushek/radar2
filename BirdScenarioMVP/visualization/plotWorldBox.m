@@ -1,5 +1,5 @@
 function plotWorldBox(worldSize)
-% plotWorldBox - Draw the world bounding box edges.
+% plotWorldBox - Рисование рёбер ограничивающего куба мира.
 arguments
     worldSize (1, 3) double
 end

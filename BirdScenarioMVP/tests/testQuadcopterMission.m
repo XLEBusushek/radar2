@@ -1,4 +1,4 @@
-% testQuadcopterMission - Checks quadcopter mission waypoints (ТЗ-07A).
+% testQuadcopterMission - Проверяет waypoints миссии квадрокоптера (ТЗ-07A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

@@ -1,5 +1,5 @@
 function zones = getFixedWingZoneBounds(config)
-% getFixedWingZoneBounds - Compute Safe, Warning, and Critical zone rectangles.
+% getFixedWingZoneBounds - Вычислить прямоугольники зон Safe, Warning и Critical.
 arguments
     config (1, 1) struct
 end

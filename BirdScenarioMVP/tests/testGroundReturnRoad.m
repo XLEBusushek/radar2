@@ -1,4 +1,4 @@
-% testGroundReturnRoad - Checks return-to-road target selection (ТЗ-08A).
+% testGroundReturnRoad - Проверяет выбор цели возврата на дорогу (ТЗ-08A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

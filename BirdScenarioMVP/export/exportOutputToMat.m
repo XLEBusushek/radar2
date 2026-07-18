@@ -1,5 +1,5 @@
 function exportOutputToMat(scenario, output, config, outputFolder)
-% exportOutputToMat - Save scenario, output, and config to a MAT file.
+% exportOutputToMat - Сохранить scenario, output и config в MAT-файл.
 arguments
     scenario (1, 1) struct
     output struct

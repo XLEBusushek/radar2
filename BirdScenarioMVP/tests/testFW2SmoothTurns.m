@@ -1,4 +1,4 @@
-% testFW2SmoothTurns - Heading changes respect turn rate limits (ТЗ-09R).
+% testFW2SmoothTurns - Изменения курса соблюдают лимиты скорости поворота (ТЗ-09R).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

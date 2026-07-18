@@ -1,5 +1,5 @@
 function nearest = findNearestRoad(point, roadNetwork)
-% findNearestRoad - Project a point to the nearest road segment.
+% findNearestRoad - Проекция точки на ближайший сегмент дороги.
 arguments
     point (3, 1) double
     roadNetwork (1, 1) struct

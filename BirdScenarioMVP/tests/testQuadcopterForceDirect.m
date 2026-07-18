@@ -1,4 +1,4 @@
-% testQuadcopterForceDirect - Checks no-progress recovery mode (ТЗ-07C).
+% testQuadcopterForceDirect - Проверяет режим восстановления при отсутствии прогресса (ТЗ-07C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

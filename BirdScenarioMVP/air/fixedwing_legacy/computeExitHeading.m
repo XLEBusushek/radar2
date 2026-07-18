@@ -1,5 +1,5 @@
 function heading = computeExitHeading(position, exitPoint)
-% computeExitHeading - Compute stable heading toward the mission exit point.
+% computeExitHeading - Вычислить стабильный курс к точке выхода из миссии.
 arguments
     position (3, 1) double
     exitPoint (3, 1) double

@@ -1,4 +1,4 @@
-% testTrees - Checks for tree generation and visualization (ТЗ-02).
+% testTrees - Проверяет генерацию и визуализацию деревьев (ТЗ-02).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

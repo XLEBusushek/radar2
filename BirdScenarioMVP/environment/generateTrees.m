@@ -1,5 +1,5 @@
 function trees = generateTrees(config)
-% generateTrees - Generate trees inside the simulation world.
+% generateTrees - Генерирует деревья внутри мира симуляции.
 arguments
     config (1, 1) struct
 end

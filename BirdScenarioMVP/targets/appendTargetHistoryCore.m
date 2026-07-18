@@ -1,5 +1,5 @@
 function target = appendTargetHistoryCore(target)
-% appendTargetHistoryCore - Append kinematic core fields only.
+% appendTargetHistoryCore - Добавляет только кинематические основные поля.
 target.History.Time(end + 1, 1) = target.CurrentTime;
 target.History.Position(end + 1, :) = target.Position(:).';
 target.History.Velocity(end + 1, :) = target.Velocity(:).';

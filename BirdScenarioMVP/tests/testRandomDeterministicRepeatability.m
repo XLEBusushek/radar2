@@ -1,4 +1,4 @@
-% testRandomDeterministicRepeatability - Same seed repeats scenario (random system).
+% testRandomDeterministicRepeatability - Одинаковый seed воспроизводит сценарий (random system).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

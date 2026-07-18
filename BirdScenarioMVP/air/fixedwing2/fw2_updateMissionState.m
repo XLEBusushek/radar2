@@ -1,5 +1,5 @@
 function target = fw2_updateMissionState(target, config)
-% fw2_updateMissionState - Leg progress and completion by projection.
+% fw2_updateMissionState - Прогресс участка и завершение по проекции.
 arguments
     target (1, 1) struct
     config (1, 1) struct

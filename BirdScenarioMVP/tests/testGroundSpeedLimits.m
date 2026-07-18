@@ -1,4 +1,4 @@
-% testGroundSpeedLimits - Checks ground speed and acceleration limits (ТЗ-08A).
+% testGroundSpeedLimits - Проверяет лимиты скорости и ускорения (ТЗ-08A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

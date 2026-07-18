@@ -1,5 +1,5 @@
 function position = enforceWorldBounds(position, worldSize)
-% enforceWorldBounds - Clamp position coordinates to world cube bounds.
+% enforceWorldBounds - Ограничение координат позиции границами куба мира.
 position = position(:);
 
 position(1) = min(max(position(1), 0), worldSize(1));

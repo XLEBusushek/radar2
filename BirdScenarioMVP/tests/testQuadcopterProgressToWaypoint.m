@@ -1,4 +1,4 @@
-% testQuadcopterProgressToWaypoint - Checks Transit approaches waypoint (ТЗ-07C).
+% testQuadcopterProgressToWaypoint - Проверяет приближение Transit к waypoint (ТЗ-07C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

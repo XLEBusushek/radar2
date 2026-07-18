@@ -1,5 +1,5 @@
 function target = applyFixedWingHeadingSmoothing(target, targetHeading, config, dt)
-% applyFixedWingHeadingSmoothing - Smooth heading while respecting turn-rate limit.
+% applyFixedWingHeadingSmoothing - Сгладить курс с учётом лимита скорости разворота.
 arguments
     target (1, 1) struct
     targetHeading (1, 1) double

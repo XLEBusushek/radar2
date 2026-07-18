@@ -1,5 +1,5 @@
 function target = applyQuadcopterMotionLimits(target, config)
-% applyQuadcopterMotionLimits - Enforce speed, vertical speed, and world bounds.
+% applyQuadcopterMotionLimits - Ограничить скорость, вертикальную скорость и границы мира.
 qc = config.quadcopter;
 worldSize = config.world.size;
 

@@ -1,5 +1,5 @@
 function target = updateTarget(target, scenario, config, dt)
-% updateTarget - Update a single target for one simulation step.
+% updateTarget - Обновляет одну цель на один шаг симуляции.
 arguments
     target (1, 1) struct
     scenario (1, 1) struct

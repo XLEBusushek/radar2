@@ -1,5 +1,5 @@
 function bird = updateBirdKinematics(bird, config, dt)
-% updateBirdKinematics - Update bird position, velocity, and acceleration.
+% updateBirdKinematics - Обновить позицию, скорость и ускорение птицы.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

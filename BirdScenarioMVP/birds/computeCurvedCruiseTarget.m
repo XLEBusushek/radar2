@@ -1,5 +1,5 @@
 function curvePoint = computeCurvedCruiseTarget(bird, config)
-% computeCurvedCruiseTarget - Compute intermediate curve waypoint for Cruise.
+% computeCurvedCruiseTarget - Вычислить промежуточную точку кривой для Cruise.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

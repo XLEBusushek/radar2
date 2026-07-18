@@ -1,5 +1,5 @@
 function choice = randChoiceWeighted(values, weights)
-% randChoiceWeighted - Select a value proportionally to nonnegative weights.
+% randChoiceWeighted - Выбор значения пропорционально неотрицательным весам.
 arguments
     values
     weights (:, 1) double

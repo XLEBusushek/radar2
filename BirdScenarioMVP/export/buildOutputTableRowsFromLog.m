@@ -1,5 +1,5 @@
 function rows = buildOutputTableRowsFromLog(trajectoryLog)
-% buildOutputTableRowsFromLog - Build CSV rows directly from TrajectoryLog frames.
+% buildOutputTableRowsFromLog - Построить строки CSV напрямую из кадров TrajectoryLog.
 arguments
     trajectoryLog (1, 1) struct
 end

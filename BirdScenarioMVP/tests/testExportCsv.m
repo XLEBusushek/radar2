@@ -1,4 +1,4 @@
-% testExportCsv - Checks CSV export (ТЗ-06).
+% testExportCsv - Проверяет экспорт CSV (ТЗ-06).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

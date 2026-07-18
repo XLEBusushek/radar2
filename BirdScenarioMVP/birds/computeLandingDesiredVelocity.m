@@ -1,5 +1,5 @@
 function desiredVelocity = computeLandingDesiredVelocity(bird, config)
-% computeLandingDesiredVelocity - Compute desired velocity during landing.
+% computeLandingDesiredVelocity - Вычислить желаемую скорость во время посадки.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function target = updateBehaviorMemory(target, action, reason, context, config)
-% updateBehaviorMemory - Update behavior memory after a decision.
+% updateBehaviorMemory - Обновить память поведения после решения.
 arguments
     target (1, 1) struct
     action (1, 1) string

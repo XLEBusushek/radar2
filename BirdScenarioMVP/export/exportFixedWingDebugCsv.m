@@ -1,5 +1,5 @@
 function exportFixedWingDebugCsv(output, config, outputFolder)
-% exportFixedWingDebugCsv - Export fixed-wing navigation debug CSV.
+% exportFixedWingDebugCsv - Экспорт отладочного CSV навигации fixed-wing.
 arguments
     output struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function lookaheadPoint = computeFixedWingFlyByArcLookahead(posXY, cornerXY, uIn, uOut, config, flightLevel)
-% computeFixedWingFlyByArcLookahead - Circular fly-by lookahead at a 90-degree corner.
+% computeFixedWingFlyByArcLookahead - Круговой fly-by lookahead на углу 90 градусов.
 arguments
     posXY (2, 1) double
     cornerXY (2, 1) double

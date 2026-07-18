@@ -1,5 +1,5 @@
 function bird = generateBirdManeuver(bird, config)
-% generateBirdManeuver - Generate a new lateral/vertical cruise maneuver.
+% generateBirdManeuver - Сгенерировать новый боковой/вертикальный манёвр в крейсерском полёте.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

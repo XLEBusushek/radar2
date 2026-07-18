@@ -1,5 +1,5 @@
 function value = getFixedWingNavConfigValue(config, navField, antiBounceField, defaultValue)
-% getFixedWingNavConfigValue - Read navigation config with antiBounce fallback.
+% getFixedWingNavConfigValue - Прочитать конфиг навигации с fallback antiBounce.
 arguments
     config (1, 1) struct
     navField (1, :) char

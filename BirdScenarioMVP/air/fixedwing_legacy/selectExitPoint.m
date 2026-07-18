@@ -1,5 +1,5 @@
 function exitPoint = selectExitPoint(lastWaypoint, previousWaypoint, worldSize, fw)
-% selectExitPoint - Choose a smooth boundary exit point for fixed-wing missions.
+% selectExitPoint - Выбрать плавную точку выхода на границу для миссий fixed-wing.
 arguments
     lastWaypoint (3, 1) double
     previousWaypoint (3, 1) double

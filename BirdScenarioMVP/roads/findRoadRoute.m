@@ -1,5 +1,5 @@
 function route = findRoadRoute(roadNetwork, startNodeID, endNodeID)
-% findRoadRoute - Find shortest route between graph nodes with Dijkstra.
+% findRoadRoute - Поиск кратчайшего маршрута между узлами графа с помощью Дейкстры.
 arguments
     roadNetwork (1, 1) struct
     startNodeID (1, 1) double {mustBePositive, mustBeInteger}

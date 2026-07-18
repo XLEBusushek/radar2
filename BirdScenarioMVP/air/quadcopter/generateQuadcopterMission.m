@@ -1,5 +1,5 @@
 function mission = generateQuadcopterMission(homePosition, config)
-% generateQuadcopterMission - Generate waypoint route for a quadcopter.
+% generateQuadcopterMission - Сгенерировать маршрут по точкам для квадрокоптера.
 arguments
     homePosition (3, 1) double
     config (1, 1) struct

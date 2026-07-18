@@ -1,5 +1,5 @@
 function [point, accepted] = fw2_generateSafeWaypoint(previousPoint, previousHeading, nominalAltitude, config)
-% fw2_generateSafeWaypoint - Generate one route point inside safe zone.
+% fw2_generateSafeWaypoint - Сгенерировать одну точку маршрута внутри safe zone.
 arguments
     previousPoint (3, 1) double
     previousHeading (1, 1) double

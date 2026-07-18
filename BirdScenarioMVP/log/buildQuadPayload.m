@@ -1,5 +1,5 @@
 function payload = buildQuadPayload(target)
-% buildQuadPayload - Quadcopter-specific payload snapshot.
+% buildQuadPayload - Снимок Payload, специфичный для квадрокоптера.
 payload = struct();
 if ~isfield(target, 'Payload')
     return;

@@ -1,5 +1,5 @@
 function bird = initializeCruiseCurve(bird, config)
-% initializeCruiseCurve - Initialize curved cruise parameters on Cruise entry.
+% initializeCruiseCurve - Инициализировать параметры кривого крейсерского полёта при входе в Cruise.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

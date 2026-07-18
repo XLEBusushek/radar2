@@ -1,5 +1,5 @@
 function bird = applyBirdAccelerationLimit(bird, config, dt)
-% applyBirdAccelerationLimit - Limit acceleration toward desired velocity.
+% applyBirdAccelerationLimit - Ограничить ускорение при движении к желаемой скорости.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

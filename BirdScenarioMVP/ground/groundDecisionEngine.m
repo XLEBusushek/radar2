@@ -1,5 +1,5 @@
 function action = groundDecisionEngine(target, config)
-% groundDecisionEngine - Legacy probabilistic decision for ground vehicles.
+% groundDecisionEngine - Устаревшее вероятностное принятие решений для наземного транспорта.
 arguments
     target (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function tf = shouldIncrementalCsv(config)
-% shouldIncrementalCsv - Whether to append CSV rows during simulation.
+% shouldIncrementalCsv - Добавлять ли строки CSV во время симуляции.
 arguments
     config (1, 1) struct
 end

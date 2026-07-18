@@ -1,5 +1,5 @@
 function target = applyFixedWingMotionLimits(target, config, dt)
-% applyFixedWingMotionLimits - Enforce fixed-wing speed, climb, and world limits.
+% applyFixedWingMotionLimits - Ограничить скорость, набор высоты и границы мира для fixed-wing.
 arguments
     target (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function nextState = quadcopterDecisionEngine(target, config)
-% quadcopterDecisionEngine - Determine next FSM state for a quadcopter.
+% quadcopterDecisionEngine - Определить следующее состояние FSM для квадрокоптера.
 arguments
     target (1, 1) struct
     config (1, 1) struct

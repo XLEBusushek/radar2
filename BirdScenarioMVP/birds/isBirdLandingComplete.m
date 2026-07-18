@@ -1,5 +1,5 @@
 function complete = isBirdLandingComplete(bird, config)
-% isBirdLandingComplete - Check whether the bird has finished landing.
+% isBirdLandingComplete - Проверить, завершена ли посадка птицы.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

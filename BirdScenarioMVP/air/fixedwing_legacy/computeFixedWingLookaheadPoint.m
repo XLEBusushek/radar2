@@ -1,5 +1,5 @@
 function target = computeFixedWingLookaheadPoint(target, config)
-% computeFixedWingLookaheadPoint - Select raw XY lookahead point with corner cutting.
+% computeFixedWingLookaheadPoint - Выбрать сырую XY-точку lookahead со срезанием угла.
 arguments
     target (1, 1) struct
     config (1, 1) struct

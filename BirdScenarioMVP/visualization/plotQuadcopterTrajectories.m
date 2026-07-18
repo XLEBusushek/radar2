@@ -1,5 +1,5 @@
 function plotQuadcopterTrajectories(quadcopters, config)
-% plotQuadcopterTrajectories - Plot quadcopter trajectories with distinct style.
+% plotQuadcopterTrajectories - Отображение траекторий квадрокоптеров с отличительным стилем.
 arguments
     quadcopters struct
     config (1, 1) struct

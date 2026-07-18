@@ -1,5 +1,5 @@
 function target = appendTargetHistory(target, config)
-% appendTargetHistory - Append target history according to config.log.historyMode.
+% appendTargetHistory - Добавляет историю цели согласно config.log.historyMode.
 arguments
     target (1, 1) struct
     config (1, 1) struct

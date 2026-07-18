@@ -1,4 +1,4 @@
-% testBehaviorCooldown - Checks action cooldown behavior (ТЗ-07B).
+% testBehaviorCooldown - Проверяет поведение cooldown действий (ТЗ-07B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

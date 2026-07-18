@@ -1,4 +1,4 @@
-% testBirdCurvedCruiseLimits - Checks motion limits during curved cruise (ТЗ-05C).
+% testBirdCurvedCruiseLimits - Проверяет лимиты движения при изогнутом крейсере (ТЗ-05C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

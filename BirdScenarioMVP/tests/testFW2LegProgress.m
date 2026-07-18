@@ -1,4 +1,4 @@
-% testFW2LegProgress - Leg progress increases and completes (ТЗ-09R).
+% testFW2LegProgress - Прогресс участка растёт и завершается (ТЗ-09R).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

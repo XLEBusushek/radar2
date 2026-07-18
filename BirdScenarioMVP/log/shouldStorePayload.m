@@ -1,5 +1,5 @@
 function tf = shouldStorePayload(config)
-% shouldStorePayload - Whether TrajectoryLog stores per-target Payload.
+% shouldStorePayload - Сохранять ли TrajectoryLog Payload для каждой цели.
 arguments
     config (1, 1) struct
 end

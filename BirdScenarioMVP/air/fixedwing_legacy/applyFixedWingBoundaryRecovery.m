@@ -1,5 +1,5 @@
 function target = applyFixedWingBoundaryRecovery(target, config, dt)
-% applyFixedWingBoundaryRecovery - Navigate smoothly back inside Safe Zone.
+% applyFixedWingBoundaryRecovery - Плавно вернуться внутрь Safe Zone.
 arguments
     target (1, 1) struct
     config (1, 1) struct

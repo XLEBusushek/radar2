@@ -1,4 +1,4 @@
-% testHistoryModeEquivalence - full vs minimal history must not change simulation.
+% testHistoryModeEquivalence - full vs minimal history не должны менять симуляцию.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

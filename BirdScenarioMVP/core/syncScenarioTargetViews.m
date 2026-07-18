@@ -1,5 +1,5 @@
 function scenario = syncScenarioTargetViews(scenario)
-% syncScenarioTargetViews - Rebuild typed target views from scenario.Targets.
+% syncScenarioTargetViews - Перестроить типизированные представления целей из scenario.Targets.
 if ~isfield(scenario, 'Targets') || isempty(scenario.Targets)
     scenario.Birds = struct([]);
     scenario.Quadcopters = struct([]);

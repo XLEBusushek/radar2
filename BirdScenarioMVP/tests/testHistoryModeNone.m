@@ -1,4 +1,4 @@
-% testHistoryModeNone - historyMode "none" must not append per-step history.
+% testHistoryModeNone - historyMode "none" не должен добавлять пошаговую историю.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

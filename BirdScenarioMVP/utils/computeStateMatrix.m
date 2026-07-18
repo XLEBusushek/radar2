@@ -1,5 +1,5 @@
 function stateMatrix = computeStateMatrix(position, velocity)
-% computeStateMatrix - Build 3x2 state matrix from position and velocity.
+% computeStateMatrix - Построение матрицы состояния 3x2 из позиции и скорости.
 position = position(:);
 velocity = velocity(:);
 

@@ -1,4 +1,4 @@
-% testVisualization - Checks 3D scenario plotting (ТЗ-06).
+% testVisualization - Проверяет 3D-отрисовку сценария (ТЗ-06).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

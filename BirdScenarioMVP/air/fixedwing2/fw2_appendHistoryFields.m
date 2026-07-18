@@ -1,5 +1,5 @@
 function history = fw2_appendHistoryFields(history, target)
-% fw2_appendHistoryFields - Append fixed-wing2 telemetry to history.
+% fw2_appendHistoryFields - Добавить телеметрию fixed-wing2 в history.
 p = target.Payload;
 history = appendScalar(history, 'RouteIndex', p.RouteIndex);
 history = appendScalar(history, 'CurrentLegProgress', p.CurrentLegProgress);

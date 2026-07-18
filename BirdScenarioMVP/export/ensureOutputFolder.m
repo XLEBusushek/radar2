@@ -1,5 +1,5 @@
 function outputFolder = ensureOutputFolder(config)
-% ensureOutputFolder - Create export output folder if it does not exist.
+% ensureOutputFolder - Создать папку вывода экспорта, если она не существует.
 arguments
     config (1, 1) struct
 end

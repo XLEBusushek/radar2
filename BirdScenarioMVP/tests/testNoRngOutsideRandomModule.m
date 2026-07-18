@@ -1,4 +1,4 @@
-% testNoRngOutsideRandomModule - Production code must not seed RNG directly.
+% testNoRngOutsideRandomModule - Production-код не должен инициализировать RNG напрямую.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

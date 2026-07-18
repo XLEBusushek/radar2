@@ -1,4 +1,4 @@
-% testGroundVisualizationClarity - Checks clear roads/vehicles visualization (ТЗ-08B).
+% testGroundVisualizationClarity - Проверяет чёткую визуализацию дорог и транспорта (ТЗ-08B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

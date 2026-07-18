@@ -1,5 +1,5 @@
 function target = updateFixedWingKinematics(target, config, dt)
-% updateFixedWingKinematics - Integrate fixed-wing motion with inertial limits.
+% updateFixedWingKinematics - Интегрировать движение fixed-wing с инерционными ограничениями.
 arguments
     target (1, 1) struct
     config (1, 1) struct

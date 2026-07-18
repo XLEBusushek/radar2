@@ -1,5 +1,5 @@
 function cache = buildTargetHistoryCache(trajectoryLog)
-% buildTargetHistoryCache - Build all target histories in one log pass.
+% buildTargetHistoryCache - Построить все истории целей за один проход по логу.
 arguments
     trajectoryLog (1, 1) struct
 end

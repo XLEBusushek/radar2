@@ -1,5 +1,5 @@
 function bird = computeBirdDesiredVelocity(bird, config)
-% computeBirdDesiredVelocity - Compute desired velocity vector for the bird.
+% computeBirdDesiredVelocity - Вычислить желаемый вектор скорости птицы.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

@@ -1,4 +1,4 @@
-% testGroundVehicleFollowsRoad - Checks route-following road deviation (ТЗ-08C).
+% testGroundVehicleFollowsRoad - Проверяет отклонение от дороги при следовании маршруту (ТЗ-08C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

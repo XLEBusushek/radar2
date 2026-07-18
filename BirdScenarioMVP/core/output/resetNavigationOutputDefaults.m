@@ -1,5 +1,5 @@
 function targetOut = resetNavigationOutputDefaults(targetOut)
-% resetNavigationOutputDefaults - Initialize navigation-related output defaults.
+% resetNavigationOutputDefaults - Инициализировать значения по умолчанию для навигационных выходных полей.
 targetOut.RoadID = nan;
 targetOut.CurrentEdgeID = nan;
 targetOut.CurrentRoad = nan;

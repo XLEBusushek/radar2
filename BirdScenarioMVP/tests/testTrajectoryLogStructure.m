@@ -1,4 +1,4 @@
-% testTrajectoryLogStructure - Verify TrajectoryLog pipeline and legacy compat.
+% testTrajectoryLogStructure - Проверка конвейера TrajectoryLog и совместимости с legacy.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

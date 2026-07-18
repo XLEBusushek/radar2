@@ -1,5 +1,5 @@
 function allowed = isQuadcopterTransitionAllowed(currentState, nextState)
-% isQuadcopterTransitionAllowed - Check FSM transition validity for quadcopters.
+% isQuadcopterTransitionAllowed - Проверить допустимость перехода FSM для квадрокоптеров.
 arguments
     currentState (1, 1) string
     nextState (1, 1) string

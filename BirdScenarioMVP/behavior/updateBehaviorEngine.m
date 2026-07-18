@@ -1,5 +1,5 @@
 function target = updateBehaviorEngine(target, scenario, config, dt)
-% updateBehaviorEngine - Universal probabilistic behavior decision loop.
+% updateBehaviorEngine - Универсальный цикл вероятностных решений поведения.
 arguments
     target (1, 1) struct
     scenario (1, 1) struct

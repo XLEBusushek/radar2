@@ -1,4 +1,4 @@
-% testGroundOutput - Checks ground output and CSV road fields (ТЗ-08A).
+% testGroundOutput - Проверяет выходные данные наземного транспорта и поля дорог в CSV (ТЗ-08A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

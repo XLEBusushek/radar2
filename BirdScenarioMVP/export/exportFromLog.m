@@ -1,6 +1,6 @@
 function scenarioFig = exportFromLog(trajectoryLog, config, env, legacyOutput)
-% exportFromLog - Export TrajectoryLog to MAT, CSV, and figures.
-%   scenarioFig = exportFromLog(...) - optional 3D figure handle to show after export.
+% exportFromLog - Экспорт TrajectoryLog в MAT, CSV и графики.
+%   scenarioFig = exportFromLog(...) - необязательный handle 3D-графика для показа после экспорта.
 arguments
     trajectoryLog (1, 1) struct
     config (1, 1) struct

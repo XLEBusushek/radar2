@@ -1,5 +1,5 @@
 function setScenarioRNG(seed)
-% setScenarioRNG - Set MATLAB global RNG with validation.
+% setScenarioRNG - Установка глобального RNG MATLAB с проверкой.
 arguments
     seed (1, 1) double
 end

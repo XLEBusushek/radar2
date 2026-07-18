@@ -1,5 +1,5 @@
 function target = computeFixedWingDesiredVelocity(target, config, dt)
-% computeFixedWingDesiredVelocity - Heading-based command for fixed-wing UAVs.
+% computeFixedWingDesiredVelocity - Команда на основе курса для fixed-wing UAV.
 arguments
     target (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function target = initializeFixedWingFlightLevel(target, config)
-% initializeFixedWingFlightLevel - Snap fixed-wing UAV to the nearest flight level.
+% initializeFixedWingFlightLevel - Привязать fixed-wing UAV к ближайшему эшелону.
 arguments
     target (1, 1) struct
     config (1, 1) struct

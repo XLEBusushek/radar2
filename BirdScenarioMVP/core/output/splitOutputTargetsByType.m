@@ -1,5 +1,5 @@
 function outputStep = splitOutputTargetsByType(outputStep)
-% splitOutputTargetsByType - Build typed target slices from outputStep.Targets.
+% splitOutputTargetsByType - Сформировать типизированные срезы целей из outputStep.Targets.
 birdMask = arrayfun(@(t) t.Class == "bird", outputStep.Targets);
 if any(birdMask)
     outputStep.Birds = outputStep.Targets(birdMask);

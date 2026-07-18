@@ -1,4 +1,4 @@
-% testQuadcopterTakeoff - Checks vertical takeoff behavior (ТЗ-07A).
+% testQuadcopterTakeoff - Проверяет поведение вертикального взлёта (ТЗ-07A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

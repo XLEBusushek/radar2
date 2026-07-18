@@ -1,5 +1,5 @@
 function target = leaveRoadTemporarily(target, roadNetwork, config)
-% leaveRoadTemporarily - Set a temporary off-road target 30-100 m from road.
+% leaveRoadTemporarily - Установка временной цели вне дороги на расстоянии 30-100 м от неё.
 arguments
     target (1, 1) struct
     roadNetwork (1, 1) struct %#ok<INUSD>

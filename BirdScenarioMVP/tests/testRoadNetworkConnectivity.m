@@ -1,4 +1,4 @@
-% testRoadNetworkConnectivity - Checks road graph connectivity (ТЗ-08C).
+% testRoadNetworkConnectivity - Проверяет связность графа дорог (ТЗ-08C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

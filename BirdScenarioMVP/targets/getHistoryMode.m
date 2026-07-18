@@ -1,5 +1,5 @@
 function mode = getHistoryMode(config)
-% getHistoryMode - Resolve target history recording mode.
+% getHistoryMode - Определяет режим записи истории цели.
 arguments
     config (1, 1) struct
 end

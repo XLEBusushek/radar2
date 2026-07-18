@@ -1,4 +1,4 @@
-% testBirdInitialization - Checks bird placement on trees (ТЗ-03).
+% testBirdInitialization - Проверяет размещение птиц на деревьях (ТЗ-03).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

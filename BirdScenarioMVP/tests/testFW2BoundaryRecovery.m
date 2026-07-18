@@ -1,4 +1,4 @@
-% testFW2BoundaryRecovery - Recovery in warning/critical zone (ТЗ-09R).
+% testFW2BoundaryRecovery - Восстановление в зоне предупреждения/критической зоне (ТЗ-09R).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

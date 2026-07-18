@@ -1,5 +1,5 @@
 function [distanceToBoundary, outside] = computeDistanceToWorldBoundary(position, worldSize)
-% computeDistanceToWorldBoundary - Minimum XY distance to world bounds.
+% computeDistanceToWorldBoundary - Минимальное расстояние по XY до границ мира.
 arguments
     position (3, 1) double
     worldSize (1, 3) double

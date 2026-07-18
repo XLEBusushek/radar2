@@ -1,5 +1,5 @@
 function scenario = updateScenario(scenario, config, dt)
-% updateScenario - Advance scenario by one time step.
+% updateScenario - Продвинуть сценарий на один шаг по времени.
 arguments
     scenario (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function target = advanceFixedWingWaypoint(target, config)
-% advanceFixedWingWaypoint - Advance fixed-wing route waypoint.
+% advanceFixedWingWaypoint - Перейти к следующей точке маршрута fixed-wing.
 arguments
     target (1, 1) struct
     config (1, 1) struct

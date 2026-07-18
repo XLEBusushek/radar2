@@ -1,4 +1,4 @@
 function seed = getScenarioSeed(~)
-% getScenarioSeed - Compatibility wrapper for generateScenarioSeed.
+% getScenarioSeed - Обёртка совместимости для generateScenarioSeed.
 seed = generateScenarioSeed();
 end

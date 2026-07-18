@@ -1,4 +1,4 @@
-% testGroundVehicleOnRoadStart - Checks ground vehicles start on roads (ТЗ-08C).
+% testGroundVehicleOnRoadStart - Проверяет старт наземного транспорта на дорогах (ТЗ-08C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

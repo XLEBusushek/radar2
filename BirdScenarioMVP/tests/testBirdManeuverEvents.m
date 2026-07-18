@@ -1,4 +1,4 @@
-% testBirdManeuverEvents - Checks cruise maneuver events (ТЗ-05C).
+% testBirdManeuverEvents - Проверяет события манёвров в крейсере (ТЗ-05C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

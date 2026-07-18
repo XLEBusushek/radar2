@@ -1,5 +1,5 @@
 function payload = buildBirdPayload(target)
-% buildBirdPayload - Bird-specific payload snapshot.
+% buildBirdPayload - Снимок Payload, специфичный для птицы.
 payload = struct();
 if ~isfield(target, 'Payload')
     return;

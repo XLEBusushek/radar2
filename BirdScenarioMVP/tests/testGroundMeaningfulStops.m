@@ -1,4 +1,4 @@
-% testGroundMeaningfulStops - Checks ground stop duration semantics (ТЗ-08B).
+% testGroundMeaningfulStops - Проверяет семантику длительности остановок (ТЗ-08B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

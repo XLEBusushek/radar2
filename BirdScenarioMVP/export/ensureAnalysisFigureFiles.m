@@ -1,5 +1,5 @@
 function ensureAnalysisFigureFiles(scenario, config, outputFolder)
-% ensureAnalysisFigureFiles - Ensure analysis PNG files exist in output folder.
+% ensureAnalysisFigureFiles - Убедиться, что PNG-файлы анализа существуют в папке вывода.
 arguments
     scenario (1, 1) struct
     config (1, 1) struct

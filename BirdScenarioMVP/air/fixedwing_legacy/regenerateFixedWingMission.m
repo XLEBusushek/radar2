@@ -1,5 +1,5 @@
 function target = regenerateFixedWingMission(target, config)
-% regenerateFixedWingMission - Assign a new in-bounds patrol route from current position.
+% regenerateFixedWingMission - Назначить новый патрульный маршрут в границах из текущей позиции.
 arguments
     target (1, 1) struct
     config (1, 1) struct

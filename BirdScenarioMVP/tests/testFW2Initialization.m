@@ -1,4 +1,4 @@
-% testFW2Initialization - FW2 spawn checks (ТЗ-09R).
+% testFW2Initialization - Проверки появления FW2 (ТЗ-09R).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

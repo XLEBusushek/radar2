@@ -1,5 +1,5 @@
 function config = defaultWorldConfig(config)
-% defaultWorldConfig - World, simulation, environment, and debug defaults.
+% defaultWorldConfig - Значения по умолчанию для мира, симуляции, окружения и отладки.
 config.world.size = [2000, 2000, 500];
 
 config.sim.dt = 1.0;

@@ -1,4 +1,4 @@
-% testBirdProgressToTarget - Checks ForceDirectToTarget progress recovery (ТЗ-06C).
+% testBirdProgressToTarget - Проверяет восстановление прогресса ForceDirectToTarget (ТЗ-06C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

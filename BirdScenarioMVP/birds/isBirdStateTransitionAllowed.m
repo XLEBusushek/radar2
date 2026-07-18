@@ -1,5 +1,5 @@
 function allowed = isBirdStateTransitionAllowed(currentState, nextState)
-% isBirdStateTransitionAllowed - Check whether a bird state transition is valid.
+% isBirdStateTransitionAllowed - Проверить, допустим ли переход между состояниями птицы.
 currentState = string(currentState);
 nextState = string(nextState);
 

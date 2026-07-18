@@ -1,5 +1,5 @@
 function value = randIntRange(range)
-% randIntRange - Sample an integer uniformly from inclusive [range(1), range(2)].
+% randIntRange - Равномерная выборка целого числа из включительного диапазона [range(1), range(2)].
 arguments
     range (1, 2) double
 end

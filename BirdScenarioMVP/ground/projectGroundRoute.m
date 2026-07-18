@@ -1,5 +1,5 @@
 function projection = projectGroundRoute(point, route, minDistanceAlong)
-% projectGroundRoute - Project a point to the nearest point on a route polyline.
+% projectGroundRoute - Проекция точки на ближайшую точку полилинии маршрута.
 arguments
     point (3, 1) double
     route (1, 1) struct

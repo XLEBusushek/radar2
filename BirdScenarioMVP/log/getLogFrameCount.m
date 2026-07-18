@@ -1,5 +1,5 @@
 function count = getLogFrameCount(trajectoryLog)
-% getLogFrameCount - Number of recorded frames in TrajectoryLog.
+% getLogFrameCount - Число записанных кадров в TrajectoryLog.
 arguments
     trajectoryLog (1, 1) struct
 end

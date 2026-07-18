@@ -1,5 +1,5 @@
 function nextState = fixedWingDecisionEngine(target, config)
-% fixedWingDecisionEngine - Local stochastic FSM for fixed-wing UAVs.
+% fixedWingDecisionEngine - Локальный стохастический FSM для fixed-wing UAV.
 arguments
     target (1, 1) struct
     config (1, 1) struct

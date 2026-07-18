@@ -1,5 +1,5 @@
 function target = updateGroundKinematics(target, config, dt)
-% updateGroundKinematics - Integrate ground vehicle motion with limits.
+% updateGroundKinematics - Интеграция движения наземного транспорта с ограничениями.
 arguments
     target (1, 1) struct
     config (1, 1) struct

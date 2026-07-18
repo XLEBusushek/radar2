@@ -1,5 +1,5 @@
 function target = updateFixedWingFlightLevel(target, config)
-% updateFixedWingFlightLevel - Rarely move fixed-wing UAV to a neighboring flight level.
+% updateFixedWingFlightLevel - Редко переводить fixed-wing UAV на соседний эшелон.
 arguments
     target (1, 1) struct
     config (1, 1) struct

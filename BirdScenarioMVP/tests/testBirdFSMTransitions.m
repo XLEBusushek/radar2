@@ -1,4 +1,4 @@
-% testBirdFSMTransitions - Checks full FSM state cycle (ТЗ-05A).
+% testBirdFSMTransitions - Проверяет полный цикл состояний FSM (ТЗ-05A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

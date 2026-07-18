@@ -1,4 +1,4 @@
-% testRandomizedDifferentRuns - Randomized mode creates different scenario seeds.
+% testRandomizedDifferentRuns - Randomized mode создаёт разные seed сценария.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

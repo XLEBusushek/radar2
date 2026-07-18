@@ -1,5 +1,5 @@
 function plotRoadNetwork(roadNetwork, varargin)
-% plotRoadNetwork - Plot road polylines on current axes.
+% plotRoadNetwork - Отображение полилиний дорог на текущих осях.
 arguments
     roadNetwork (1, 1) struct
 end

@@ -1,4 +1,4 @@
-% testDirectCsvExport - CSV from TrajectoryLog must match legacy rebuild path.
+% testDirectCsvExport - CSV из TrajectoryLog должен совпадать с путём legacy-пересборки.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

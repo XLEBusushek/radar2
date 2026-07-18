@@ -1,5 +1,5 @@
 function config = defaultBirdConfig(config)
-% defaultBirdConfig - Bird behavior and motion defaults.
+% defaultBirdConfig - Значения по умолчанию для поведения и движения птиц.
 config.birds.count = 10;
 config.birds.rcsRange = [0.001, 0.03];
 config.birds.initialState = "Perched";

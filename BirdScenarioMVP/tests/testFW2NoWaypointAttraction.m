@@ -1,4 +1,4 @@
-% testFW2NoWaypointAttraction - No backward turn after passing waypoint (ТЗ-09R).
+% testFW2NoWaypointAttraction - Нет разворота назад после прохождения waypoint (ТЗ-09R).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

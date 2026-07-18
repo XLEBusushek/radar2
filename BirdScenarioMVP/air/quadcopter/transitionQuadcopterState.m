@@ -1,5 +1,5 @@
 function target = transitionQuadcopterState(target, nextState, reason, config)
-% transitionQuadcopterState - Apply FSM state transition with entry actions.
+% transitionQuadcopterState - Применить переход FSM с действиями при входе в состояние.
 arguments
     target (1, 1) struct
     nextState (1, 1) string

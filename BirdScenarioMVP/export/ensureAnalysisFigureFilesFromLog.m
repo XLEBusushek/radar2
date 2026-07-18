@@ -1,5 +1,5 @@
 function ensureAnalysisFigureFilesFromLog(trajectoryLog, env, config, outputFolder)
-% ensureAnalysisFigureFilesFromLog - Ensure analysis PNG files exist from log.
+% ensureAnalysisFigureFilesFromLog - Убедиться, что PNG-файлы анализа существуют из лога.
 arguments
     trajectoryLog (1, 1) struct
     env (1, 1) struct

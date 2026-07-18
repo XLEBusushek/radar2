@@ -1,4 +1,4 @@
-% testGroundPurePursuitRoute - Checks route-based pure pursuit diagnostics (ТЗ-08B).
+% testGroundPurePursuitRoute - Проверяет диагностику pure pursuit по маршруту (ТЗ-08B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

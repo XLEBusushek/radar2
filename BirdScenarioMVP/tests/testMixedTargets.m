@@ -1,4 +1,4 @@
-% testMixedTargets - Checks birds and quadcopters together (ТЗ-07A).
+% testMixedTargets - Проверяет птиц и квадрокоптеры вместе (ТЗ-07A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

@@ -1,4 +1,4 @@
-% testQuadcopterHover - Checks hover state behavior (ТЗ-07A).
+% testQuadcopterHover - Проверяет поведение состояния Hover (ТЗ-07A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

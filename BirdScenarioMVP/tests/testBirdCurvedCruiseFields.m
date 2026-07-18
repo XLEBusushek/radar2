@@ -1,4 +1,4 @@
-% testBirdCurvedCruiseFields - Checks curved cruise payload and output fields (ТЗ-05C).
+% testBirdCurvedCruiseFields - Проверяет поля Payload и выходные данные изогнутого крейсера (ТЗ-05C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

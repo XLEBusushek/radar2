@@ -1,5 +1,5 @@
 function plotVisibilitySegments(bird, config, invisibleOnly)
-% plotVisibilitySegments - Plot visible and invisible trajectory segments.
+% plotVisibilitySegments - Отображение видимых и невидимых сегментов траектории.
 arguments
     bird (1, 1) struct
     config (1, 1) struct %#ok<INUSD>

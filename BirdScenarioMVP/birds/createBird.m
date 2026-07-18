@@ -1,4 +1,4 @@
 function bird = createBird(id, config, trees)
-% createBird - Create a single bird (wrapper around createBirdTarget).
+% createBird - Создать одну птицу (обёртка вокруг createBirdTarget).
 bird = createBirdTarget(id, config, trees);
 end

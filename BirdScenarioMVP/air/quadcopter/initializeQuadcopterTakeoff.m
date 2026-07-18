@@ -1,5 +1,5 @@
 function target = initializeQuadcopterTakeoff(target, config)
-% initializeQuadcopterTakeoff - Set takeoff altitude target on state entry.
+% initializeQuadcopterTakeoff - Задать целевую высоту взлёта при входе в состояние.
 qc = config.quadcopter;
 altRange = qc.takeoffAltitudeRange;
 target.Payload.TakeoffTargetAltitude = altRange(1) + rand() * (altRange(2) - altRange(1));

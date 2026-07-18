@@ -1,5 +1,5 @@
 function climbRate = limitFixedWingClimbAngle(climbRate, horizontalSpeed, config)
-% limitFixedWingClimbAngle - Clamp vertical speed by climb/descent angle and max Vz.
+% limitFixedWingClimbAngle - Ограничить вертикальную скорость углом набора/снижения и max Vz.
 arguments
     climbRate (1, 1) double
     horizontalSpeed (1, 1) double {mustBeNonnegative}

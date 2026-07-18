@@ -1,5 +1,5 @@
 function target = updateQuadcopterKinematics(target, config, dt)
-% updateQuadcopterKinematics - Integrate quadcopter motion with limits.
+% updateQuadcopterKinematics - Интегрировать движение квадрокоптера с ограничениями.
 arguments
     target (1, 1) struct
     config (1, 1) struct

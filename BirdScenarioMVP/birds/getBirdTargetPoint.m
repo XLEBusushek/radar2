@@ -1,5 +1,5 @@
 function targetPoint = getBirdTargetPoint(bird)
-% getBirdTargetPoint - Return the motion target point for the current bird state.
+% getBirdTargetPoint - Вернуть целевую точку движения для текущего состояния птицы.
 arguments
     bird (1, 1) struct
 end

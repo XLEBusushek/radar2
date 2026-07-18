@@ -1,5 +1,5 @@
 function closeAllFigures()
-% closeAllFigures - Close every MATLAB figure window.
+% closeAllFigures - Закрытие всех окон графиков MATLAB.
 figs = findall(0, 'Type', 'figure');
 if ~isempty(figs)
     close(figs);

@@ -1,4 +1,4 @@
-% testGroundOutputFields - Checks ground route fields in History/Output/CSV (ТЗ-08C).
+% testGroundOutputFields - Проверяет поля маршрута в History/Output/CSV (ТЗ-08C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

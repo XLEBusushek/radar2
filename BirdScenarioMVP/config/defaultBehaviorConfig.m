@@ -1,5 +1,5 @@
 function config = defaultBehaviorConfig(config)
-% defaultBehaviorConfig - Behavior system defaults.
+% defaultBehaviorConfig - Значения по умолчанию для системы поведения.
 config.behavior.enabled = true;
 config.behavior.decisionPeriodRange = [0.5, 3.0];
 config.behavior.recentActionMemoryLength = 10;

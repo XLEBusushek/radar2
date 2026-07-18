@@ -1,4 +1,4 @@
-% testOutputFSMFields - Checks FSM fields in Output (ТЗ-05A).
+% testOutputFSMFields - Проверяет поля FSM в Output (ТЗ-05A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

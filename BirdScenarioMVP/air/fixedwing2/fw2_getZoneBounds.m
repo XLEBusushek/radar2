@@ -1,5 +1,5 @@
 function zones = fw2_getZoneBounds(config)
-% fw2_getZoneBounds - Safe, warning, and critical zone rectangles.
+% fw2_getZoneBounds - Прямоугольники safe, warning и critical зон.
 worldX = config.world.size(1);
 worldY = config.world.size(2);
 fw2 = config.fixedWing2;

@@ -1,5 +1,5 @@
 function vehicles = createGroundVehicles(config, roadNetwork, startId)
-% createGroundVehicles - Compatibility factory (use createTargets instead).
+% createGroundVehicles - Фабрика совместимости (используйте createTargets).
 arguments
     config (1, 1) struct
     roadNetwork (1, 1) struct

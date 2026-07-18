@@ -1,5 +1,5 @@
 function [action, reason] = selectBehaviorAction(weights, config, target)
-% selectBehaviorAction - Weighted random selection of a behavior action.
+% selectBehaviorAction - Взвешенный случайный выбор действия поведения.
 arguments
     weights (1, 1) struct
     config (1, 1) struct

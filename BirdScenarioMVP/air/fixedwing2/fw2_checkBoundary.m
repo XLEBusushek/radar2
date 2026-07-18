@@ -1,5 +1,5 @@
 function target = fw2_checkBoundary(target, config, dt)
-% fw2_checkBoundary - Zone classification, border following, recovery trigger.
+% fw2_checkBoundary - Классификация зон, следование по границе, триггер восстановления.
 arguments
     target (1, 1) struct
     config (1, 1) struct

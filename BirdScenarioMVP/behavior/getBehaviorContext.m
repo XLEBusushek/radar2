@@ -1,5 +1,5 @@
 function context = getBehaviorContext(target, scenario, config)
-% getBehaviorContext - Collect behavioral decision context for a target.
+% getBehaviorContext - Собрать контекст поведенческого решения для цели.
 arguments
     target (1, 1) struct
     scenario (1, 1) struct

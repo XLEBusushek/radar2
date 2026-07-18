@@ -1,5 +1,5 @@
 function inside = isWaypointInsideSafeZone(waypoint, config)
-% isWaypointInsideSafeZone - True when XY lies inside the Safe Zone.
+% isWaypointInsideSafeZone - Истина, когда XY лежит внутри Safe Zone.
 arguments
     waypoint (:, 1) double
     config (1, 1) struct

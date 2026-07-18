@@ -1,4 +1,4 @@
-% testBehaviorContext - Checks required behavior context fields (ТЗ-07B).
+% testBehaviorContext - Проверяет обязательные поля контекста поведения (ТЗ-07B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

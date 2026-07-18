@@ -1,5 +1,5 @@
 function fig = plotTrajectories(trajectoryLog, env, config)
-% plotTrajectories - Top-down XY trajectories from TrajectoryLog.
+% plotTrajectories - Траектории XY в виде сверху из TrajectoryLog.
 arguments
     trajectoryLog (1, 1) struct
     env (1, 1) struct

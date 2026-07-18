@@ -1,5 +1,5 @@
 function target = createFixedWingTarget(id, config)
-% createFixedWingTarget - Create an airborne fixed-wing UAV target.
+% createFixedWingTarget - Создать воздушную цель fixed-wing UAV.
 arguments
     id (1, 1) {mustBePositive, mustBeInteger}
     config (1, 1) struct

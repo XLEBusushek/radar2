@@ -1,4 +1,4 @@
-% testQuadcopterOutput - Checks quadcopter output fields (ТЗ-07A).
+% testQuadcopterOutput - Проверяет выходные поля квадрокоптера (ТЗ-07A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

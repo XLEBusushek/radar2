@@ -1,4 +1,4 @@
-% testOutputFormat - Checks Output structure format (ТЗ-04).
+% testOutputFormat - Проверяет формат структуры Output (ТЗ-04).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

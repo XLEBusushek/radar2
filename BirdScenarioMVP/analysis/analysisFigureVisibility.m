@@ -1,5 +1,5 @@
 function visible = analysisFigureVisibility(config)
-% analysisFigureVisibility - Return figure visibility for analysis plots.
+% analysisFigureVisibility - Вернуть видимость графика для графиков анализа.
 arguments
     config (1, 1) struct = struct()
 end

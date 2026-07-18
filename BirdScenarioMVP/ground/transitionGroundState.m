@@ -1,5 +1,5 @@
 function target = transitionGroundState(target, nextState, reason, config)
-% transitionGroundState - Apply ground vehicle FSM transition.
+% transitionGroundState - Применение перехода FSM наземного транспорта.
 arguments
     target (1, 1) struct
     nextState (1, 1) string

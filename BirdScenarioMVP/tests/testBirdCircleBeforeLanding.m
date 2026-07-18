@@ -1,4 +1,4 @@
-% testBirdCircleBeforeLanding - Checks circle-before-landing behavior (ТЗ-05E).
+% testBirdCircleBeforeLanding - Проверяет поведение circle-before-landing (ТЗ-05E).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

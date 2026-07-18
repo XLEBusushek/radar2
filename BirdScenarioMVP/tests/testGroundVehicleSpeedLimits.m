@@ -1,4 +1,4 @@
-% testGroundVehicleSpeedLimits - Checks ground vehicle speed/accel/Z limits (ТЗ-08C).
+% testGroundVehicleSpeedLimits - Проверяет лимиты скорости/ускорения/Z (ТЗ-08C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

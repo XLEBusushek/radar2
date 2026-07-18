@@ -1,5 +1,5 @@
 function roads = generateSecondaryRoads(mainRoads, config)
-% generateSecondaryRoads - Generate secondary roads attached to main roads.
+% generateSecondaryRoads - Генерация второстепенных дорог, присоединённых к основным.
 arguments
     mainRoads (1, :) struct
     config (1, 1) struct

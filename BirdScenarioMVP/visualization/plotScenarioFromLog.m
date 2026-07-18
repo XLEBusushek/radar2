@@ -1,5 +1,5 @@
 function fig = plotScenarioFromLog(trajectoryLog, env, config)
-% plotScenarioFromLog - 3D scenario plot using TrajectoryLog and static env.
+% plotScenarioFromLog - 3D-график сценария на основе TrajectoryLog и статического env.
 arguments
     trajectoryLog (1, 1) struct
     env (1, 1) struct

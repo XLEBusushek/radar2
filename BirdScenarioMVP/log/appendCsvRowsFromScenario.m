@@ -1,5 +1,5 @@
 function log = appendCsvRowsFromScenario(scenario, log, time, config)
-% appendCsvRowsFromScenario - Append CSV track rows from live scenario state.
+% appendCsvRowsFromScenario - Добавить строки треков CSV из текущего состояния сценария.
 arguments
     scenario (1, 1) struct
     log (1, 1) struct

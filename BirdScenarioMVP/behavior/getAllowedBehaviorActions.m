@@ -1,5 +1,5 @@
 function actions = getAllowedBehaviorActions(target, context, config)
-% getAllowedBehaviorActions - Return allowed behavior actions for current target.
+% getAllowedBehaviorActions - Вернуть разрешённые действия поведения для текущей цели.
 arguments
     target (1, 1) struct
     context (1, 1) struct

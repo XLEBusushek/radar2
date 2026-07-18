@@ -1,5 +1,5 @@
 function target = computeFixedWingAltitudeCommand(target, config)
-% computeFixedWingAltitudeCommand - Command climb rate toward target flight level.
+% computeFixedWingAltitudeCommand - Команда скорости набора к целевому эшелону.
 arguments
     target (1, 1) struct
     config (1, 1) struct

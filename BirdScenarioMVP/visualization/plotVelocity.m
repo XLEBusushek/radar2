@@ -1,5 +1,5 @@
 function fig = plotVelocity(trajectoryLog, config)
-% plotVelocity - Speed vs time from TrajectoryLog.
+% plotVelocity - Скорость относительно времени из TrajectoryLog.
 arguments
     trajectoryLog (1, 1) struct
     config (1, 1) struct

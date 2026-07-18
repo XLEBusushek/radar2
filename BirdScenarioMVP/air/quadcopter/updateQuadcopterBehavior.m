@@ -1,5 +1,5 @@
 function target = updateQuadcopterBehavior(target, scenario, config, dt)
-% updateQuadcopterBehavior - FSM update for quadcopter targets.
+% updateQuadcopterBehavior - Обновление FSM для целей-квадрокоптеров.
 arguments
     target (1, 1) struct
     scenario (1, 1) struct

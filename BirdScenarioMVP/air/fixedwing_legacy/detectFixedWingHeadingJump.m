@@ -1,5 +1,5 @@
 function jumpDeg = detectFixedWingHeadingJump(previousHeading, newHeading)
-% detectFixedWingHeadingJump - Absolute heading change in degrees.
+% detectFixedWingHeadingJump - Абсолютное изменение курса в градусах.
 arguments
     previousHeading (1, 1) double
     newHeading (1, 1) double

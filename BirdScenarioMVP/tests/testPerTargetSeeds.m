@@ -1,4 +1,4 @@
-% testPerTargetSeeds - Checks stable and unique per-target seeds.
+% testPerTargetSeeds - Проверяет стабильные и уникальные seed для каждой цели.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

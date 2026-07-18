@@ -1,4 +1,4 @@
-% testBirdFSMRandomness - Checks probabilistic FSM behavior (ТЗ-05A).
+% testBirdFSMRandomness - Проверяет вероятностное поведение FSM (ТЗ-05A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

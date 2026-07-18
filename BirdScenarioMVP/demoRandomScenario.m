@@ -1,4 +1,4 @@
-% demoRandomScenario - Run a new randomized scenario each time.
+% demoRandomScenario - Запускать новый случайный сценарий при каждом вызове.
 clear;
 clc;
 

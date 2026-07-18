@@ -1,5 +1,5 @@
 function target = applyBehaviorDecision(target, action, reason, scenario, config)
-% applyBehaviorDecision - Map behavior action to FSM / payload changes.
+% applyBehaviorDecision - Сопоставить действие поведения с изменениями FSM / Payload.
 arguments
     target (1, 1) struct
     action (1, 1) string
@@ -64,21 +64,21 @@ switch action
                 target.Payload.DesiredSpeed * 0.9);
         end
     otherwise
-        % Unknown action ignored.
+        % Неизвестное действие игнорируется.
 end
 end
 
 function target = applyBirdBehaviorDecision(target, action, reason, scenario, config)
 switch action
     case "stay"
-        % no transition
+        % без перехода
     case "takeoff"
         if string(target.State) == "Perched"
             target = transitionBirdState(target, "Takeoff", scenario, config, "behavior:" + reason);
         end
     case "continueFlight"
         if string(target.State) == "Takeoff"
-            % mandatory transition handles Takeoff->Cruise
+            % обязательный переход обрабатывает Takeoff->Cruise
         end
     case "retargetTree"
         target = executeBirdRetarget(target, scenario, config);
@@ -90,7 +90,7 @@ switch action
         end
     case "hide"
         if string(target.State) == "Hidden"
-            % remain hidden
+            % остаться скрытым
         end
     case "perch"
         if string(target.State) == "Hidden"
@@ -101,7 +101,7 @@ switch action
     case "changeAltitude"
         target = adjustBirdDesiredAltitude(target, config);
     otherwise
-        % unknown action ignored
+        % неизвестное действие игнорируется
 end
 end
 
@@ -114,7 +114,7 @@ end
 
 switch action
     case "wait"
-        % remain idle
+        % остаться в простое
     case "takeoff"
         if string(target.State) == "Idle"
             target = transitionQuadcopterState(target, "Takeoff", "behavior:" + reason, config);
@@ -156,7 +156,7 @@ switch action
     case "speedUp"
         target = scaleQuadcopterDesiredSpeed(target, 1.25);
     otherwise
-        % unknown action ignored
+        % неизвестное действие игнорируется
 end
 end
 
@@ -207,7 +207,7 @@ switch action
             target = transitionFixedWingState(target, "ExitArea", "behavior:" + reason, config);
         end
     otherwise
-        % Unknown action ignored.
+        % Неизвестное действие игнорируется.
 end
 end
 

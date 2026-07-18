@@ -1,5 +1,5 @@
 function forceTransit = shouldForceQuadcopterTransit(quad, config)
-% shouldForceQuadcopterTransit - Decide if hover/scan must yield to transit.
+% shouldForceQuadcopterTransit - Решить, должен ли hover/scan уступить transit.
 arguments
     quad (1, 1) struct
     config (1, 1) struct

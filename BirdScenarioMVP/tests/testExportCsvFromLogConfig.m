@@ -1,4 +1,4 @@
-% testExportCsvFromLogConfig - csvFromLog=false must require legacy rebuild.
+% testExportCsvFromLogConfig - csvFromLog=false должен требовать legacy-пересборку.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

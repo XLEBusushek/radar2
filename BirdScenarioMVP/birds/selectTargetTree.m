@@ -1,5 +1,5 @@
 function targetTreeID = selectTargetTree(bird, trees)
-% selectTargetTree - Select a random tree different from the current one.
+% selectTargetTree - Выбрать случайное дерево, отличное от текущего.
 arguments
     bird (1, 1) struct
     trees struct

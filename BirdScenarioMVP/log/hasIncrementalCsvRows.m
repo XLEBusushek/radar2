@@ -1,5 +1,5 @@
 function tf = hasIncrementalCsvRows(trajectoryLog)
-% hasIncrementalCsvRows - Whether TrajectoryLog contains prebuilt CSV rows.
+% hasIncrementalCsvRows - Содержит ли TrajectoryLog предварительно сформированные строки CSV.
 arguments
     trajectoryLog (1, 1) struct
 end

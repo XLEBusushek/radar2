@@ -1,5 +1,5 @@
 function value = getPayloadField(payload, fieldName, defaultValue)
-% getPayloadField - Read payload field with default.
+% getPayloadField - Прочитать поле Payload с значением по умолчанию.
 if isfield(payload, fieldName) && ~isempty(payload.(fieldName))
     value = payload.(fieldName);
     if strcmp(fieldName, 'DesiredVelocity')

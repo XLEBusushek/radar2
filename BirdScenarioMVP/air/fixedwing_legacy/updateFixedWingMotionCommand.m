@@ -1,5 +1,5 @@
 function target = updateFixedWingMotionCommand(target, config, dt)
-% updateFixedWingMotionCommand - Compute fixed-wing heading and velocity command.
+% updateFixedWingMotionCommand - Вычислить команду курса и скорости для fixed-wing.
 arguments
     target (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function inside = validateFixedWingInsideWorld(position, worldSize, tolerance)
-% validateFixedWingInsideWorld - Check whether XY position stays inside world bounds.
+% validateFixedWingInsideWorld - Проверить, остаётся ли XY-позиция внутри границ мира.
 arguments
     position (3, 1) double
     worldSize (1, 3) double

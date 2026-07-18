@@ -1,4 +1,4 @@
-% testBirdCruiseMotion - Checks cruise kinematics toward target tree (ТЗ-05B).
+% testBirdCruiseMotion - Проверяет кинематику крейсера к целевому дереву (ТЗ-05B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

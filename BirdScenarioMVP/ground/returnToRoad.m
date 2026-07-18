@@ -1,5 +1,5 @@
 function target = returnToRoad(target, roadNetwork)
-% returnToRoad - Select nearest road point as return target.
+% returnToRoad - Выбор ближайшей точки дороги в качестве цели возврата.
 arguments
     target (1, 1) struct
     roadNetwork (1, 1) struct

@@ -1,4 +1,4 @@
-% testRandomizedMainDifferentRuns - Randomized mode produces different runs.
+% testRandomizedMainDifferentRuns - Randomized mode даёт разные прогоны.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

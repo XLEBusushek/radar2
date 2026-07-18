@@ -1,5 +1,5 @@
 function exportCSV(legacyOutput, config, outputFolder)
-% exportCSV - Export legacy-compatible track CSV from simulation output.
+% exportCSV - Экспорт совместимого с legacy CSV трека из выходных данных симуляции.
 arguments
     legacyOutput struct
     config (1, 1) struct

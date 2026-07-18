@@ -1,5 +1,5 @@
 function tf = shouldBuildLegacyOutput(config)
-% shouldBuildLegacyOutput - Whether runSimulation should rebuild legacy output.
+% shouldBuildLegacyOutput - Нужно ли runSimulation перестраивать legacy output.
 arguments
     config (1, 1) struct
 end

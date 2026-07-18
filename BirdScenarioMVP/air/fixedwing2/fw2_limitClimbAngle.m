@@ -1,5 +1,5 @@
 function target = fw2_limitClimbAngle(target, config)
-% fw2_limitClimbAngle - Limit climb/descent angle from horizontal speed.
+% fw2_limitClimbAngle - Ограничить угол набора/снижения по горизонтальной скорости.
 arguments
     target (1, 1) struct
     config (1, 1) struct

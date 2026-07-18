@@ -1,5 +1,5 @@
 function addStandardBirdLegend2D(ax)
-% addStandardBirdLegend2D - Add compact XY legend entries.
+% addStandardBirdLegend2D - Добавить компактные записи легенды XY.
 arguments
     ax (1, 1) matlab.graphics.axis.Axes
 end

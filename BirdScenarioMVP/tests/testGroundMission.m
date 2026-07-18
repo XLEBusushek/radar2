@@ -1,4 +1,4 @@
-% testGroundMission - Checks ground vehicle road-bound mission waypoints (ТЗ-08A).
+% testGroundMission - Проверяет привязанные к дороге waypoints миссии (ТЗ-08A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

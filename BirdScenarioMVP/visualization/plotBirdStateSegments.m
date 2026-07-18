@@ -1,5 +1,5 @@
 function plotBirdStateSegments(bird, config)
-% plotBirdStateSegments - Plot trajectory segments colored by FSM state.
+% plotBirdStateSegments - Отображение сегментов траектории, окрашенных по состоянию FSM.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

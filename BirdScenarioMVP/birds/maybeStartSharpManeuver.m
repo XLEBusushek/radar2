@@ -1,5 +1,5 @@
 function bird = maybeStartSharpManeuver(bird, config)
-% maybeStartSharpManeuver - Start a short sharp maneuver during cruise.
+% maybeStartSharpManeuver - Начать короткий резкий манёвр в крейсерском полёте.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

@@ -1,4 +1,4 @@
-% testRoadNetworkLength - Checks road graph length constraints (ТЗ-08C).
+% testRoadNetworkLength - Проверяет ограничения длины графа дорог (ТЗ-08C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

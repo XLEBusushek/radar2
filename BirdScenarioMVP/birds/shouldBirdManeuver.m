@@ -1,5 +1,5 @@
 function doManeuver = shouldBirdManeuver(bird, config)
-% shouldBirdManeuver - Check whether the bird should perform a cruise maneuver.
+% shouldBirdManeuver - Проверить, должна ли птица выполнить манёвр в крейсерском полёте.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

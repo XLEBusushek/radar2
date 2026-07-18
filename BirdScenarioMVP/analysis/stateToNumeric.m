@@ -1,5 +1,5 @@
 function value = stateToNumeric(state)
-% stateToNumeric - Map target FSM state name to numeric code for plotting.
+% stateToNumeric - Преобразовать имя состояния FSM цели в числовой код для графика.
 arguments
     state (1, 1) string
 end

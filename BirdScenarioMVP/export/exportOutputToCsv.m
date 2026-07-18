@@ -1,5 +1,5 @@
 function exportOutputToCsv(output, config, outputFolder)
-% exportOutputToCsv - Export simulation output to a CSV track table.
+% exportOutputToCsv - Экспорт выходных данных симуляции в CSV-таблицу треков.
 arguments
     output struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function sample = selectRoadDestination(roadNetwork, config, previousPoint, preferredRoadId)
-% selectRoadDestination - Pick a road waypoint at a reasonable route distance.
+% selectRoadDestination - Выбор путевой точки на дороге на разумном расстоянии маршрута.
 arguments
     roadNetwork (1, 1) struct
     config (1, 1) struct

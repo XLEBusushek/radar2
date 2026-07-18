@@ -1,5 +1,5 @@
 function target = updateGroundBehavior(target, scenario, config, dt)
-% updateGroundBehavior - Behavior/FSM update for ground vehicle targets.
+% updateGroundBehavior - Обновление поведения/FSM для наземных транспортных целей.
 arguments
     target (1, 1) struct
     scenario (1, 1) struct
@@ -69,7 +69,7 @@ switch string(action)
             target = transitionGroundState(target, "Turn", "legacy:turnAround", config);
         end
     otherwise
-        % Wait/unknown leaves current state unchanged.
+        % Wait/unknown не меняет текущее состояние.
 end
 end
 

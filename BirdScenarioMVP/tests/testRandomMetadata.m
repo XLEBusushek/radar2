@@ -1,4 +1,4 @@
-% testRandomMetadata - Random metadata is present in scenario, output, CSV, and MAT.
+% testRandomMetadata - Случайные метаданные присутствуют в scenario, output, CSV и MAT.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

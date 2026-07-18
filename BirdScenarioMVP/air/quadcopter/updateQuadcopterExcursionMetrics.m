@@ -1,5 +1,5 @@
 function quad = updateQuadcopterExcursionMetrics(quad)
-% updateQuadcopterExcursionMetrics - Accumulate horizontal travel and altitude extrema.
+% updateQuadcopterExcursionMetrics - Накапливать горизонтальный путь и экстремумы высоты.
 arguments
     quad (1, 1) struct
 end

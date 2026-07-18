@@ -1,8 +1,8 @@
 # BirdScenarioMVP
 
-MATLAB project for simulating bird movement as false radar targets in a 3D world (2000 m × 2000 m × 500 m).
+MATLAB-проект для моделирования движения птиц как ложных радиолокационных целей в 3D-мире (2000 м × 2000 м × 500 м).
 
-## Implemented stages
+## Реализованные этапы
 
 - ТЗ-01 Project Skeleton
 - ТЗ-02 Environment Trees
@@ -18,55 +18,55 @@ MATLAB project for simulating bird movement as false radar targets in a 3D world
 - ТЗ-06C Bird Behavior & Visualization Fix
 - ТЗ-R01 Global Randomization Fix
 
-At stage 06C, bird flight avoids local circling and short hops, and analysis figures open in named windows with clean legends.
+На этапе 06C полёт птиц исключает локальное кружение и короткие перелёты; аналитические графики открываются в именованных окнах с чистыми легендами.
 
-## Run
+## Запуск
 
 ```matlab
 cd('path/to/BirdScenarioMVP')
 main
 ```
 
-`main` runs the simulation, opens a 3D plot (if enabled), builds analysis figures, and exports results to `output/`. By default, each run uses a new randomized scenario seed. The interactive profile (`applyRunProfile(config, "interactive")`) disables legacy output rebuild and per-step validation for faster runs.
+`main` запускает симуляцию, открывает 3D-график (если включён), строит аналитические графики и экспортирует результаты в `output/`. По умолчанию каждый запуск использует новое случайное зерно сценария. Интерактивный профиль (`applyRunProfile(config, "interactive")`) отключает пересборку legacy output и пошаговую валидацию для ускорения.
 
-## Simulation API
+## API симуляции
 
-`runSimulation` returns one to three outputs depending on `nargout`:
+`runSimulation` возвращает от одного до трёх выходных аргументов в зависимости от `nargout`:
 
 ```matlab
 [scenario, trajectoryLog, output] = runSimulation(config);
 ```
 
-| Output | Description |
+| Выход | Описание |
 |--------|-------------|
-| `scenario` | Final scenario struct (`Targets`, typed views, metadata) |
-| `trajectoryLog` | Canonical per-frame log (`Frames`, `Metadata`, optional `CsvRows`) |
-| `output` | Legacy step array; built only when `nargout >= 2` and `config.log.buildLegacyOutput` is `true` |
+| `scenario` | Финальная структура сценария (`Targets`, типизированные представления, метаданные) |
+| `trajectoryLog` | Канонический покадровый лог (`Frames`, `Metadata`, опционально `CsvRows`) |
+| `output` | Legacy-массив шагов; строится только при `nargout >= 2` и `config.log.buildLegacyOutput = true` |
 
-Legacy two-output form is still supported:
+Поддерживается legacy-форма с двумя выходами:
 
 ```matlab
-[scenario, output] = runSimulation(config);  % output omitted when buildLegacyOutput=false
+[scenario, output] = runSimulation(config);  % output опускается при buildLegacyOutput=false
 ```
 
-After simulation, `main` attaches target history caches and exports from the log:
+После симуляции `main` прикрепляет кэши истории целей и экспортирует из лога:
 
 ```matlab
 trajectoryLog = attachTargetHistoryCache(trajectoryLog);
 exportFromLog(trajectoryLog, config, env);
 ```
 
-## Randomization modes
+## Режимы рандомизации
 
-The simulation has a centralized randomization system under `config.sim.random`.
+Централизованная система рандомизации находится в `config.sim.random`.
 
-Default demonstration mode creates a new scenario each time:
+Режим демонстрации по умолчанию создаёт новый сценарий при каждом запуске:
 
 ```matlab
 main
 ```
 
-Deterministic mode repeats the same scenario for the same seed:
+Детерминированный режим повторяет тот же сценарий для одного зерна:
 
 ```matlab
 config = defaultConfig();
@@ -75,7 +75,7 @@ config.sim.random.seed = 42;
 [scenario, trajectoryLog, output] = runSimulation(config);
 ```
 
-Randomized mode creates a new scenario seed on each run:
+Случайный режим создаёт новое зерно сценария при каждом запуске:
 
 ```matlab
 config = defaultConfig();
@@ -83,87 +83,87 @@ config.sim.random.mode = "randomized";
 [scenario, trajectoryLog, output] = runSimulation(config);
 ```
 
-The scenario seed is saved in `scenario.Random`, `scenario.Metadata.ScenarioSeed`,
-each output step, and CSV columns. Each target also receives
+Зерно сценария сохраняется в `scenario.Random`, `scenario.Metadata.ScenarioSeed`,
+каждом шаге output и столбцах CSV. Каждая цель также получает
 `Target.Metadata.RandomSeed`.
 
-For a quick randomized demo, run:
+Для быстрой демонстрации со случайным сценарием запустите:
 
 ```matlab
 demoRandomScenario
 ```
 
-## Output files
+## Выходные файлы
 
-After `main`, results are saved under `output/` (configurable via `config.export.outputFolder`):
+После `main` результаты сохраняются в `output/` (настраивается через `config.export.outputFolder`):
 
-| File | Description |
+| Файл | Описание |
 |------|-------------|
-| `bird_scenario_output.mat` | `trajectoryLog`, legacy `output` (if built), and `config` |
-| `bird_scenario_tracks.csv` | Per-timestep track table |
-| `bird_scenario_3d.png` | 3D trajectory figure |
-| `bird_xy.png` | Top-down XY view of trajectories and trees |
-| `bird_altitude.png` | Altitude vs time for all birds |
-| `bird_speed.png` | Speed vs time for all birds |
-| `bird_states.png` | FSM state timeline |
-| `bird_visibility.png` | Visibility timeline |
+| `bird_scenario_output.mat` | `trajectoryLog`, legacy `output` (если построен) и `config` |
+| `bird_scenario_tracks.csv` | Таблица траекторий по временным шагам |
+| `bird_scenario_3d.png` | 3D-график траекторий |
+| `bird_xy.png` | Вид сверху XY траекторий и деревьев |
+| `bird_altitude.png` | Высота vs время для всех птиц |
+| `bird_speed.png` | Скорость vs время для всех птиц |
+| `bird_states.png` | Временная шкала состояний FSM |
+| `bird_visibility.png` | Временная шкала видимости |
 
-### Analysis figures
+### Аналитические графики
 
-- `bird_xy.png` — top-down view (trees, trajectories, start/end points)
-- `bird_altitude.png` — altitude of all birds over time
-- `bird_speed.png` — speed of all birds with reference lines at min/max speed
-- `bird_states.png` — FSM states (Perched, Takeoff, Cruise, Landing, Hidden)
-- `bird_visibility.png` — visible vs hidden segments
+- `bird_xy.png` — вид сверху (деревья, траектории, начальные/конечные точки)
+- `bird_altitude.png` — высота всех птиц во времени
+- `bird_speed.png` — скорость всех птиц с опорными линиями min/max
+- `bird_states.png` — состояния FSM (Perched, Takeoff, Cruise, Landing, Hidden)
+- `bird_visibility.png` — видимые и скрытые сегменты
 
-### CSV columns
+### Столбцы CSV
 
 - `Time`, `ID`, `Class`, `Subtype`
-- `X`, `Y`, `Z` — position (m)
-- `Vx`, `Vy`, `Vz` — velocity (m/s)
+- `X`, `Y`, `Z` — положение (м)
+- `Vx`, `Vy`, `Vz` — скорость (м/с)
 - `RCS`, `Visible`, `State`, `Mission`
 - `CurrentTreeID`, `TargetTreeID`
 - `TransitionCount`, `TransitionReason`
 
-## Log and export configuration
+## Конфигурация лога и экспорта
 
-Trajectory recording is controlled by `config.log`:
+Запись траектории управляется через `config.log`:
 
-| Flag | Default | Description |
+| Флаг | По умолчанию | Описание |
 |------|---------|-------------|
-| `historyMode` | `"full"` | Per-step `target.History`: `"full"`, `"minimal"`, `"off"` (core kinematics only), `"none"` (no append) |
-| `storePayload` | `true` | When `false`, `Payload` is omitted from log frames |
-| `storeFullPayload` | `true` | Full vs compact payload when `storePayload` is `true` |
-| `buildLegacyOutput` | `true` | Build legacy `output` inside `runSimulation` (profiles set `false`) |
-| `incrementalCsv` | `false` | Append CSV rows during simulation instead of export-time build |
-| `preallocateFrames` | `true` | Preallocate `trajectoryLog.Frames` |
-| `legacyPerFrame` | `false` | Store per-frame legacy export snapshot in each frame |
+| `historyMode` | `"full"` | Пошаговая `target.History`: `"full"`, `"minimal"`, `"off"` (только базовая кинематика), `"none"` (без добавления) |
+| `storePayload` | `true` | При `false` `Payload` опускается из кадров лога |
+| `storeFullPayload` | `true` | Полный vs компактный payload при `storePayload = true` |
+| `buildLegacyOutput` | `true` | Строить legacy `output` внутри `runSimulation` (профили ставят `false`) |
+| `incrementalCsv` | `false` | Добавлять строки CSV во время симуляции вместо построения при экспорте |
+| `preallocateFrames` | `true` | Предварительно выделять `trajectoryLog.Frames` |
+| `legacyPerFrame` | `false` | Хранить покадровый legacy-снимок экспорта в каждом кадре |
 
-Export flags under `config.export`:
+Флаги экспорта в `config.export`:
 
-| Flag | Default | Description |
+| Флаг | По умолчанию | Описание |
 |------|---------|-------------|
-| `csvFromLog` | `true` | Build CSV from `trajectoryLog`; when `false`, uses legacy export path |
-| `matIncludesLegacy` | `false` | Include legacy `output` in MAT when `buildLegacyOutput` was off |
+| `csvFromLog` | `true` | Строить CSV из `trajectoryLog`; при `false` используется legacy-путь экспорта |
+| `matIncludesLegacy` | `false` | Включать legacy `output` в MAT, когда `buildLegacyOutput` был выключен |
 
-Per-step target validation (`validateTarget` in `updateTarget`) is controlled by `config.validation.eachStep` (preferred) or `config.debug.validateEachStep`. Defaults to `true`; interactive/batch/benchmark profiles set both to `false`.
+Пошаговая валидация целей (`validateTarget` в `updateTarget`) управляется через `config.validation.eachStep` (предпочтительно) или `config.debug.validateEachStep`. По умолчанию `true`; интерактивные/batch/benchmark-профили ставят оба в `false`.
 
-Run profiles (`applyRunProfile`): `"interactive"`, `"batch"`, `"fast"`, `"benchmark"` — tune logging, export, analysis, and validation for typical workflows.
+Профили запуска (`applyRunProfile`): `"interactive"`, `"batch"`, `"fast"`, `"benchmark"` — настраивают логирование, экспорт, анализ и валидацию для типичных рабочих процессов.
 
-## Tests
+## Тесты
 
-Run all tests:
+Запуск всех тестов:
 
 ```matlab
 run('tests/runAllTests.m')
 ```
 
-Or run individual tests:
+Или отдельные тесты:
 
 ```matlab
 run('tests/testProjectSkeleton.m')
 run('tests/testTrees.m')
-% ... see tests/ folder for full list
+% ... полный список см. в папке tests/
 run('tests/testVisualization.m')
 run('tests/testExportMat.m')
 run('tests/testExportCsv.m')
@@ -171,34 +171,34 @@ run('tests/testAnalysisPlots.m')
 run('tests/testAnalysisExport.m')
 ```
 
-## Structure
+## Структура
 
-- `config/` — configuration (`defaultConfig()` assembles section modules)
-- `log/` — TrajectoryLog recording (`logFrame`, `createTrajectoryLog`, payload builders)
-- `core/` — simulation orchestration
-  - `core/output/` — modular `collectOutput` field builders
-- `environment/` — trees and world
-- `targets/` — universal target model (`createTargets`, `splitTargetsByType`)
-- `birds/` — bird FSM, kinematics, cruise, and landing
-- `air/` — air vehicle logic
-  - `air/quadcopter/` — quadcopter FSM and kinematics
-  - `air/fixedwing_legacy/` — legacy fixed-wing when `fixedWing2.enabled = false`
-  - `air/fixedwing2/` — active fixed-wing when `fixedWing2.enabled = true`
-  - `air/common/` — shared air utilities (e.g. boundary distance)
-- `rcs/` — RCS assignment
-- `utils/` — helper functions
-- `visualization/` — 3D plotting
-- `analysis/` — analytical plots from `History`
-- `export/` — MAT, CSV, and figure export
-- `random/` — centralized random seeds and random helper functions
-- `output/` — simulation export results (created by `main`)
-- `tests/` — project tests
+- `config/` — конфигурация (`defaultConfig()` собирает модульные секции)
+- `log/` — запись TrajectoryLog (`logFrame`, `createTrajectoryLog`, построители payload)
+- `core/` — оркестрация симуляции
+  - `core/output/` — модульные построители полей `collectOutput`
+- `environment/` — деревья и мир
+- `targets/` — универсальная модель цели (`createTargets`, `splitTargetsByType`)
+- `birds/` — FSM птиц, кинематика, крейсер и посадка
+- `air/` — логика воздушных аппаратов
+  - `air/quadcopter/` — FSM и кинематика квадрокоптера
+  - `air/fixedwing_legacy/` — legacy БПЛА при `fixedWing2.enabled = false`
+  - `air/fixedwing2/` — активный БПЛА при `fixedWing2.enabled = true`
+  - `air/common/` — общие воздушные утилиты (напр. расстояние до границы)
+- `rcs/` — назначение RCS
+- `utils/` — вспомогательные функции
+- `visualization/` — 3D-отрисовка
+- `analysis/` — аналитические графики из `History`
+- `export/` — экспорт MAT, CSV и графиков
+- `random/` — централизованные зерна и функции случайных чисел
+- `output/` — результаты экспорта симуляции (создаётся `main`)
+- `tests/` — тесты проекта
 
-### Fixed-wing modes
+### Режимы БПЛА с неподвижным крылом
 
-| Config | Implementation |
+| Конфигурация | Реализация |
 |--------|----------------|
-| `config.fixedWing2.enabled = true` | `air/fixedwing2/` (default in `main`) |
-| `config.fixedWing2.enabled = false` | legacy `air/*FixedWing*` pipeline |
+| `config.fixedWing2.enabled = true` | `air/fixedwing2/` (по умолчанию в `main`) |
+| `config.fixedWing2.enabled = false` | legacy-пайплайн `air/*FixedWing*` |
 
-`scenario.Targets` is the source of truth; typed views (`Birds`, `Quadcopters`, …) are rebuilt via `syncScenarioTargetViews` using cached `scenario.TargetIndices`.
+`scenario.Targets` — источник истины; типизированные представления (`Birds`, `Quadcopters`, …) пересобираются через `syncScenarioTargetViews` с использованием кэшированных `scenario.TargetIndices`.

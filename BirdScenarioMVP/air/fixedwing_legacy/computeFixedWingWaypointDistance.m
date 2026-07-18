@@ -1,5 +1,5 @@
 function distance = computeFixedWingWaypointDistance(target)
-% computeFixedWingWaypointDistance - Horizontal distance to active waypoint.
+% computeFixedWingWaypointDistance - Горизонтальное расстояние до активной точки.
 arguments
     target (1, 1) struct
 end

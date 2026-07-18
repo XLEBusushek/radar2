@@ -1,4 +1,4 @@
-% testFW2SpeedSmoothness - Speed changes respect max rate (ТЗ-09S).
+% testFW2SpeedSmoothness - Изменения скорости соблюдают максимальную скорость изменения (ТЗ-09S).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

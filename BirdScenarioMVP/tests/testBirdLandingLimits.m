@@ -1,4 +1,4 @@
-% testBirdLandingLimits - Checks landing motion limits (ТЗ-05D).
+% testBirdLandingLimits - Проверяет лимиты движения при посадке (ТЗ-05D).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

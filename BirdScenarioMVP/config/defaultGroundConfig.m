@@ -1,5 +1,5 @@
 function config = defaultGroundConfig(config)
-% defaultGroundConfig - Ground vehicle and route defaults.
+% defaultGroundConfig - Значения по умолчанию для наземного транспорта и маршрутов.
 config.groundVehicle.count = 0;
 config.groundVehicle.rcsRange = [5, 30];
 config.groundVehicle.initialState = "Idle";

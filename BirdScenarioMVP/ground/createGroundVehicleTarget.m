@@ -1,5 +1,5 @@
 function target = createGroundVehicleTarget(id, config, roadNetwork)
-% createGroundVehicleTarget - Create a ground vehicle target on a road.
+% createGroundVehicleTarget - Создание наземной транспортной цели на дороге.
 arguments
     id (1, 1) {mustBePositive, mustBeInteger}
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function waypoint = enforceQuadcopterWaypointDistance(previousPoint, waypoint, config)
-% enforceQuadcopterWaypointDistance - Keep waypoint spacing within nav limits.
+% enforceQuadcopterWaypointDistance - Удерживать расстояние между точками в пределах навигационных лимитов.
 arguments
     previousPoint (3, 1) double
     waypoint (3, 1) double

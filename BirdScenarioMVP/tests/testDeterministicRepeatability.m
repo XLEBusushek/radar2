@@ -1,4 +1,4 @@
-% testDeterministicRepeatability - Same seed repeats scenario and output.
+% testDeterministicRepeatability - Одинаковый seed воспроизводит сценарий и выходные данные.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

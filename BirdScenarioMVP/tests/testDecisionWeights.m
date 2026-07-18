@@ -1,4 +1,4 @@
-% testDecisionWeights - Checks behavior action weights (ТЗ-07B).
+% testDecisionWeights - Проверяет веса действий поведения (ТЗ-07B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

@@ -1,5 +1,5 @@
 function validateTarget(target, config)
-% validateTarget - Validate target structure and field values.
+% validateTarget - Проверяет структуру цели и значения полей.
 arguments
     target (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function style = getStatePlotStyle(state)
-% getStatePlotStyle - Return plot style for a bird FSM state.
+% getStatePlotStyle - Возврат стиля отображения для состояния FSM птицы.
 arguments
     state (1, 1) string
 end

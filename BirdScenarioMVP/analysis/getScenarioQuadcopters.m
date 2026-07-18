@@ -1,5 +1,5 @@
 function quadcopters = getScenarioQuadcopters(scenario)
-% getScenarioQuadcopters - Return quadcopter targets from a scenario struct.
+% getScenarioQuadcopters - Вернуть цели-квадрокоптеры из структуры сценария.
 arguments
     scenario (1, 1) struct
 end

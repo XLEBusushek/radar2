@@ -1,5 +1,5 @@
 function fig = plotAltitudeTime(scenario, config)
-% plotAltitudeTime - Plot altitude versus time for birds and quadcopters.
+% plotAltitudeTime - График высоты от времени для птиц и квадрокоптеров.
 arguments
     scenario (1, 1) struct
     config (1, 1) struct

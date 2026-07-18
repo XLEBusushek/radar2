@@ -1,5 +1,5 @@
 function target = createQuadcopterTarget(id, config)
-% createQuadcopterTarget - Create a quadcopter target on the ground.
+% createQuadcopterTarget - Создать цель-квадрокоптер на земле.
 arguments
     id (1, 1) {mustBePositive, mustBeInteger}
     config (1, 1) struct

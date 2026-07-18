@@ -1,5 +1,5 @@
 function bird = maybeStartCircleBeforeLanding(bird, config)
-% maybeStartCircleBeforeLanding - Begin a small orbit before landing.
+% maybeStartCircleBeforeLanding - Начать небольшой круговой облёт перед посадкой.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

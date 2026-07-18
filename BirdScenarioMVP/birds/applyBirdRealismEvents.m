@@ -1,5 +1,5 @@
 function bird = applyBirdRealismEvents(bird, scenario, config)
-% applyBirdRealismEvents - Apply probabilistic realism behaviors during cruise.
+% applyBirdRealismEvents - Применить вероятностные реалистичные действия в крейсерском полёте.
 arguments
     bird (1, 1) struct
     scenario (1, 1) struct

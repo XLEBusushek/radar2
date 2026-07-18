@@ -1,5 +1,5 @@
 function target = initializeBehaviorProfile(target, config)
-% initializeBehaviorProfile - Assign behavior profile and personality to a target.
+% initializeBehaviorProfile - Назначить профиль поведения и личность цели.
 arguments
     target (1, 1) struct
     config (1, 1) struct

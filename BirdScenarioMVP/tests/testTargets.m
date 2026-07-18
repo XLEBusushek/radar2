@@ -1,4 +1,4 @@
-% testTargets - Checks for universal target model (ТЗ-03).
+% testTargets - Проверяет универсальную модель цели (ТЗ-03).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

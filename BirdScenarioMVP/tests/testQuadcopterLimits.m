@@ -1,4 +1,4 @@
-% testQuadcopterLimits - Checks kinematic limits over history (ТЗ-07A).
+% testQuadcopterLimits - Проверяет кинематические лимиты за историю (ТЗ-07A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

@@ -1,5 +1,5 @@
 function canSwitch = canSwitchFixedWingWaypoint(target, config)
-% canSwitchFixedWingWaypoint - Leg progress and min time before waypoint advance.
+% canSwitchFixedWingWaypoint - Прогресс участка и минимальное время до перехода к следующей точке.
 arguments
     target (1, 1) struct
     config (1, 1) struct

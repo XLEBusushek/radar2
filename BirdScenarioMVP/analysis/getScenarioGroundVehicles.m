@@ -1,5 +1,5 @@
 function groundVehicles = getScenarioGroundVehicles(scenario)
-% getScenarioGroundVehicles - Return ground vehicle targets from a scenario struct.
+% getScenarioGroundVehicles - Вернуть наземные транспортные средства из структуры сценария.
 arguments
     scenario (1, 1) struct
 end

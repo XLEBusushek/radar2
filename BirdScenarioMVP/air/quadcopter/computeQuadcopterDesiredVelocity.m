@@ -1,5 +1,5 @@
 function target = computeQuadcopterDesiredVelocity(target, config)
-% computeQuadcopterDesiredVelocity - State-based velocity command for quadcopter.
+% computeQuadcopterDesiredVelocity - Команда скорости квадрокоптера на основе состояния.
 qc = config.quadcopter;
 state = string(target.State);
 

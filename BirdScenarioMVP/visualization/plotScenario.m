@@ -1,5 +1,5 @@
 function fig = plotScenario(scenario, config)
-% plotScenario - Plot 3D world with trees, birds, and quadcopter trajectories.
+% plotScenario - Отображение 3D-мира с деревьями, птицами и траекториями квадрокоптеров.
 arguments
     scenario (1, 1) struct
     config (1, 1) struct

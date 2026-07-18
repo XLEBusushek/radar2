@@ -1,5 +1,5 @@
 function [lookaheadPoint, cornerActive] = computeFixedWingStableLookahead(target, config)
-% computeFixedWingStableLookahead - Lookahead along active leg with end blending.
+% computeFixedWingStableLookahead - Lookahead вдоль активного участка со смешиванием у конца.
 arguments
     target (1, 1) struct
     config (1, 1) struct

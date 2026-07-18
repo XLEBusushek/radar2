@@ -1,4 +1,4 @@
-% testBirdSharpManeuver - Checks sharp maneuver activation and limits (ТЗ-05E).
+% testBirdSharpManeuver - Проверяет активацию и лимиты резкого манёвра (ТЗ-05E).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

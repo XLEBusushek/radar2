@@ -1,5 +1,5 @@
 function maxTurnRate = computeFixedWingMaxTurnRate(target, config)
-% computeFixedWingMaxTurnRate - Turn rate capped by config and desired turn radius.
+% computeFixedWingMaxTurnRate - Скорость разворота, ограниченная конфигом и желаемым радиусом.
 arguments
     target (1, 1) struct
     config (1, 1) struct

@@ -1,4 +1,4 @@
-% testGroundLeaveRoad - Checks temporary off-road excursion setup (ТЗ-08A).
+% testGroundLeaveRoad - Проверяет настройку временного съезда с дороги (ТЗ-08A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

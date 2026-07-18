@@ -1,5 +1,5 @@
 function behavior = createEmptyBehavior()
-% createEmptyBehavior - Create empty Behavior structure with required fields.
+% createEmptyBehavior - Создать пустую структуру Behavior с обязательными полями.
 behavior.Enabled = true;
 behavior.Profile = "";
 behavior.Personality = createEmptyPersonality();

@@ -1,5 +1,5 @@
 function fig = plotVisibilityTimeline(scenario, config)
-% plotVisibilityTimeline - Plot visibility timeline for birds and quadcopters.
+% plotVisibilityTimeline - График временной шкалы видимости для птиц и квадрокоптеров.
 arguments
     scenario (1, 1) struct
     config (1, 1) struct %#ok<INUSD>

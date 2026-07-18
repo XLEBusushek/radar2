@@ -1,5 +1,5 @@
 function target = initializeQuadcopterScan(target, config)
-% initializeQuadcopterScan - Initialize scan pattern parameters.
+% initializeQuadcopterScan - Инициализировать параметры паттерна сканирования.
 qc = config.quadcopter;
 target.Payload.ScanCenter = target.Position;
 target.Payload.ScanRadius = qc.scanRadiusRange(1) + ...

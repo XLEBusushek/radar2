@@ -1,5 +1,5 @@
 function quad = updateQuadcopterNavigationProgress(quad, config, dt)
-% updateQuadcopterNavigationProgress - Detect stalled movement to current goal.
+% updateQuadcopterNavigationProgress - Обнаружить застой при движении к текущей цели.
 arguments
     quad (1, 1) struct
     config (1, 1) struct

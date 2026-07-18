@@ -1,5 +1,5 @@
 function log = createTrajectoryLog(config, randomState)
-% createTrajectoryLog - Initialize empty trajectory log.
+% createTrajectoryLog - Инициализировать пустой лог траектории.
 arguments
     config (1, 1) struct
     randomState (1, 1) struct = struct()

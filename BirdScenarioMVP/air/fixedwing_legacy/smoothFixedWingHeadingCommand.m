@@ -1,5 +1,5 @@
 function target = smoothFixedWingHeadingCommand(target, rawTargetHeading, config, dt)
-% smoothFixedWingHeadingCommand - Limit heading jumps and apply EMA smoothing.
+% smoothFixedWingHeadingCommand - Ограничить скачки курса и применить EMA-сглаживание.
 arguments
     target (1, 1) struct
     rawTargetHeading (1, 1) double

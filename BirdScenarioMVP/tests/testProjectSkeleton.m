@@ -1,4 +1,4 @@
-% testProjectSkeleton - Basic checks for project skeleton (ТЗ-01).
+% testProjectSkeleton - Базовые проверки каркаса проекта (ТЗ-01).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

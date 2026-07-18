@@ -1,5 +1,5 @@
 function [roads, intersections] = generateIntersection(roads, config)
-% generateIntersection - Detect pairwise road segment crossings.
+% generateIntersection - Обнаружение попарных пересечений сегментов дорог.
 arguments
     roads (1, :) struct
     config (1, 1) struct

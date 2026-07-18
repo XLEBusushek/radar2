@@ -1,4 +1,4 @@
-% testCollectOutputStructure - Verify collectOutput field completeness after refactor.
+% testCollectOutputStructure - Проверка полноты полей collectOutput после рефакторинга.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

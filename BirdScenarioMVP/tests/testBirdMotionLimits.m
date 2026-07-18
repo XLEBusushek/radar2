@@ -1,4 +1,4 @@
-% testBirdMotionLimits - Checks motion limits over full history (ТЗ-05B).
+% testBirdMotionLimits - Проверяет лимиты движения за всю историю (ТЗ-05B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

@@ -1,5 +1,5 @@
 function road = generateRoad(id, config)
-% generateRoad - Generate one smooth-ish polyline road inside world bounds.
+% generateRoad - Генерация одной относительно гладкой полилинии дороги в пределах мира.
 arguments
     id (1, 1) {mustBePositive, mustBeInteger}
     config (1, 1) struct

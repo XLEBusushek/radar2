@@ -1,5 +1,5 @@
 function target = updateFixedWingBehavior(target, scenario, config, dt)
-% updateFixedWingBehavior - FSM and behavior update for fixed-wing UAV targets.
+% updateFixedWingBehavior - Обновление FSM и поведения для целей fixed-wing UAV.
 arguments
     target (1, 1) struct
     scenario (1, 1) struct

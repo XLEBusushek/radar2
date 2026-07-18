@@ -1,5 +1,5 @@
 function targetOut = addFixedWing2OutputFields(targetOut, payload)
-% addFixedWing2OutputFields - Fixed-wing2 telemetry fields.
+% addFixedWing2OutputFields - Поля телеметрии Fixed-wing2.
 targetOut.RouteIndex = getPayloadField(payload, 'RouteIndex', nan);
 targetOut.CurrentLegProgress = getPayloadField(payload, 'CurrentLegProgress', nan);
 targetOut.CurrentHeading = getPayloadField(payload, 'CurrentHeading', nan);

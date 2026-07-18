@@ -1,5 +1,5 @@
 function target = applyMandatoryTargetTransitions(target, scenario, config)
-% applyMandatoryTargetTransitions - Deterministic FSM transitions (no randomness).
+% applyMandatoryTargetTransitions - Детерминированные переходы FSM (без случайности).
 arguments
     target (1, 1) struct
     scenario (1, 1) struct

@@ -1,5 +1,5 @@
 function target = updateFixedWingNavigationDiagnostics(target, config)
-% updateFixedWingNavigationDiagnostics - Snapshot navigation debug fields each tick.
+% updateFixedWingNavigationDiagnostics - Снимок отладочных полей навигации на каждом тике.
 arguments
     target (1, 1) struct
     config (1, 1) struct %#ok<INUSD>

@@ -1,5 +1,5 @@
 function bird = updateCruiseCurve(bird, config)
-% updateCruiseCurve - Update cruise curve progress and waypoint each step.
+% updateCruiseCurve - Обновить прогресс кривой и промежуточную точку на каждом шаге.
 arguments
     bird (1, 1) struct
     config (1, 1) struct

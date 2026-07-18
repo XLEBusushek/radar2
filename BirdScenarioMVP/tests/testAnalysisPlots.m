@@ -1,4 +1,4 @@
-% testAnalysisPlots - Checks analysis plotting functions (ТЗ-06B).
+% testAnalysisPlots - Проверяет функции построения аналитических графиков (ТЗ-06B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

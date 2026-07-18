@@ -1,5 +1,5 @@
 function target = updateFinalNavigation(target, scenario, config, dt)
-% updateFinalNavigation - Dedicated mission completion navigation for fixed-wing UAVs.
+% updateFinalNavigation - Специализированная навигация завершения миссии для fixed-wing UAV.
 arguments
     target (1, 1) struct
     scenario (1, 1) struct %#ok<INUSD>

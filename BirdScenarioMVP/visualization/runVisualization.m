@@ -1,5 +1,5 @@
 function runVisualization(trajectoryLog, env, config)
-% runVisualization - Build analysis figures from TrajectoryLog only.
+% runVisualization - Построение аналитических графиков только из TrajectoryLog.
 arguments
     trajectoryLog (1, 1) struct
     env (1, 1) struct

@@ -1,4 +1,4 @@
-% testFW2AltitudeLevels - Altitude and climb limits (ТЗ-09R).
+% testFW2AltitudeLevels - Лимиты высоты и набора (ТЗ-09R).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

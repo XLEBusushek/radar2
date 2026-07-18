@@ -1,5 +1,5 @@
 function bird = maybeRetargetBird(bird, scenario, config)
-% maybeRetargetBird - Retarget in cruise or perform a fly-by near the target tree.
+% maybeRetargetBird - Сменить цель в крейсере или выполнить пролёт мимо целевого дерева.
 arguments
     bird (1, 1) struct
     scenario (1, 1) struct

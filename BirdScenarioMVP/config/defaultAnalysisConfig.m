@@ -1,5 +1,5 @@
 function config = defaultAnalysisConfig(config)
-% defaultAnalysisConfig - Analysis figure defaults.
+% defaultAnalysisConfig - Значения по умолчанию для фигур анализа.
 config.analysis.enabled = true;
 config.analysis.xyFigure = true;
 config.analysis.altitudeFigure = true;

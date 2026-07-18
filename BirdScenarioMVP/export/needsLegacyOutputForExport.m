@@ -1,5 +1,5 @@
 function tf = needsLegacyOutputForExport(config, legacyOutput)
-% needsLegacyOutputForExport - Whether export still requires legacy rebuild.
+% needsLegacyOutputForExport - Требуется ли экспорту пересборка legacy.
 arguments
     config (1, 1) struct
     legacyOutput struct = struct([])

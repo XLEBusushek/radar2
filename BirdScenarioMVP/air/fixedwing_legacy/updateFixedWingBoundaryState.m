@@ -1,5 +1,5 @@
 function target = updateFixedWingBoundaryState(target, config, dt)
-% updateFixedWingBoundaryState - Track flight zones and proactive recovery.
+% updateFixedWingBoundaryState - Отслеживать зоны полёта и упреждающее восстановление.
 arguments
     target (1, 1) struct
     config (1, 1) struct

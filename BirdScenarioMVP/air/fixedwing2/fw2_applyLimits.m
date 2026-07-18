@@ -1,5 +1,5 @@
 function target = fw2_applyLimits(target, config, dt)
-% fw2_applyLimits - Final speed and altitude envelope enforcement.
+% fw2_applyLimits - Финальное ограничение скорости и высотного конверта.
 arguments
     target (1, 1) struct
     config (1, 1) struct

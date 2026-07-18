@@ -1,5 +1,5 @@
 function target = fw2_updateNavigationCommand(target, config, dt)
-% fw2_updateNavigationCommand - Leg-based heading commands (not waypoint attraction).
+% fw2_updateNavigationCommand - Команды курса по участку (не притяжение к точке).
 arguments
     target (1, 1) struct
     config (1, 1) struct

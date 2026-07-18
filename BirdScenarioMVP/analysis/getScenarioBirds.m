@@ -1,5 +1,5 @@
 function birds = getScenarioBirds(scenario)
-% getScenarioBirds - Return bird targets from a scenario struct.
+% getScenarioBirds - Вернуть цели-птицы из структуры сценария.
 arguments
     scenario (1, 1) struct
 end

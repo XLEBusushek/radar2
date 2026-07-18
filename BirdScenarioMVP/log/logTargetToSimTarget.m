@@ -1,5 +1,5 @@
 function target = logTargetToSimTarget(targetLog, frameTime, includeStateMatrix)
-% logTargetToSimTarget - Reconstruct a simulation target from a log snapshot.
+% logTargetToSimTarget - Восстановить цель симуляции из снимка лога.
 arguments
     targetLog (1, 1) struct
     frameTime (1, 1) double

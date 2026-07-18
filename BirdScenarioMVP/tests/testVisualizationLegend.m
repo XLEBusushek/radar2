@@ -1,4 +1,4 @@
-% testVisualizationLegend - Checks unique XY legend entries (ТЗ-06C).
+% testVisualizationLegend - Проверяет уникальные элементы легенды XY (ТЗ-06C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

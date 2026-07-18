@@ -1,5 +1,5 @@
 function sample = sampleRoadPoint(roadNetwork, varargin)
-% sampleRoadPoint - Sample a random point on a road polyline.
+% sampleRoadPoint - Выбор случайной точки на полилинии дороги.
 arguments
     roadNetwork (1, 1) struct
 end

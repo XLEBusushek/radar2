@@ -1,5 +1,5 @@
 function target = fw2_updateFixedWingTarget(target, scenario, config, dt)
-% fw2_updateFixedWingTarget - Main fixed-wing2 update loop.
+% fw2_updateFixedWingTarget - Основной цикл обновления fixed-wing2.
 arguments
     target (1, 1) struct
     scenario (1, 1) struct

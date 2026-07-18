@@ -1,4 +1,4 @@
-% testHistoryUpdate - Checks target history over simulation (ТЗ-04).
+% testHistoryUpdate - Проверяет историю целей за симуляцию (ТЗ-04).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

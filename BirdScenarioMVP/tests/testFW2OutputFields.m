@@ -1,4 +1,4 @@
-% testFW2OutputFields - History, Output, CSV fields (ТЗ-09R).
+% testFW2OutputFields - Поля History, Output, CSV (ТЗ-09R).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

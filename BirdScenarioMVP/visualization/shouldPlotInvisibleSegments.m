@@ -1,5 +1,5 @@
 function tf = shouldPlotInvisibleSegments(config)
-% shouldPlotInvisibleSegments - Whether to draw visible/invisible 3D segments.
+% shouldPlotInvisibleSegments - Определяет, нужно ли рисовать видимые/невидимые 3D-сегменты.
 arguments
     config (1, 1) struct
 end

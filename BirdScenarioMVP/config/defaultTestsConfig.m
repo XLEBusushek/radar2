@@ -1,4 +1,4 @@
 function config = defaultTestsConfig(config)
-% defaultTestsConfig - Test runner defaults.
+% defaultTestsConfig - Значения по умолчанию для тестового раннера.
 config.tests.runOnStartup = false;
 end

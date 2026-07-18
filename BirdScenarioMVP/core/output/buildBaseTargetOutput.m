@@ -1,5 +1,5 @@
 function targetOut = buildBaseTargetOutput(target)
-% buildBaseTargetOutput - Core per-target output fields.
+% buildBaseTargetOutput - Основные выходные поля для каждой цели.
 targetOut.ID = target.ID;
 targetOut.Class = target.Class;
 targetOut.Subtype = target.Subtype;

@@ -1,4 +1,4 @@
-% testLegacyOutputEquivalence - legacyPerFrame on/off must produce identical CSV.
+% testLegacyOutputEquivalence - legacyPerFrame on/off должны давать идентичный CSV.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

@@ -1,4 +1,4 @@
-% testOutputMotionFields - Checks motion fields in Output (ТЗ-05B).
+% testOutputMotionFields - Проверяет поля движения в Output (ТЗ-05B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

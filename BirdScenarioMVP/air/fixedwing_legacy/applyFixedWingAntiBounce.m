@@ -1,5 +1,5 @@
 function target = applyFixedWingAntiBounce(target, config, dt)
-% applyFixedWingAntiBounce - Full smoothed navigation chain for fixed-wing UAVs.
+% applyFixedWingAntiBounce - Полная сглаженная цепочка навигации для fixed-wing UAV.
 arguments
     target (1, 1) struct
     config (1, 1) struct

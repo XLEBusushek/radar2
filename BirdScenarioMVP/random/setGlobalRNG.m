@@ -1,4 +1,4 @@
 function setGlobalRNG(seed)
-% setGlobalRNG - Compatibility wrapper for setScenarioRNG.
+% setGlobalRNG - Обёртка совместимости для setScenarioRNG.
 setScenarioRNG(seed);
 end

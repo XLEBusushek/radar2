@@ -1,4 +1,4 @@
-% testBehaviorProfiles - Checks Behavior profile initialization (ТЗ-07B).
+% testBehaviorProfiles - Проверяет инициализацию профиля Behavior (ТЗ-07B).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

@@ -1,5 +1,5 @@
 function target = advanceQuadcopterWaypoint(target, config)
-% advanceQuadcopterWaypoint - Move to next waypoint after arrival.
+% advanceQuadcopterWaypoint - Перейти к следующей точке после прибытия.
 if nargin >= 2
     target = selectNextQuadcopterWaypoint(target, config);
     return;

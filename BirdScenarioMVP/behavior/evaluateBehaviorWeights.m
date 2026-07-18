@@ -1,5 +1,5 @@
 function weights = evaluateBehaviorWeights(target, context, actions, config)
-% evaluateBehaviorWeights - Compute action weights from context and personality.
+% evaluateBehaviorWeights - Вычислить веса действий из контекста и личности.
 arguments
     target (1, 1) struct
     context (1, 1) struct

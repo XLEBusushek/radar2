@@ -1,5 +1,5 @@
 function log = trimTrajectoryLogForMat(log)
-% trimTrajectoryLogForMat - Drop heavy log fields before MAT export.
+% trimTrajectoryLogForMat - Удалить тяжёлые поля лога перед экспортом в MAT.
 arguments
     log (1, 1) struct
 end

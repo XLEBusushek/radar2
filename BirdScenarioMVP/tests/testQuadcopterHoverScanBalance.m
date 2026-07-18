@@ -1,4 +1,4 @@
-% testQuadcopterHoverScanBalance - Checks Hover/Scan are bounded events (ТЗ-07C).
+% testQuadcopterHoverScanBalance - Проверяет, что Hover/Scan — ограниченные события (ТЗ-07C).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

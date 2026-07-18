@@ -1,5 +1,5 @@
 function target = applyGroundMotionLimits(target, config, dt)
-% applyGroundMotionLimits - Enforce speed, acceleration, turn rate, bounds and Z.
+% applyGroundMotionLimits - Ограничение скорости, ускорения, скорости поворота, границ и Z.
 arguments
     target (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function target = fw2_updateAltitudeProfile(target, config, dt)
-% fw2_updateAltitudeProfile - Rare flight-level changes on adjacent levels.
+% fw2_updateAltitudeProfile - Редкие смены эшелона на соседних уровнях.
 arguments
     target (1, 1) struct
     config (1, 1) struct

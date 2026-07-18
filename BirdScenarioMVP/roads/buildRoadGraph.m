@@ -1,5 +1,5 @@
 function roadNetwork = buildRoadGraph(roads, config)
-% buildRoadGraph - Convert road polylines into graph nodes, edges, adjacency.
+% buildRoadGraph - Преобразование полилиний дорог в узлы, рёбра и смежность графа.
 arguments
     roads (1, :) struct
     config (1, 1) struct
@@ -80,7 +80,7 @@ if isempty(records)
     return;
 end
 
-% Snap near-duplicate records so generated road endpoints become graph junctions.
+% Привязка почти дублирующихся записей, чтобы конечные точки дорог стали узлами графа.
 tol = max(5, config.roads.intersectionTolerance);
 for i = 1:numel(records)
     for j = (i + 1):numel(records)

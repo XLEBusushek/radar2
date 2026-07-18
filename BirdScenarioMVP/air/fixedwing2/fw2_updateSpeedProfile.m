@@ -1,5 +1,5 @@
 function target = fw2_updateSpeedProfile(target, config, dt)
-% fw2_updateSpeedProfile - Rare target speed changes with smooth tracking.
+% fw2_updateSpeedProfile - Редкие изменения целевой скорости с плавным отслеживанием.
 arguments
     target (1, 1) struct
     config (1, 1) struct

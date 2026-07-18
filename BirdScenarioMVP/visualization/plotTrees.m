@@ -1,5 +1,5 @@
 function plotTrees(trees, config)
-% plotTrees - Draw trees on the current axes (trunk + optional crown).
+% plotTrees - Рисование деревьев на текущих осях (ствол + опциональная крона).
 arguments
     trees struct
     config (1, 1) struct = defaultPlotTreesConfig()

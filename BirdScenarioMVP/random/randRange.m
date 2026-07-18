@@ -1,5 +1,5 @@
 function value = randRange(range)
-% randRange - Sample a scalar uniformly from [range(1), range(2)].
+% randRange - Равномерная выборка скаляра из [range(1), range(2)].
 arguments
     range (1, 2) double
 end

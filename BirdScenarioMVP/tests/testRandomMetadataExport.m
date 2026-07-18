@@ -1,4 +1,4 @@
-% testRandomMetadataExport - Checks random metadata in output, CSV, and MAT.
+% testRandomMetadataExport - Проверяет случайные метаданные в output, CSV и MAT.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

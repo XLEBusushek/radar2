@@ -1,11 +1,11 @@
 function config = defaultLogConfig(config)
-% defaultLogConfig - TrajectoryLog recording defaults.
+% defaultLogConfig - Значения по умолчанию для записи TrajectoryLog.
 %
 % historyMode:
-%   "full"    - full per-step target.History (tests default)
-%   "minimal" - core + fields needed by analysis/tests
-%   "off"     - core kinematics only (Time, Position, Velocity, State, ...)
-%   "none"    - no per-step History append (benchmark / max speed)
+%   "full"    - полная target.History на каждом шаге (по умолчанию для тестов)
+%   "minimal" - базовые поля + поля, необходимые для анализа/тестов
+%   "off"     - только базовая кинематика (Time, Position, Velocity, State, ...)
+%   "none"    - без добавления History на каждом шаге (бенчмарк / максимальная скорость)
 config.log.legacyPerFrame = false;
 config.log.storePayload = true;
 config.log.storeFullPayload = true;

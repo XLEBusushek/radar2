@@ -1,4 +1,4 @@
-% testMixedAirTargets - Checks quadcopters and fixed-wing UAVs together (ТЗ-09A).
+% testMixedAirTargets - Проверяет квадрокоптеры и fixed-wing UAV вместе (ТЗ-09A).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

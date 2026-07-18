@@ -1,5 +1,5 @@
 function mission = generateGroundMission(roadNetwork, config)
-% generateGroundMission - Generate a graph-routed mission for a ground vehicle.
+% generateGroundMission - Генерация миссии с маршрутизацией по графу для наземного транспорта.
 arguments
     roadNetwork (1, 1) struct
     config (1, 1) struct

@@ -1,5 +1,5 @@
 function reportExportStep(label, tStart)
-% reportExportStep - Print export step timing to the command window.
+% reportExportStep - Вывести время выполнения шага экспорта в командное окно.
 arguments
     label (1, 1) string
     tStart

@@ -1,4 +1,4 @@
-% benchmarkSimulation - Measure simulation and legacy-export performance.
+% benchmarkSimulation - Измерение производительности симуляции и legacy-экспорта.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

@@ -1,4 +1,4 @@
-% testFW2MissionGeneration - Route generation inside safe zone (ТЗ-09R).
+% testFW2MissionGeneration - Генерация маршрута внутри безопасной зоны (ТЗ-09R).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

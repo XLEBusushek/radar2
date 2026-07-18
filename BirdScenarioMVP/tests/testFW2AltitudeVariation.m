@@ -1,4 +1,4 @@
-% testFW2AltitudeVariation - TargetFlightLevel and altitude vary (ТЗ-09S).
+% testFW2AltitudeVariation - TargetFlightLevel и высота меняются со временем (ТЗ-09S).
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(projectRoot));
 

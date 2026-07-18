@@ -1,5 +1,5 @@
 function target = fw2_initializeRoute(target, config)
-% fw2_initializeRoute - Set current leg from route index and position.
+% fw2_initializeRoute - Задать текущий участок по индексу маршрута и позиции.
 arguments
     target (1, 1) struct
     config (1, 1) struct
